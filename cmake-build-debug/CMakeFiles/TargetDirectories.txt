@@ -1,0 +1,3 @@
+/Users/alexandrazamfirescu/CLionProjects/oop-project/cmake-build-debug/CMakeFiles/oop_project.dir
+/Users/alexandrazamfirescu/CLionProjects/oop-project/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/alexandrazamfirescu/CLionProjects/oop-project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
