@@ -52,8 +52,20 @@ build CMakeFiles/oop_project.dir/main.cpp.o: CXX_COMPILER__oop_project_Debug /Us
   OBJECT_DIR = CMakeFiles/oop_project.dir
   OBJECT_FILE_DIR = CMakeFiles/oop_project.dir
 
-build CMakeFiles/oop_project.dir/src/Zamfireasca.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Zamfireasca.cpp || cmake_object_order_depends_target_oop_project
-  DEP_FILE = CMakeFiles/oop_project.dir/src/Zamfireasca.cpp.o.d
+build CMakeFiles/oop_project.dir/src/Artist.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Artist.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/Artist.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/oop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
+
+build CMakeFiles/oop_project.dir/src/Album.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Album.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/Album.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/oop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
+
+build CMakeFiles/oop_project.dir/src/Song.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Song.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/Song.cpp.o.d
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
   OBJECT_DIR = CMakeFiles/oop_project.dir
   OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
@@ -66,7 +78,7 @@ build CMakeFiles/oop_project.dir/src/Zamfireasca.cpp.o: CXX_COMPILER__oop_projec
 #############################################
 # Link the executable oop_project
 
-build oop_project: CXX_EXECUTABLE_LINKER__oop_project_Debug CMakeFiles/oop_project.dir/main.cpp.o CMakeFiles/oop_project.dir/src/Zamfireasca.cpp.o
+build oop_project: CXX_EXECUTABLE_LINKER__oop_project_Debug CMakeFiles/oop_project.dir/main.cpp.o CMakeFiles/oop_project.dir/src/Artist.cpp.o CMakeFiles/oop_project.dir/src/Album.cpp.o CMakeFiles/oop_project.dir/src/Song.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   OBJECT_DIR = CMakeFiles/oop_project.dir
   POST_BUILD = :
