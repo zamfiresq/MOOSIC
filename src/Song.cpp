@@ -11,19 +11,25 @@ Song::Song() {
     this -> feat = nullptr;
 }
 
-Song::Song(int year, std::string language, unsigned int nrFeats, std::string *feat) {
+Song::Song(const int& year, const std::string& language, const unsigned int& nrFeats, std::string *feat) {
     this -> year = year;
     this -> language = language;
     this -> nrFeats = nrFeats;
 
-    this -> feat = new std::string[nrFeats];
+    if (nrFeats > 0) {
+        this->feat = new std::string[nrFeats];
 
-    for(int i = 0; i < nrFeats; i++)
-        (this->feat)[i] = feat[i];
+        for (int i = 0; i < nrFeats; i++)
+            (this->feat)[i] = feat[i];
+    } else {
+        this -> nrFeats = 0;
+        this -> feat = nullptr;
+    }
 }
 
 Song::~Song() {
-    delete []feat;
+    if (feat != nullptr)
+        delete []feat;
 }
 
 void Song::afis() {

@@ -6,7 +6,6 @@
 #define OOP_PROJECT_SONG_H
 #include <iostream>
 
-#include "Artist.h"
 
 class Song {
     int year;
@@ -17,7 +16,7 @@ class Song {
 
 public:
     Song();
-    Song(int year, std::string language, unsigned int nrFeats, std::string *feat);
+    Song(const int& year, const std::string& language, const unsigned int& nrFeats, std::string *feat);
 
     ~Song();
 

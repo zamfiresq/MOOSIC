@@ -11,17 +11,24 @@ Album::Album() {
     this -> songs = nullptr;
 }
 
-Album::Album(unsigned int year, unsigned int nrSongs, Song *songs) {
+Album::Album(const unsigned int& year, const unsigned int& nrSongs, Song *songs) { /// sa pui conditie neaparata ca sa fie minim doua melodii/album, altfel sa nu se apeleze constructorul
     this -> year = year;
     this -> nrSongs = nrSongs;
-    this -> songs = new Song[nrSongs];
 
-    for(int i = 0; i < nrSongs; i++)
-        (this -> songs)[i] = songs[i];
+    if (nrSongs > 0 && &songs != nullptr) {
+        this->songs = new Song[nrSongs];
+
+        for (int i = 0; i < nrSongs; i++)
+            (this -> songs)[i] = songs[i];
+    } else {
+        this -> nrSongs = 0;
+        this -> songs = nullptr;
+    }
 }
 
 Album::~Album() {
-    delete []songs;
+    if (songs != nullptr)
+        delete []songs; /// aici e problema in pula mea da nuj cum s o rezolv
 }
 
 void Album::afis() {
@@ -31,3 +38,4 @@ void Album::afis() {
         std::cout << songs[i] << " ";
     std::cout << "\n";
 }
+
