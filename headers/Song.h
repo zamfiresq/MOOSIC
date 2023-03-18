@@ -17,6 +17,7 @@ class Song {
 public:
     Song();
     Song(const int& year, const std::string& language, const unsigned int& nrFeats, std::string *feat);
+    Song(const Song &obiect);
 
     ~Song();
 
@@ -24,14 +25,13 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const Song &song);
 
-    Song& operator = (const Song other) {
+    Song& operator = (const Song &other) {
         this -> year = other.year;
         this -> language = other.language;
         this -> nrFeats = other.nrFeats;
         this -> feat = other.feat;
         return *this;
     }
-
 };
 
 #endif //OOP_PROJECT_SONG_H

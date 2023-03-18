@@ -12,18 +12,20 @@ int main() {
     std::string limba = "Romana";
     int an = 2023;
 
-    Song melodiePulaMeaEDeHartie(an, limba, nr, f);
+    Song melodieProba(an, limba, nr, f);
 
+    Song melodieplm(melodieProba);
 
-    melodiePulaMeaEDeHartie.afis();
+    melodieProba.afis();
+    melodieplm.afis();
 
-    std::cout << melodiePulaMeaEDeHartie;
+    std::cout << melodieProba;
 
 //    unsigned int year;
 //    unsigned int nrSongs;
-    std::cout << &melodiePulaMeaEDeHartie << std::endl;
+    std::cout << &melodieProba << std::endl;
     Song *mels;
-    mels = &melodiePulaMeaEDeHartie;
+    mels = &melodieProba;
     std::cout << mels;
 
 

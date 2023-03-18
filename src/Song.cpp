@@ -26,10 +26,26 @@ Song::Song(const int& year, const std::string& language, const unsigned int& nrF
         this -> feat = nullptr;
     }
 }
+Song::Song(const Song &obiect) {
+    this -> year = obiect.year;
+    this -> language = obiect.language;
+    this -> nrFeats = obiect.nrFeats;
+
+    if (obiect.nrFeats > 0) {
+        this->feat = new std::string[obiect.nrFeats];
+
+        for (int i = 0; i < obiect.nrFeats; i++)
+            (this -> feat)[i] =(obiect.feat)[i];
+    } else {
+        this -> nrFeats = 0;
+        this -> feat = nullptr;
+    }
+
+}
 
 Song::~Song() {
-    if (feat != nullptr)
-        delete []feat;
+//    if (feat != nullptr)
+//        delete []feat;
 }
 
 void Song::afis() {
@@ -48,3 +64,4 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     std::cout << "\n";
     return os;
 }
+
