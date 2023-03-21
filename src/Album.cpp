@@ -24,6 +24,20 @@ Album::Album(const unsigned int& year, const unsigned int& nrSongs, Song *songs)
         this -> nrSongs = 0;
         this -> songs = nullptr;
     }
+    }
+Album::Album(const Album &object){
+    this -> year = object.year;
+    this -> nrSongs = object.nrSongs;
+
+    if (object.nrSongs > 0) {
+        this -> songs = new Song[object.nrSongs];
+
+        for (int i = 0; i < object.nrSongs; i++)
+            this -> songs[i] = object.songs[i];
+    } else {
+        this -> nrSongs = 0;
+        this -> songs = nullptr;
+    }
 }
 
 Album::~Album() {
