@@ -28,8 +28,8 @@ public:
     Artist(const Artist &obiect); //copy constructor
 
     //operatori
-    Artist& operator = (const Artist& other);
-    Artist& operator = (Artist&& other) noexcept;
+//    Artist& operator = (const Artist& other);
+//    Artist& operator = (Artist&& other) noexcept;
 
     ~Artist(); //destructor
 

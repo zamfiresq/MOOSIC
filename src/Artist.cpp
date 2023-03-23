@@ -14,6 +14,7 @@ Artist::Artist() {
     this -> nrLanguages = 0;
     this -> nrAlbums = 0;
     this -> nrSongs = 0;
+    this -> languages = nullptr;
     this -> albums = nullptr;
     this -> solo = nullptr;
 }
@@ -26,6 +27,7 @@ Artist::Artist(const std::string &firstName, const std::string &lastName, const 
     this -> nationality = nationality;
     this -> nrLanguages = nrLanguages;
     this -> nrAlbums = nrAlbums;
+    this -> languages = nullptr; // trebuie initializat cu nullptr pentru a evita erori de memorie
     this -> albums = nullptr; // trebuie initializat cu nullptr pentru a evita erori de memorie
     this -> solo = nullptr; // trebuie initializat cu nullptr pentru a evita erori de memorie
 
@@ -99,4 +101,167 @@ Artist::Artist(const Artist &object){
         this->albums = nullptr;
     }
     }
+
+//destructor
+Artist::~Artist() {
+    if (languages != nullptr)
+        delete []languages;
+
+    if (albums != nullptr)
+        delete []albums;
+
+    if (solo != nullptr)
+        delete []solo;
+}
+
+//afisare
+void Artist::afis() const {
+    std::cout << firstName << " " << lastName << " "
+    << nickname << " " << nationality << " " << nrLanguages
+    << " " << nrAlbums << " " << nrSongs << "\n";
+
+    for(int i = 0; i < nrLanguages; i++)
+        std::cout << languages[i] << " ";
+    std::cout << "\n";
+
+    for(int i = 0; i < nrAlbums; i++)
+        std::cout << &albums[i] << " ";
+    std::cout << "\n";
+
+    for(int i = 0; i < nrSongs; i++)
+        std::cout << solo[i] << " ";
+    std::cout << "\n";
+}
+
+//getters si setters
+//getter pentru firstName
+std::string Artist::getFirstName() const {
+    return firstName;
+}
+//setter pentru firstName
+void Artist::setFirstName(const std::string &firstName) {
+    Artist::firstName = firstName;
+}
+
+//getter pentru lastName
+std::string Artist::getLastName() const {
+    return lastName;
+}
+//setter pentru lastName
+void Artist::setLastName(const std::string &lastName) {
+    Artist::lastName = lastName;
+}
+
+
+//getter pentru nickname
+std::string Artist::getNickname() const {
+    return nickname;
+}
+//setter pentru nickname
+void Artist::setNickname(const std::string &nickname) {
+    Artist::nickname = nickname;
+}
+
+
+//getter pentru nationality
+std::string Artist::getNationality() const {
+    return nationality;
+}
+//setter pentru nationality
+void Artist::setNationality(const std::string &nationality) {
+    Artist::nationality = nationality;
+}
+
+
+//getter pentru nrLanguages
+int Artist::getNrLanguages() const {
+    return nrLanguages;
+}
+//setter pentru nrLanguages
+
+//getter pentru nrSongs
+int Artist::getNrSongs() const {
+    return nrSongs;
+}
+//setter pentru nrSongs
+
+//getter pentru nrAlbums
+int Artist::getNrAlbums() const {
+    return nrAlbums;
+}
+//setter pentru nrAlbums
+
+
+//getter pentru languages
+//std::string* Artist::getLanguages() const {
+//   return languages;
+//}
+
+
+//setter pentru vectorul languages
+//void Artist::setLanguages(const std::string *languages, const int &nrLanguages) {
+//    Artist::nrLanguages = nrLanguages;
+//
+//    if (Artist::languages != nullptr) {
+//        delete[] Artist::languages;
+//        Artist::languages = nullptr;
+//    }
+//
+//    if (nrLanguages > 0) {
+//        Artist::languages = new std::string[nrLanguages];
+//        for (int i = 0; i < nrLanguages; ++i) {
+//            Artist::languages[i] = languages[i];
+//        }
+//    }
+//}
+
+
+//getter pentru vectorul albums
+//Album* Artist::getAlbums() const {
+//    return albums;
+//}
+
+
+//setter pentru vectorul allbums
+//void Artist::setAlbums(Album *albums, const int &nrAlbums) {
+//    Artist::nrAlbums = nrAlbums;
+//
+//    if (Artist::albums != nullptr) {
+//        delete[] Artist::albums;
+//        Artist::albums = nullptr;
+//    }
+//
+//    if (nrAlbums > 0) {
+//        Artist::albums = new Album[nrAlbums];
+//        for (int i = 0; i < nrAlbums; ++i) {
+//            Artist::albums[i] = albums[i];
+//        }
+//    }
+//}
+
+
+//getter pentru vectorul solo
+//Song* Artist::getSolo() const {
+//    return solo;
+//}
+
+
+//setter pentru vectorul solo
+//void Artist::setSolo(Song *solo, const int &nrSongs) {
+//    Artist::nrSongs = nrSongs;
+//
+//    if (Artist::solo != nullptr) {
+//        delete[] Artist::solo;
+//        Artist::solo = nullptr;
+//    }
+//
+//    if (nrSongs > 0) {
+//        Artist::solo = new Song[nrSongs];
+//        for (int i = 0; i < nrSongs; ++i) {
+//            Artist::solo[i] = solo[i];
+//        }
+//    }
+//}
+//}
+
 

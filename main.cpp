@@ -16,20 +16,25 @@ int main() {
 
     Song melodieplm(melodieProba);
 
+    std::cout<<"\n";
     melodieProba.afis();
+    std::cout<<"\n";
     melodieplm.afis();
-
+    std::cout<<"\n";
     std::cout << melodieProba;
 
 //    unsigned int year;
 //    unsigned int nrSongs;
+    std::cout<<"\n";
     std::cout << &melodieProba << std::endl;
     Song *mels;
     mels = &melodieProba;
-    std::cout << mels;
+    std::cout<<"\n";
+    std::cout << mels<<"\n";
 
 
-    Album albumulMeu(2022, 1, mels);
+    Album albumulMeu(2022, unNume,  1, mels);
+    std::cout<<"\n";
     albumulMeu.afis();
 
 //    int *p;

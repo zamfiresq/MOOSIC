@@ -6,13 +6,15 @@
 
 Song::Song() {
     this -> year = 2023;
+    this -> name = "unNume";
     this -> language = "English";
     this -> nrFeats = 0;
     this -> feat = nullptr;
 }
 
-Song::Song(const int& year, const std::string& language, const unsigned int& nrFeats, std::string *feat) {
+Song::Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::string *feat) {
     this -> year = year;
+    this -> name = name;
     this -> language = language;
     this -> nrFeats = nrFeats;
 
@@ -28,11 +30,12 @@ Song::Song(const int& year, const std::string& language, const unsigned int& nrF
 }
 Song::Song(const Song &obiect) {
     this -> year = obiect.year;
+    this -> name = obiect.name;
     this -> language = obiect.language;
     this -> nrFeats = obiect.nrFeats;
 
     if (obiect.nrFeats > 0) {
-        this->feat = new std::string[obiect.nrFeats];
+        this -> feat = new std::string[obiect.nrFeats];
 
         for (int i = 0; i < obiect.nrFeats; i++)
             (this -> feat)[i] =(obiect.feat)[i];
@@ -49,7 +52,7 @@ Song::~Song() {
 }
 
 void Song::afis() {
-    std::cout << year << " " << language << " " << nrFeats << "\n";
+    std::cout << name << " "<< year << " " << language << " " << nrFeats << "\n";
 
     for(int i = 0; i < nrFeats; i++)
         std::cout << feat[i] << " ";
@@ -57,11 +60,10 @@ void Song::afis() {
 }
 
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
-    std::cout << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
+    os <<melodie.name<<" "<< melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
     for(int i = 0; i < melodie.nrFeats; i++)
-        std::cout << melodie.feat[i] << " ";
-    std::cout << "\n";
+        os << melodie.feat[i] << " ";
+    os << "\n";
     return os;
 }
-

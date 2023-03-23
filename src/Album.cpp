@@ -7,12 +7,14 @@
 
 Album::Album() {
     this -> year = 2023;
+    this -> name = " numeObisnuit";
     this -> nrSongs = 0;
     this -> songs = nullptr;
 }
 
-Album::Album(const unsigned int& year, const unsigned int& nrSongs, Song *songs) { /// conditie neaparata ca sa fie minim doua melodii/album, altfel sa nu se apeleze constructorul
+Album::Album(const unsigned int& year, const std::string& name, const unsigned int& nrSongs, Song *songs) { /// conditie neaparata ca sa fie minim doua melodii/album, altfel sa nu se apeleze constructorul
     this -> year = year;
+    this -> name = name;
     this -> nrSongs = nrSongs;
 
     if (nrSongs > 0 && songs != nullptr) {
@@ -27,6 +29,7 @@ Album::Album(const unsigned int& year, const unsigned int& nrSongs, Song *songs)
     }
 Album::Album(const Album &object){
     this -> year = object.year;
+    this -> name = object.name;
     this -> nrSongs = object.nrSongs;
 
     if (object.nrSongs > 0) {
@@ -42,7 +45,7 @@ Album::Album(const Album &object){
 
 Album::~Album() {
     if (songs != nullptr)
-        delete []songs; /// aici e problema in pl mea da nuj cum s o rezolv
+        delete []songs;
 }
 
 void Album::afis() {

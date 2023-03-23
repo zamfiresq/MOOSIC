@@ -8,25 +8,26 @@
 
 
 class Song {
-    int year;
-    std::string language;
-
-    unsigned int nrFeats;
-    std::string *feat;
+    int year;  //anul lansarii melodiei
+    std::string name; //titlul melodiei
+    std::string language;  //limba melodiei
+    unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
+    std::string *feat; //vector de string-uri cu numele colaboratorilor
 
 public:
-    Song();
-    Song(const int& year, const std::string& language, const unsigned int& nrFeats, std::string *feat);
-    Song(const Song &obiect);
+    Song(); //constructor fara parametri
+    Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::string *feat); //constructor cu parametri
+    Song(const Song &obiect); //copy constructor
 
-    ~Song();
+    ~Song(); //destructor
 
-    void afis();
+    void afis(); //functie de afisare
 
-    friend std::ostream &operator<<(std::ostream &os, const Song &song);
+    friend std::ostream &operator<<(std::ostream &os, const Song &song); //supraincarcarea operatorului <<
 
-    Song& operator = (const Song &other) {
+    Song& operator = (const Song &other) {  //copiem valorile dintr-un obiect din clasa Song intr-un alt obiect din Song
         this -> year = other.year;
+        this -> name = other.name;
         this -> language = other.language;
         this -> nrFeats = other.nrFeats;
         this -> feat = other.feat;
