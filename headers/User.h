@@ -8,6 +8,10 @@
 
 class User {
     std::string name;
+    std::string password;
+    std::string email;
+    std::string country;
+    std::string birthDate;
 
 };
 
