@@ -79,7 +79,7 @@ Playlist::~Playlist() {
 }
 
 //afisam playlist-ul
-void Playlist::afis() const {
+void Playlist::afisare() const {
     std::cout << title << " " << nrSongs << " " << nrAlbums << " " << duration << "\n";
 
     for(int i = 0; i < nrSongs; i++)
@@ -87,7 +87,7 @@ void Playlist::afis() const {
     std::cout << "\n";
 
     for(int i = 0; i < nrAlbums; i++)
-        std::cout << albums[i] << " "; //de ce am eroare aici?
+        std::cout << albums[i] << " ";
     std::cout << "\n";
 }
 
@@ -123,11 +123,11 @@ void Playlist::addAlbum(const Album& album) {
 
 
 //stergem o melodie din playlist
-void Playlist::removeSong(Song song) {
+void Playlist::removeSong(Song &song) {
     Song *mel = new Song[nrSongs - 1]; //mel reprezinta un vector de melodii cu nrSongs -1 melodii
     int j = 0;
     for (int i = 0; i < nrSongs; i++) { //daca melodia din vectorul songs nu este egala cu melodia pe care vrem sa o stergem, o copiem in mel
-        if ( songs[i] != song) {
+        if (songs[i] != song) {
             mel[j] = songs[i];
             j++;
         }
@@ -141,7 +141,7 @@ void Playlist::removeSong(Song song) {
 }
 
 //stergem un album din playlist
-void Playlist::removeAlbum(Album album) {
+void Playlist::removeAlbum(Album &album) {
     Album *album1 = new Album[nrAlbums - 1]; //album1 reprezinta un vector de albume cu nrAlbums -1 albume
     int j = 0;
     for (int i = 0; i < nrAlbums; i++) { //daca albumul din vectorul albums nu este egal cu albumul pe care vrem sa il stergem, il copiem in album1
@@ -194,7 +194,7 @@ void Playlist::changeTitle(const std::string &title) {
 }
 
 //returnam functia pentru sortare
-void Playlist::sort() {
+void Playlist::sort(const std::string& title){
     int i, j;
     Song aux; //aux reprezinta o melodie auxiliara
     for (i = 0; i < nrSongs; i++)
@@ -213,32 +213,33 @@ void Playlist::search(const std::string &title) {
             std::cout << songs[i] << "\n";
 }
 
+
 //functii pentru play, pause, next, previous, repeat, repeat one, shuffle
-void Playlist::play() {
+void Playlist::play()const {
     std::cout << "Playing " << title << "\n";
 }
 
-void Playlist::pause() {
+void Playlist::pause()const {
     std::cout << "Paused " << title << "\n";
 }
 
-void Playlist::next() {
+void Playlist::next()const {
     std::cout << "Next " << title << "\n";
 }
 
-void Playlist::previous() {
+void Playlist::previous()const {
     std::cout << "Previous " << title << "\n";
 }
 
-void Playlist::repeat() {
+void Playlist::repeat()const {
     std::cout << "Repeat " << title << "\n";
 }
 
-void Playlist::repeatOne() {
+void Playlist::repeatOne()const {
     std::cout << "Repeat one " << title << "\n";
 }
 
-void Playlist::shuffle() {
+void Playlist::shuffle()const {
     std::cout << "Shuffle " << title << "\n";
 }
 

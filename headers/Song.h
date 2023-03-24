@@ -33,6 +33,26 @@ public:
         this -> feat = other.feat;
         return *this;
     }
+
+//supraincarcarea operatorului ==
+    bool operator == (const Song &other) {
+        if (this -> year == other.year && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat) {
+            return true;
+        }
+        return false;
+    }
+
+//supraincarcarea operatorului !=
+    bool operator != (const Song &other) {
+        if (this -> year != other.year && this -> name != other.name && this -> language != other.language && this -> nrFeats != other.nrFeats && this -> feat != other.feat) {
+            return true;
+        }
+        return false;
+    }
+
+    //getter
+    std::string getTitle() const;
 };
+
 
 #endif //OOP_PROJECT_SONG_H

@@ -14,7 +14,7 @@ class Artist {
     std::string lastName;
     std::string nickname;
     std::string nationality;
-    std::string *languages{};
+    std::string *languages;
     int nrLanguages;
     Album *albums;
     int nrAlbums;

@@ -56,4 +56,11 @@ void Album::afis() {
     std::cout << "\n";
 }
 
+std::ostream &operator<<(std::ostream &os, const Album &album) {
+    os <<album.year<<" "<< album.name << " " << album.nrSongs << " " << "\n";
 
+    for(int i = 0; i < album.nrSongs; i++)
+        os << album.songs[i] << " ";
+    os << "\n";
+    return os;
+}

@@ -51,6 +51,7 @@ Song::~Song() {
 //        delete []feat;
 }
 
+//functia de afisare
 void Song::afis() {
     std::cout << name << " "<< year << " " << language << " " << nrFeats << "\n";
 
@@ -59,6 +60,7 @@ void Song::afis() {
     std::cout << "\n";
 }
 
+//supraincarcarea operatorului <<
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     os <<melodie.name<<" "<< melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
@@ -66,4 +68,10 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
         os << melodie.feat[i] << " ";
     os << "\n";
     return os;
+}
+
+//getter
+std::string Song::getTitle()const{
+    return name;
+
 }

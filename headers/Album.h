@@ -12,7 +12,7 @@ class Album {
     unsigned int year; //anul lansarii albumului
     std::string name; //numele albumului
     unsigned int nrSongs; //numarul de melodii din album
-    Song *songs; //vector de melodii ce reda melodiile dintr-un album
+    Song *songs; //vector de melodii ce reda melodiile dintr-un albume
 
 public:
     Album(); //constructor fara parametri
@@ -27,16 +27,6 @@ public:
     unsigned int getYear() const;
     void setYear(unsigned int year);
 
-//    Album alb;
-//    alb.setYear(5);
-//    int val = 5; // doar la referinta asta
-//    alb.setYear(val);
-
-//    Album alb;
-//    alb.setYear(5);
-//
-//    int(int valoare); -> int(5); // explicatie ce se intampla fara referinta
-
     std::string getName() const;
     void setName(std::string name);
 
@@ -46,7 +36,35 @@ public:
     Song* getSongs() const;
     void setSongs(Song *songs);
 
+    friend std::ostream &operator<<(std::ostream &os, const Album &album); //supraincarcarea operatorului <<
+
+
+//supraincarcarea operatorului ==
+    bool operator == (const Album &other) {
+        if (this -> year == other.year && this -> name == other.name && this -> nrSongs == other.nrSongs && this -> songs == other.songs) {
+            return true;
+        }
+        return false;
+    }
+
+//supraincarcarea operatorului !=
+    bool operator != (const Album &other) {
+        if (this -> year != other.year && this -> name != other.name && this -> nrSongs != other.nrSongs  && this -> songs != other.songs) {
+            return true;
+        }
+        return false;
+    }
+
 };
 
+//    Album alb;
+//    alb.setYear(5);
+//    int val = 5; // doar la referinta asta
+//    alb.setYear(val);
+
+//    Album alb;
+//    alb.setYear(5);
+//
+//    int(int valoare); -> int(5); // explicatie ce se intampla fara referinta
 
 #endif //OOP_PROJECT_ALBUM_H
