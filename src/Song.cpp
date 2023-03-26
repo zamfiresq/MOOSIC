@@ -63,7 +63,7 @@ void Song::afis() {
 
 //supraincarcarea operatorului <<
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
-    os <<melodie.name<<" "<< melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
+    os << melodie.name << " " << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
     for(int i = 0; i < melodie.nrFeats; i++)
         os << melodie.feat[i] << " ";
@@ -75,3 +75,15 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
 myString Song::getTitle()const{
     return name;
 }
+
+//bool Song::operator==(const Song &rhs) const {
+//    return year == rhs.year &&
+//           name == rhs.name &&
+//           language == rhs.language &&
+//           nrFeats == rhs.nrFeats &&
+//           feat == rhs.feat;
+//}
+//
+//bool Song::operator!=(const Song &rhs) const {
+//    return !(rhs == *this);
+//}

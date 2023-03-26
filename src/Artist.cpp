@@ -19,12 +19,14 @@ Artist::Artist() {
     this -> solo = nullptr;
 }
 
+
 //constructor cu parametri
-Artist::Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo) {
+Artist::Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, Album *albums, const int &nrAlbums, Song *solo, const int &nrSongs) {
     this -> firstName = firstName;
     this -> lastName = lastName;
     this -> nickname = nickname;
     this -> nationality = nationality;
+    this -> nrSongs = nrSongs;
     this -> nrLanguages = nrLanguages;
     this -> nrAlbums = nrAlbums;
     this -> languages = nullptr; // trebuie initializat cu nullptr pentru a evita erori de memorie
@@ -125,7 +127,7 @@ void Artist::afis() const {
     std::cout << "\n";
 
     for (int i = 0; i < nrAlbums; i++)
-        std::cout << &albums[i] << " ";
+        std::cout << &albums[i];
     std::cout << "\n";
 
     for (int i = 0; i < nrSongs; i++)
@@ -133,21 +135,30 @@ void Artist::afis() const {
     std::cout << "\n";
 }
 
-//operator =
+//operator <<
 std::ostream &operator<<(std::ostream &os, const Artist &artist) {
-    os <<artist.firstName<<" "<< artist.lastName << " " << artist.nickname << " " << artist.nationality<<" "<< artist.nrLanguages << artist.nrSongs<<" "<< artist.nrAlbums <<"\n";
+    os <<artist.firstName<<" "<< artist.lastName << " " << artist.nickname << " " << artist.nationality<< " "<< artist.nrLanguages << " " << artist.nrSongs<<" "<< artist.nrAlbums <<"\n";
 
-    for(int i = 0; i < artist.nrLanguages; i++)
-        os << artist.languages[i] << " ";
-    os << "\n";
+    if(artist.nrLanguages) {
+        os << "Limbi vorbite:\n";
+        for(int i = 0; i < artist.nrLanguages; i++)
+            os << i + 1 << ". " << artist.languages[i] << "\n";
+        os << "\n";
+    }
 
-    for(int i = 0; i < artist.nrSongs; i++)
-        os << artist.solo[i] << " ";
-    os << "\n";
+    if(artist.nrSongs){
+        os << "Solo-uri:\n";
+        for(int i = 0; i < artist.nrSongs; i++)
+            os << i + 1 << ". " << artist.solo[i] << "\n";
+        os << "\n";
+    }
 
-    for(int i = 0; i < artist.nrAlbums; i++)
-        os << artist.albums[i] << " ";
-    os << "\n";
+    if(artist.nrAlbums){
+        os << "Albume:\n";
+        for(int i = 0; i < artist.nrAlbums; i++)
+            os << i + 1 << ". " << artist.albums[i];
+        os << "\n";
+    }
 
     return os;
 }

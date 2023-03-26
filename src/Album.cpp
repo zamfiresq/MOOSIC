@@ -45,8 +45,8 @@ Album::Album(const Album &object){
 }
 
 Album::~Album() {
-    if (songs != nullptr)
-        delete []songs;
+//    if (songs != nullptr)
+//        delete []songs;
 }
 
 void Album::afis() {
@@ -58,10 +58,11 @@ void Album::afis() {
 }
 
 std::ostream &operator<<(std::ostream &os, const Album &album) {
-    os <<album.year<<" "<< album.name << " " << album.nrSongs << " " << "\n";
+    os <<album.year<<" "<< album.name << " " << album.nrSongs << "\n";
 
-    for(int i = 0; i < album.nrSongs; i++)
-        os << album.songs[i] << " ";
+    for(int i = 0; i < album.nrSongs; i++) {
+        os << i + 1 << ". " << album.songs[i];
+    }
     os << "\n";
     return os;
 }

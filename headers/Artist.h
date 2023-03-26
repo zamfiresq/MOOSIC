@@ -26,7 +26,7 @@ class Artist {
 public:
     Artist(); //constructor fara parametri
     //constructor cu parametri
-    Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo);
+    Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, Album *albums, const int &nrAlbums, Song *solo, const int &nrSongs);
     Artist(const Artist &obiect); //copy constructor
 
     //operatori

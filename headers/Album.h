@@ -51,7 +51,7 @@ public:
 
 //supraincarcarea operatorului !=
     bool operator != (const Album &other) {
-        if (this -> year != other.year && this -> name != other.name && this -> nrSongs != other.nrSongs  && this -> songs != other.songs) {
+        if (this -> year != other.year || this -> name != other.name || this -> nrSongs != other.nrSongs  || this -> songs != other.songs) {
             return true;
         }
         return false;

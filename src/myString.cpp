@@ -31,7 +31,7 @@ myString::myString(char *sir) {
         this -> nrStrings = 0;
         for(int i = 0; sir[i] != '\0'; i++)
             (this -> nrStrings)++;
-        (this -> nrStrings)++; //incrementare si pentru "\0"
+//        (this -> nrStrings)++; //incrementare si pentru '\0' dar nu cred ca e cazul tho
         this -> sir = new char [nrStrings];
         this -> sir = sir;
     } else {
@@ -73,7 +73,7 @@ char* myString::getSir() const {
 //afisare
 void myString::afis() const {
     for(int i = 0; i < nrStrings; i++)
-        std::cout << sir[i] << " ";
+        std::cout << sir[i];
     std::cout << "\n";
 }
 

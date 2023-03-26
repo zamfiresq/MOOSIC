@@ -67,20 +67,20 @@ public:
     void changeTitle(const myString& title);
 
     //functii pentru sortare
-    void sort( const myString& title);
+    void sort();
 
     //functii pentru cautare
     void search( const myString& title);
 
     //alte functii utile pentru playlist
-    void play() const; //reda playlist-ul
-    void pause() const; //pune pauza
-    void next() const; //trec la urmatoarea melodie
-    void previous() const; //trec la melodia anterioara
+    void play(int i) const; //reda playlist-ul
+    void pause(int i) const; //pune pauza
+    int next(int i) const; //trec la urmatoarea melodie
+    int previous(int i) const; //trec la melodia anterioara
     void repeat() const; //repeta playlist-ul
-    void repeatOne() const; //repeta melodia curenta
-    void shuffle() const; //reda melodii aleator
-
+    int repeatOne(int i) const; //repeta melodia curenta
+    void shuffle(); //reda melodii aleator
+    void shuffleSongs();
 };
 
 #endif //OOP_PROJECT_PLAYLIST_H

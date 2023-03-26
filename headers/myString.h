@@ -20,9 +20,8 @@ public:
 
     //supraincarcarea operatorului <<
     friend std::ostream &operator<<(std::ostream &os, const myString &string) {
-//        for(int i = 0; i < string.nrStrings; i++)
-//            os << *(string.sir+i) << " ";
-        os<<&string.sir <<"\n";
+        for(int i = 0; i < string.nrStrings; i++)
+            os << (string.sir)[i];
         return os;
     }
 
@@ -62,6 +61,63 @@ public:
                 if(this -> sir[i] != other.sir[i])
                     return true;
         }
+        return false;
+    }
+
+    //supraincarcarea operatorului []
+    char operator[](int index) {
+        if (index >= nrStrings) {
+            std::cout << "Array index out of bound, exiting.\n";
+            exit(1);
+        }
+        return sir[index];
+    }
+
+    bool operator>(myString& other) {
+        int number, care = 0;
+        if(nrStrings < other.nrStrings) {
+            number = nrStrings;
+            care = 1;
+        }
+        if(nrStrings > other.nrStrings) {
+            number = other.nrStrings;
+            care = 2;
+        } else number = other.nrStrings;
+
+        for(int i = 0; i < number; i++) {
+            if(sir[i] > (other.sir)[i])
+                return true;
+            if(sir[i] < (other.sir)[i])
+                return false;
+        }
+
+        if(care == 1)
+            return false;
+
+        return true;
+    }
+
+    bool operator<(myString& other) {
+        int number, care = 0;
+        if(nrStrings < other.nrStrings) {
+            number = nrStrings;
+            care = 1;
+        }
+        if(nrStrings > other.nrStrings) {
+            number = other.nrStrings;
+            care = 2;
+        } else number = other.nrStrings;
+
+        for(int i = 0; i < number; i++) {
+            if(sir[i] > (other.sir)[i])
+                return false;
+            if(sir[i] < (other.sir)[i])
+                return true;
+        }
+
+        if(care == 1)
+            return true;
+
         return false;
     }
 

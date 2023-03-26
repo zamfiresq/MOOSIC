@@ -10,7 +10,7 @@
 
 class Song {
     int year;  //anul lansarii melodiei
-   myString name; //titlul melodiei
+    myString name; //titlul melodiei
     myString language;  //limba melodiei
     unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
     myString *feat; //vector de string-uri cu numele colaboratorilor
@@ -46,11 +46,13 @@ public:
 
 //supraincarcarea operatorului !=
     bool operator != (const Song &other) {
-        if (this -> year != other.year && this -> name != other.name && this -> language != other.language && this -> nrFeats != other.nrFeats && this -> feat != other.feat) {
+        if (this -> year != other.year || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat) {
             return true;
         }
         return false;
     }
+
+
 
     //getter
     myString getTitle() const;
