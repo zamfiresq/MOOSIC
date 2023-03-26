@@ -4,22 +4,23 @@
 
 #include "../headers/Song.h"
 
+
 Song::Song() {
     this -> year = 2023;
-    this -> name = "unNume";
+    this -> name = "unNume"; // incerc sa initializez un myString cu un string
     this -> language = "English";
     this -> nrFeats = 0;
     this -> feat = nullptr;
 }
 
-Song::Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::string *feat) {
+Song::Song(const int& year, const myString& name, const myString& language, const unsigned int& nrFeats, myString *feat) {
     this -> year = year;
     this -> name = name;
     this -> language = language;
     this -> nrFeats = nrFeats;
 
     if (nrFeats > 0) {
-        this->feat = new std::string[nrFeats];
+        this->feat = new myString[nrFeats];
 
         for (int i = 0; i < nrFeats; i++)
             (this->feat)[i] = feat[i];
@@ -35,7 +36,7 @@ Song::Song(const Song &obiect) {
     this -> nrFeats = obiect.nrFeats;
 
     if (obiect.nrFeats > 0) {
-        this -> feat = new std::string[obiect.nrFeats];
+        this -> feat = new myString[obiect.nrFeats];
 
         for (int i = 0; i < obiect.nrFeats; i++)
             (this -> feat)[i] =(obiect.feat)[i];
@@ -71,7 +72,6 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
 }
 
 //getter
-std::string Song::getTitle()const{
+myString Song::getTitle()const{
     return name;
-
 }

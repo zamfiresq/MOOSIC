@@ -5,6 +5,7 @@
 #include "../headers/Album.h"
 
 
+
 Album::Album() {
     this -> year = 2023;
     this -> name = " numeObisnuit";
@@ -12,7 +13,7 @@ Album::Album() {
     this -> songs = nullptr;
 }
 
-Album::Album(const unsigned int& year, const std::string& name, const unsigned int& nrSongs, Song *songs) { /// conditie neaparata ca sa fie minim doua melodii/album, altfel sa nu se apeleze constructorul
+Album::Album(const unsigned int& year, myString name, const unsigned int& nrSongs, Song *songs) { /// conditie neaparata ca sa fie minim doua melodii/album, altfel sa nu se apeleze constructorul
     this -> year = year;
     this -> name = name;
     this -> nrSongs = nrSongs;

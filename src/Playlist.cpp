@@ -3,8 +3,7 @@
 //
 
 #include "../headers/Playlist.h"
-#include "../headers/Album.h"
-#include "../headers/Song.h"
+
 
 Playlist::Playlist() {
     this -> title = "numeObisnuit";
@@ -15,7 +14,7 @@ Playlist::Playlist() {
     this -> duration = 0;
 }
 
-Playlist::Playlist(const std::string& title, Song *songs, const int& nrSongs, Album *albums, const int& nrAlbums, const int& duration){
+[[maybe_unused]] Playlist::Playlist(const myString& title, Song *songs, const int& nrSongs, Album *albums, const int& nrAlbums, const int& duration){
     this -> title = title;
     this -> nrSongs = nrSongs;
     this -> nrAlbums = nrAlbums;
@@ -159,7 +158,7 @@ void Playlist::removeAlbum(Album &album) {
 }
 
 //returnam numele playlist-ului
-std::string Playlist::getTitle() const {
+myString Playlist::getTitle() const {
     return title;
 }
 
@@ -189,12 +188,12 @@ Album* Playlist::getAlbums() const {
 }
 
 //retunam functia ce modifica numele playlist-ului
-void Playlist::changeTitle(const std::string &title) {
+void Playlist::changeTitle(const myString &title) {
     this -> title = title;
 }
 
 //returnam functia pentru sortare
-void Playlist::sort(const std::string& title){
+void Playlist::sort(const myString& title){
     int i, j;
     Song aux; //aux reprezinta o melodie auxiliara
     for (i = 0; i < nrSongs; i++)
@@ -207,7 +206,7 @@ void Playlist::sort(const std::string& title){
     }
 
 //functia pentru cautare
-void Playlist::search(const std::string &title) {
+void Playlist::search(const myString &title) {
     for (int i = 0; i < nrSongs; i++)
         if (songs[i].getTitle() == title) //daca melodia cautata este egala cu melodia din vectorul songs, o afisam
             std::cout << songs[i] << "\n";

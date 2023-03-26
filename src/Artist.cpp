@@ -20,7 +20,7 @@ Artist::Artist() {
 }
 
 //constructor cu parametri
-Artist::Artist(const std::string &firstName, const std::string &lastName, const std::string &nickname, const std::string &nationality, const std::string *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo) {
+Artist::Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo) {
     this -> firstName = firstName;
     this -> lastName = lastName;
     this -> nickname = nickname;
@@ -33,7 +33,7 @@ Artist::Artist(const std::string &firstName, const std::string &lastName, const 
 
     //adaugam conditia de alocare dinamica pentru vectorul languages
     if (nrLanguages > 0 && languages != nullptr) { //daca nrLanguages este mai mare strict decat 0, atunci putem aloca dinamic in vectorul languages
-        this->languages = new std::string[nrLanguages];
+        this->languages = new myString[nrLanguages];
 
         for (int i = 0; i < nrLanguages; i++) {
             this -> languages[i] = languages[i];
@@ -82,7 +82,7 @@ Artist::Artist(const Artist &object){
     }
 
     if (object.nrLanguages > 0) {
-        this -> languages = new std::string [object.nrLanguages];
+        this -> languages = new myString [object.nrLanguages];
 
         for (int i = 0; i < object.nrLanguages; i++)
             this -> languages[i] = object.languages[i];
@@ -117,58 +117,77 @@ Artist::~Artist() {
 //afisare
 void Artist::afis() const {
     std::cout << firstName << " " << lastName << " "
-    << nickname << " " << nationality << " " << nrLanguages
-    << " " << nrAlbums << " " << nrSongs << "\n";
+              << nickname << " " << nationality << " " << nrLanguages
+              << " " << nrAlbums << " " << nrSongs << "\n";
 
-    for(int i = 0; i < nrLanguages; i++)
+    for (int i = 0; i < nrLanguages; i++)
         std::cout << languages[i] << " ";
     std::cout << "\n";
 
-    for(int i = 0; i < nrAlbums; i++)
+    for (int i = 0; i < nrAlbums; i++)
         std::cout << &albums[i] << " ";
     std::cout << "\n";
 
-    for(int i = 0; i < nrSongs; i++)
+    for (int i = 0; i < nrSongs; i++)
         std::cout << solo[i] << " ";
     std::cout << "\n";
 }
 
+//operator =
+std::ostream &operator<<(std::ostream &os, const Artist &artist) {
+    os <<artist.firstName<<" "<< artist.lastName << " " << artist.nickname << " " << artist.nationality<<" "<< artist.nrLanguages << artist.nrSongs<<" "<< artist.nrAlbums <<"\n";
+
+    for(int i = 0; i < artist.nrLanguages; i++)
+        os << artist.languages[i] << " ";
+    os << "\n";
+
+    for(int i = 0; i < artist.nrSongs; i++)
+        os << artist.solo[i] << " ";
+    os << "\n";
+
+    for(int i = 0; i < artist.nrAlbums; i++)
+        os << artist.albums[i] << " ";
+    os << "\n";
+
+    return os;
+}
+
 //getters si setters
 //getter pentru firstName
-std::string Artist::getFirstName() const {
+myString Artist::getFirstName() const {
     return firstName;
 }
 //setter pentru firstName
-void Artist::setFirstName(const std::string &firstName) {
+void Artist::setFirstName(const myString &firstName) {
     Artist::firstName = firstName;
 }
 
 //getter pentru lastName
-std::string Artist::getLastName() const {
+myString Artist::getLastName() const {
     return lastName;
 }
 //setter pentru lastName
-void Artist::setLastName(const std::string &lastName) {
+void Artist::setLastName(const myString &lastName) {
     Artist::lastName = lastName;
 }
 
 
 //getter pentru nickname
-std::string Artist::getNickname() const {
+myString Artist::getNickname() const {
     return nickname;
 }
 //setter pentru nickname
-void Artist::setNickname(const std::string &nickname) {
+void Artist::setNickname(const myString &nickname) {
     Artist::nickname = nickname;
 }
 
 
 //getter pentru nationality
-std::string Artist::getNationality() const {
+myString Artist::getNationality() const {
     return nationality;
 }
 //setter pentru nationality
-void Artist::setNationality(const std::string &nationality) {
+void Artist::setNationality(const myString &nationality) {
     Artist::nationality = nationality;
 }
 
@@ -193,13 +212,13 @@ int Artist::getNrAlbums() const {
 
 
 //getter pentru languages
-//std::string* Artist::getLanguages() const {
+//myString* Artist::getLanguages() const {
 //   return languages;
 //}
 
 
 //setter pentru vectorul languages
-//void Artist::setLanguages(const std::string *languages, const int &nrLanguages) {
+//void Artist::setLanguages(const myString *languages, const int &nrLanguages) {
 //    Artist::nrLanguages = nrLanguages;
 //
 //    if (Artist::languages != nullptr) {
@@ -208,7 +227,7 @@ int Artist::getNrAlbums() const {
 //    }
 //
 //    if (nrLanguages > 0) {
-//        Artist::languages = new std::string[nrLanguages];
+//        Artist::languages = new myString[nrLanguages];
 //        for (int i = 0; i < nrLanguages; ++i) {
 //            Artist::languages[i] = languages[i];
 //        }

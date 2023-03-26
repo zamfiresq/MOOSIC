@@ -6,15 +6,17 @@
 #define OOP_PROJECT_ARTIST_H
 
 #include <iostream>
+#include "myString.h"
 #include "Album.h"
 #include "Song.h"
 
+
 class Artist {
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
-    std::string nationality;
-    std::string *languages;
+    myString firstName;
+    myString lastName;
+    myString nickname;
+    myString nationality;
+    myString *languages;
     int nrLanguages;
     Album *albums;
     int nrAlbums;
@@ -24,12 +26,12 @@ class Artist {
 public:
     Artist(); //constructor fara parametri
     //constructor cu parametri
-    Artist(const std::string &firstName, const std::string &lastName, const std::string &nickname, const std::string &nationality, const std::string *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo);
+    Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, const int &nrAlbums, Album *albums, Song *solo);
     Artist(const Artist &obiect); //copy constructor
 
     //operatori
-//    Artist& operator = (const Artist& other);
-//    Artist& operator = (Artist&& other) noexcept;
+    friend std::ostream &operator<<(std::ostream &os, const Artist &artst); //supraincarcarea operatorului <<
+
 
     ~Artist(); //destructor
 
@@ -37,20 +39,20 @@ public:
     void afis() const; //functie de afisare
 
     //getters si setters
-    std::string getFirstName() const;
-    void setFirstName(const std::string& firstName);
+    myString getFirstName() const;
+    void setFirstName(const myString& firstName);
 
-    std::string getLastName() const;
-    void setLastName(const std::string& lastName);
+    myString getLastName() const;
+    void setLastName(const myString& lastName);
 
-    std::string getNickname() const;
-    void setNickname(const std::string& nickname);
+    myString getNickname() const;
+    void setNickname(const myString& nickname);
 
-    std::string getNationality() const;
-    void setNationality(const std::string& nationality);
+    myString getNationality() const;
+    void setNationality(const myString& nationality);
 
-    std::string* getLanguages() const;
-    void setLanguages(const std::string* languages, const int& nrLanguages);
+    myString* getLanguages() const;
+    void setLanguages(const myString* languages, const int& nrLanguages);
 
     int getNrLanguages() const;
     void setNrLanguages(const int& nrLanguages);

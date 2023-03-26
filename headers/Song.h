@@ -5,23 +5,25 @@
 #ifndef OOP_PROJECT_SONG_H
 #define OOP_PROJECT_SONG_H
 #include <iostream>
+#include "myString.h"
 
 
 class Song {
     int year;  //anul lansarii melodiei
-    std::string name; //titlul melodiei
-    std::string language;  //limba melodiei
+   myString name; //titlul melodiei
+    myString language;  //limba melodiei
     unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
-    std::string *feat; //vector de string-uri cu numele colaboratorilor
+    myString *feat; //vector de string-uri cu numele colaboratorilor
 
 public:
     Song(); //constructor fara parametri
-    Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::string *feat); //constructor cu parametri
+    Song(const int& year, const myString& name, const myString& language, const unsigned int& nrFeats, myString *feat); //constructor cu parametri
     Song(const Song &obiect); //copy constructor
 
     ~Song(); //destructor
 
     void afis(); //functie de afisare
+
 
     friend std::ostream &operator<<(std::ostream &os, const Song &song); //supraincarcarea operatorului <<
 
@@ -51,7 +53,7 @@ public:
     }
 
     //getter
-    std::string getTitle() const;
+    myString getTitle() const;
 };
 
 

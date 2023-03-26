@@ -5,22 +5,24 @@
 #ifndef OOP_PROJECT_PLAYLIST_H
 #define OOP_PROJECT_PLAYLIST_H
 #include <iostream>
+#include "myString.h"
 #include "Song.h"
 #include "Album.h"
 
+
 class Playlist {
-    std::string title;
-    Song *songs;
-    int nrSongs;
-    Album *albums;
-    int nrAlbums;
-    int duration;
+    myString title; //titlul playlist-ului
+    Song *songs; //vectorul de melodii
+    int nrSongs; //numarul de melodii
+    Album *albums; //vectorul de albume
+    int nrAlbums; //numarul de albume
+    int duration;  //durata playlist-ului
 
 public:
     //constructor fara parametri
     Playlist();
     //constructor cu parametri
-    Playlist(const std::string& title, Song *songs, const int& nrSongs, Album *albums, const int& nrAlbums, const int& duration);
+    Playlist(const myString& title, Song *songs, const int& nrSongs, Album *albums, const int& nrAlbums, const int& duration);
     //copy constructor
     Playlist(const Playlist &other);
     //destructor
@@ -29,8 +31,20 @@ public:
     //functie de afisare
     void afisare() const;
 
+    //supraincarcarea operatorului =
+    Playlist& operator = (const Playlist &other) {
+        this -> title = other.title;
+        this -> songs = other.songs;
+        this -> nrSongs = other.nrSongs;
+        this -> albums = other.albums;
+        this -> nrAlbums = other.nrAlbums;
+        this -> duration = other.duration;
+        return *this;
+    }
+
+
     //getters
-    std::string getTitle() const;
+    myString getTitle() const;
     Song* getSongs() const;
     int getNrSongs() const;
     Album* getAlbums() const;
@@ -50,70 +64,22 @@ public:
     void removeAlbum(Album &album);
 
     //functii pentru modificarea numelui playlist-ului
-    void changeTitle(const std::string& title);
+    void changeTitle(const myString& title);
 
     //functii pentru sortare
-    void sort( const std::string& title);
+    void sort( const myString& title);
 
     //functii pentru cautare
-    void search( const std::string& title);
+    void search( const myString& title);
 
     //alte functii utile pentru playlist
-    void play() const;
-    void pause() const;
-    void next() const;
-    void previous() const;
-    void repeat() const;
-    void repeatOne() const;
-    void shuffle() const;
-
-//    //supraincarcare operator de atribuire
-//    Playlist& operator = (const Playlist& other);
-//
-//    //supraincarcare operator de afisare
-//    friend std::ostream& operator << (std::ostream &out, const Playlist& playlist);
-//
-//
-////supraincarcam operatorul de afisare
-//    std::ostream& operator<<(std::ostream& out, const Playlist &playlist) {
-//        out << playlist.title << " " << playlist.nrSongs << " " << playlist.nrAlbums << " " << playlist.duration << "\n";
-//
-//        for(int i = 0; i < playlist.nrSongs; i++)
-//            out<< playlist.songs[i] << " ";
-//        out << "\n";
-//    }
-//
-////operatorul = pentru a copia un playlist in altul
-//    Playlist& operator = (const Playlist playlist) {
-//        if (this != &playlist) {
-//            this -> title = playlist.title;
-//            this -> nrSongs = playlist.nrSongs;
-//            this -> nrAlbums = playlist.nrAlbums;
-//            this -> duration = playlist.duration;
-//
-//            if (playlist.nrSongs > 0) {
-//                this -> songs = new Song[playlist.nrSongs];
-//
-//                for (int i = 0; i < playlist.nrSongs; i++)
-//                    this -> songs[i] = playlist.songs[i];
-//            } else {
-//                this -> nrSongs = 0;
-//                this -> songs = nullptr;
-//            }
-//
-//            if (playlist.nrAlbums > 0) {
-//                this -> albums = new Album[playlist.nrAlbums];
-//
-//                for (int i = 0; i < playlist.nrAlbums; i++)
-//                    this -> albums[i] = playlist.albums[i];
-//            } else {
-//                this -> nrAlbums = 0;
-//                this -> albums = nullptr;
-//            }
-//        }
-//
-//        return *this;
-//};
+    void play() const; //reda playlist-ul
+    void pause() const; //pune pauza
+    void next() const; //trec la urmatoarea melodie
+    void previous() const; //trec la melodia anterioara
+    void repeat() const; //repeta playlist-ul
+    void repeatOne() const; //repeta melodia curenta
+    void shuffle() const; //reda melodii aleator
 
 };
 
