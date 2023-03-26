@@ -53,9 +53,20 @@ public:
     }
 
 
-
-    //getter
+    //getters
     myString getTitle() const;
+    int getYear() const;
+    myString getLanguage() const;
+    unsigned int getNrFeats() const;
+    myString* getFeat() const;
+
+    //setters
+    void setTitle(myString& name);
+    void setYear(int& year);
+    void setLanguage(myString& language);
+    void setNrFeats(unsigned int& nrFeats);
+    void setFeat(myString *feat);
+
 };
 
 

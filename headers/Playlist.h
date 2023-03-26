@@ -41,7 +41,24 @@ public:
         this -> duration = other.duration;
         return *this;
     }
+    //supraincarcarea operatorului ==
+    bool operator == (const Playlist &other) {
+        if(this -> title == other.title && this -> nrSongs == other.nrSongs && this -> nrAlbums == other.nrAlbums && this -> duration == other.duration)
+            return true;
+        else
+            return false;
+    }
 
+    //supraincarcarea operatorului !=
+    bool operator != (const Playlist &other) {
+        if(this -> title != other.title || this -> nrSongs != other.nrSongs || this -> nrAlbums != other.nrAlbums || this -> duration != other.duration)
+            return true;
+        else
+            return false;
+    }
+
+//supraincarcarea operatorului <<
+    friend std::ostream& operator << (std::ostream& out, const Playlist& playlist);
 
     //getters
     myString getTitle() const;

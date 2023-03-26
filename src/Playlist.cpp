@@ -97,6 +97,27 @@ void Playlist::afisare() const {
     std::cout << "\n";
 }
 
+//supraincarcarea operatorului <<
+std::ostream& operator << (std::ostream& out, const Playlist& playlist) {
+    out << playlist.title << " " << playlist.nrSongs << " " << playlist.nrAlbums << " " << playlist.duration << "\n\n";
+
+    if(playlist.nrSongs) {
+        out << "Melodii:\n";
+        for (int i = 0; i < playlist.nrSongs; i++)
+            out << i + 1 << ". " << playlist.songs[i];
+        out << "\n";
+    }
+
+    if(playlist.nrAlbums) {
+        out << "Albume:\n";
+        for (int i = 0; i < playlist.nrAlbums; i++)
+            out << i + 1 << ". " << playlist.albums[i];
+        out << "\n";
+    }
+    out << "\n";
+    return out;
+}
+
 
 //adaugam o melodie in playlist
 void Playlist::addSong(const Song& song) {
@@ -260,7 +281,18 @@ int Playlist::repeatOne(int i)const {
 //}
 
 void Playlist::shuffleSongs() {
-//    urmeaza un randomizer pentru a shuffle-ui melodiile
+//    urmeaza un randomizer pentru a shuffle-ui melodiile din playlist
+    int i, j;
+    Song aux; //aux reprezinta o melodie auxiliara
+    for (i = 0; i < nrSongs; i++)
+        for(j = i + 1; j < nrSongs; j++) {
+            int random = rand() % 2; //random va lua valori de la 0 la 1
+            if (random == 1) {
+                aux = songs[i];
+                songs[i] = songs[j];
+                songs[j] = aux;
+            }
+        }
 }
 
 void Playlist::shuffle() {

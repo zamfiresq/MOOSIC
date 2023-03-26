@@ -25,6 +25,17 @@ public:
         return os;
     }
 
+//    //supraincarcarea operatorului >>
+//    friend std::istream &operator>>(std::istream &is, myString &string) {
+//
+//        is >> string.nrStrings;
+//        string.sir = new char [string.nrStrings];
+//
+//        for(int i = 0; i < string.nrStrings; i++)
+//            is >> string.sir[i];
+//        return is;
+//    }
+
     //supraincarcarea operatorului =
     myString& operator = (const myString &other) {
         this -> nrStrings = other.nrStrings;
@@ -120,6 +131,7 @@ public:
 
         return false;
     }
+
 
     //getters
     char* getSir() const;

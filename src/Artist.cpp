@@ -163,7 +163,10 @@ std::ostream &operator<<(std::ostream &os, const Artist &artist) {
     return os;
 }
 
+
+
 //getters si setters
+
 //getter pentru firstName
 myString Artist::getFirstName() const {
     return firstName;
@@ -182,7 +185,6 @@ void Artist::setLastName(const myString &lastName) {
     Artist::lastName = lastName;
 }
 
-
 //getter pentru nickname
 myString Artist::getNickname() const {
     return nickname;
@@ -192,7 +194,6 @@ void Artist::setNickname(const myString &nickname) {
     Artist::nickname = nickname;
 }
 
-
 //getter pentru nationality
 myString Artist::getNationality() const {
     return nationality;
@@ -201,7 +202,6 @@ myString Artist::getNationality() const {
 void Artist::setNationality(const myString &nationality) {
     Artist::nationality = nationality;
 }
-
 
 //getter pentru nrLanguages
 int Artist::getNrLanguages() const {
@@ -219,79 +219,6 @@ int Artist::getNrSongs() const {
 int Artist::getNrAlbums() const {
     return nrAlbums;
 }
-//setter pentru nrAlbums
 
-
-//getter pentru languages
-//myString* Artist::getLanguages() const {
-//   return languages;
-//}
-
-
-//setter pentru vectorul languages
-//void Artist::setLanguages(const myString *languages, const int &nrLanguages) {
-//    Artist::nrLanguages = nrLanguages;
-//
-//    if (Artist::languages != nullptr) {
-//        delete[] Artist::languages;
-//        Artist::languages = nullptr;
-//    }
-//
-//    if (nrLanguages > 0) {
-//        Artist::languages = new myString[nrLanguages];
-//        for (int i = 0; i < nrLanguages; ++i) {
-//            Artist::languages[i] = languages[i];
-//        }
-//    }
-//}
-
-
-//getter pentru vectorul albums
-//Album* Artist::getAlbums() const {
-//    return albums;
-//}
-
-
-//setter pentru vectorul allbums
-//void Artist::setAlbums(Album *albums, const int &nrAlbums) {
-//    Artist::nrAlbums = nrAlbums;
-//
-//    if (Artist::albums != nullptr) {
-//        delete[] Artist::albums;
-//        Artist::albums = nullptr;
-//    }
-//
-//    if (nrAlbums > 0) {
-//        Artist::albums = new Album[nrAlbums];
-//        for (int i = 0; i < nrAlbums; ++i) {
-//            Artist::albums[i] = albums[i];
-//        }
-//    }
-//}
-
-
-//getter pentru vectorul solo
-//Song* Artist::getSolo() const {
-//    return solo;
-//}
-
-
-//setter pentru vectorul solo
-//void Artist::setSolo(Song *solo, const int &nrSongs) {
-//    Artist::nrSongs = nrSongs;
-//
-//    if (Artist::solo != nullptr) {
-//        delete[] Artist::solo;
-//        Artist::solo = nullptr;
-//    }
-//
-//    if (nrSongs > 0) {
-//        Artist::solo = new Song[nrSongs];
-//        for (int i = 0; i < nrSongs; ++i) {
-//            Artist::solo[i] = solo[i];
-//        }
-//    }
-//}
-//}
 
 

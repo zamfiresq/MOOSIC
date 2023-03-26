@@ -65,7 +65,6 @@ Album& operator = (const Album &other) {
         this -> songs = other.songs;
         return *this;
     }
-
 };
 
 //    Album alb;

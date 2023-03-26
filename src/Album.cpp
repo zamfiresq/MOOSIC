@@ -66,3 +66,30 @@ std::ostream &operator<<(std::ostream &os, const Album &album) {
     os << "\n";
     return os;
 }
+
+
+//getters and setters
+unsigned int Album::getYear() const {
+    return year;
+}
+void Album::setYear(unsigned int year) {
+    Album::year = year;
+}
+myString Album::getName() const {
+    return name;
+}
+void Album::setName(myString name) {
+    Album::name = name;
+}
+unsigned int Album::getNrSongs() const {
+    return nrSongs;
+}
+void Album::setNrSongs(unsigned int nrSongs) {
+    Album::nrSongs = nrSongs;
+}
+Song *Album::getSongs() const {
+    return songs;
+}
+void Album::setSongs(Song *songs) {
+    Album::songs = songs;
+}

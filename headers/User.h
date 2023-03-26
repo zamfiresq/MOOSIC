@@ -37,6 +37,21 @@ public:
         this -> favorites = other.favorites;
         return *this;
     }
+
+
+    //supraincarcarea operatorului <<
+    friend std::ostream& operator << (std::ostream &os, const User &obj) {
+        os << obj.username << " " << obj.password << " " << obj.email << " " << obj.country << " " << obj.birthDate << "\n";
+        return os;
+    }
+
+    //functionalitati
+    void addFavorite(const Playlist &playlist);
+    void removeFavorite(const Playlist &playlist);
+    void showFavorites() const;
+    void setPassword(const myString &newPassword);
+    void setEmail(const myString &newEmail);
+
 };
 
 

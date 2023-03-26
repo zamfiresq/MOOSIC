@@ -71,10 +71,42 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     return os;
 }
 
-//getter
+
+//getters
 myString Song::getTitle()const{
     return name;
 }
+myString Song::getLanguage() const {
+    return language;
+}
+myString* Song::getFeat() const {
+    return feat;
+}
+unsigned int Song::getNrFeats() const {
+    return nrFeats;
+}
+int Song::getYear() const {
+    return year;
+}
+
+
+//setters
+void Song::setTitle(myString& name) {
+    this -> name = name;
+}
+void Song::setLanguage(myString& language) {
+    this -> language = language;
+}
+void Song::setFeat(myString* feat) {
+    this -> feat = feat;
+}
+void Song::setNrFeats(unsigned int& nrFeats) {
+    this -> nrFeats = nrFeats;
+}
+void Song::setYear(int& year) {
+    this -> year = year;
+}
+
 
 //bool Song::operator==(const Song &rhs) const {
 //    return year == rhs.year &&
