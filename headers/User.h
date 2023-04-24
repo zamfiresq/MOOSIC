@@ -7,6 +7,7 @@
 #include <iostream>
 #include "Playlist.h"
 #include "myString.h"
+#include <vector>
 
 class User {
     myString username;
@@ -14,7 +15,9 @@ class User {
     myString email;
     myString country;
     myString birthDate;
-    Playlist *favorites;
+
+    bool subscription = false; //
+    std::vector<Playlist> playlists; //
 
 public:
     User(); //constructor fara parametri
@@ -34,23 +37,29 @@ public:
         this -> email = other.email;
         this -> country = other.country;
         this -> birthDate = other.birthDate;
-        this -> favorites = other.favorites;
+        this -> subscription = other.subscription; //
+        this -> playlists = other.playlists; //
+
         return *this;
     }
 
 
-    //supraincarcarea operatorului <<
+    //supraincarcarea operatorului << // de modificat si aici;
     friend std::ostream& operator << (std::ostream &os, const User &obj) {
         os << obj.username << " " << obj.password << " " << obj.email << " " << obj.country << " " << obj.birthDate << "\n";
         return os;
     }
 
     //functionalitati
+
     void addFavorite(const Playlist &playlist);
     void removeFavorite(const Playlist &playlist);
     void showFavorites() const;
     void setPassword(const myString &newPassword);
     void setEmail(const myString &newEmail);
+
+    void setSubscription(const bool& status); //
+
 
 };
 
