@@ -41,6 +41,8 @@ public:
         this -> duration = other.duration;
         return *this;
     }
+
+
     //supraincarcarea operatorului ==
     bool operator == (const Playlist &other) {
         if(this -> title == other.title && this -> nrSongs == other.nrSongs && this -> nrAlbums == other.nrAlbums && this -> duration == other.duration)

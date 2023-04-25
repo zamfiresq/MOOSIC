@@ -65,9 +65,14 @@ void Song::afis() {
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     os << melodie.name << " " << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
-    for(int i = 0; i < melodie.nrFeats; i++)
-        os << melodie.feat[i] << " ";
-    os << "\n";
+    for(int i = 0; i < melodie.nrFeats; i++){
+            os << melodie.feat[i] <<"\n";
+//            os <<"\n";
+        }
+
+
+
+
     return os;
 }
 

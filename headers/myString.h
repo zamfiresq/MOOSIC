@@ -18,6 +18,7 @@ public:
 
     ~myString(); //destructor
 
+
     //supraincarcarea operatorului <<
     friend std::ostream &operator<<(std::ostream &os, const myString &string) {
         for(int i = 0; i < string.nrStrings; i++)

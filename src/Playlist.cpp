@@ -272,7 +272,7 @@ int Playlist::previous(int i)const {
 
 
 int Playlist::repeatOne(int i)const {
-    std::cout << "Repeating " << songs[i].getTitle() << "\n";
+    std::cout << "Repeating " << songs[--i].getTitle() << "\n";
     return i;
 }
 
@@ -281,7 +281,7 @@ int Playlist::repeatOne(int i)const {
 //}
 
 void Playlist::shuffleSongs() {
-//    urmeaza un randomizer pentru a shuffle-ui melodiile din playlist
+//urmeaza un randomizer pentru a shuffle-ui melodiile din playlist
     int i, j;
     Song aux; //aux reprezinta o melodie auxiliara
     for (i = 0; i < nrSongs; i++)

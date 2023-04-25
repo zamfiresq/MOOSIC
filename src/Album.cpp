@@ -50,7 +50,7 @@ Album::~Album() {
 }
 
 void Album::afis() {
-    std::cout << year << " " << nrSongs << "\n";
+    std::cout<< name << " " << year << " " << nrSongs << "\n";
 
     for(int i = 0; i < nrSongs; i++)
         std::cout << songs[i] << " ";
@@ -58,7 +58,7 @@ void Album::afis() {
 }
 
 std::ostream &operator<<(std::ostream &os, const Album &album) {
-    os <<album.year<<" "<< album.name << " " << album.nrSongs << "\n";
+    os <<album.name<<", "<< album.year << ", " << album.nrSongs<<" songs" << "\n";
 
     for(int i = 0; i < album.nrSongs; i++) {
         os << i + 1 << ". " << album.songs[i];
@@ -66,6 +66,7 @@ std::ostream &operator<<(std::ostream &os, const Album &album) {
     os << "\n";
     return os;
 }
+
 
 
 //getters and setters

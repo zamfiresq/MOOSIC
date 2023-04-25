@@ -13,7 +13,7 @@ class Album {
     unsigned int year; //anul lansarii albumului
     myString name; //numele albumului
     unsigned int nrSongs; //numarul de melodii din album
-    Song *songs; //vector de melodii ce reda melodiile dintr-un albume
+    Song *songs; //vector de melodii ce reda melodiile dintr-un album
 
 public:
     Album(); //constructor fara parametri
@@ -66,6 +66,7 @@ Album& operator = (const Album &other) {
         return *this;
     }
 };
+
 
 //    Album alb;
 //    alb.setYear(5);
