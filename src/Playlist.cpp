@@ -8,29 +8,23 @@
 Playlist::Playlist() {
     this -> title = "titluDefaultPlaylist";
     this -> nrSongs = 0;
-    this -> nrAlbums = 0;
     this -> duration = 0;
     this -> songs = {};
-    this -> albums = {};
 }
 
-Playlist::Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration){
+Playlist::Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration){
     this->title = title;
     this->nrSongs = nrSongs;
-    this->nrAlbums = nrAlbums;
     this->duration = duration;
     this->songs = songs;
-    this->albums = albums;
 }
 
 //apeland constructorul de copiere, se apeleaza constructorul de copiere al clasei Song si Album
 Playlist::Playlist(const Playlist &object){
         this->title = object.title;
         this->nrSongs = object.nrSongs;
-        this->nrAlbums = object.nrAlbums;
         this->duration = object.duration;
         this->songs = object.songs;
-        this->albums = object.albums;
     }
 
 //    if (object.nrSongs > 0) {
@@ -66,19 +60,12 @@ Playlist::Playlist(const Playlist &object){
 
 //afisam playlist-ul
         void Playlist::afisare() const {
-            std::cout << title << " " << nrSongs << " " << nrAlbums << " " << duration << "\n\n";
+            std::cout << title << " " << nrSongs << " " << duration << "\n\n";
 
             if (nrSongs) {
                 std::cout << "Melodii:\n";
                 for (int i = 0; i < nrSongs; i++)
                     std::cout << i + 1 << ". " << songs[i];
-                std::cout << "\n";
-            }
-
-            if (nrAlbums) {
-                std::cout << "Albume:\n";
-                for (int i = 0; i < nrAlbums; i++)
-                    std::cout << i + 1 << ". " << albums[i];
                 std::cout << "\n";
             }
             std::cout << "\n";
@@ -87,20 +74,13 @@ Playlist::Playlist(const Playlist &object){
 
 //supraincarcarea operatorului <<
         std::ostream &operator<<(std::ostream &out, const Playlist &playlist) {
-            out << playlist.title << " " << playlist.nrSongs << " " << playlist.nrAlbums << " " << playlist.duration
+            out << playlist.title << " " << playlist.nrSongs << " " << playlist.duration
                 << "\n\n";
 
             if (playlist.nrSongs) {
                 out << "Melodii:\n";
                 for (int i = 0; i < playlist.nrSongs; i++)
                     out << i + 1 << ". " << playlist.songs[i];
-                out << "\n";
-            }
-
-            if (playlist.nrAlbums) {
-                out << "Albume:\n";
-                for (int i = 0; i < playlist.nrAlbums; i++)
-                    out << i + 1 << ". " << playlist.albums[i];
                 out << "\n";
             }
             out << "\n";
@@ -125,22 +105,15 @@ Playlist::Playlist(const Playlist &object){
 //                songs[i] = mel[i];
 //        }
 //
-////adaugam un album in playlist
-//        void Playlist::addAlbum(const std::vector<Album>&album) {
-//            std::vector<Album>album1 = {nrAlbums + 1}; //album1 reprezinta un vector de albume cu nrAlbums +1 albume
-//            for (int i = 0; i < nrAlbums; i++)
-//                album1[i] = albums[i]; //copiem toate albumele din vectorul albums in album1
-//
-//            album1[nrAlbums] = album; //adaugam albumul nou in vectorul album1
-//            nrAlbums++;
-//
-////            if (albums != nullptr) //daca vectorul albums nu este gol, il vom sterge
-////                delete[]albums;
-////
-////            albums = new Album[nrAlbums];
-//            for (int i = 0; i < nrAlbums; i++)
-//                albums[i] = album1[i]; //daca melodia din vectorul songs nu este egala cu melodia pe care vrem sa o stergem, o copiem in album1
-//        }
+//adaugam un album in playlist
+void Playlist::addAlbum(const std::vector<Album>&albume) {
+    for(auto album : albume) {
+        std::vector<Song> melodii = album.getSongs();
+        songs.insert(songs.end(), melodii.begin(), melodii.end());
+        nrSongs = songs.size();
+//        songs.insert(songs.end(), (album.getSongs()).begin(), (album.getSongs()).end());
+    }
+}
 //
 //
 ////stergem o melodie din playlist
@@ -187,11 +160,6 @@ Playlist::Playlist(const Playlist &object){
             return nrSongs;
         }
 
-//returnam numarul de albume din playlist
-        int Playlist::getNrAlbums() const {
-            return nrAlbums;
-        }
-
 //returnam durata playlist-ului
         int Playlist::getDuration() const {
             return duration;
@@ -200,11 +168,6 @@ Playlist::Playlist(const Playlist &object){
 //returnam vectorul de melodii
         std::vector<Song>Playlist::getSongs() const {
             return songs;
-        }
-
-//returnam vectorul de albume
-        std::vector<Album>Playlist::getAlbums() const {
-            return albums;
         }
 
 //retunam functia ce modifica numele playlist-ului

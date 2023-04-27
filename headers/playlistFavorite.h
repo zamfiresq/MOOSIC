@@ -19,7 +19,7 @@ public:
     playlistFavorite();
 
     //constructor cu parametri
-    playlistFavorite(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration, const int& nrArtists);
+    playlistFavorite(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration, const int& nrArtists);
 
     //copy constructor
     playlistFavorite(const playlistFavorite &other);

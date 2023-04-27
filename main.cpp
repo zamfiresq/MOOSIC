@@ -332,8 +332,18 @@ int main(){
 //    plm.afis();
 
     //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
-    Playlist pl("Titlu pl", cantece, 3, albume, 3, 150);
-//    pl.afisare();
+    Playlist pl("Titlu pl", cantece, 3, 150);
+    pl.afisare();
+
+    Album album2(an, "NU", 3, cantece); //Nume album - A doua cea mai frumi melodie
+//    std::cout << album1 << "\n\n\n\n\n";
+    std::vector<Album> albumele;
+    albumele.push_back(album2);
+    albumele.push_back(album2);
+    albumele.push_back(album2);
+    pl.addAlbum(albumele);
+    std::cout << "------------------------------DUPA------------------------------";
+    pl.afisare();
 
     std::vector<Playlist> playlists;
     playlists.push_back(pl);
@@ -368,8 +378,8 @@ int main(){
     users.push_back(user);
     users.push_back(user);
 
-    for(auto c: users)
-        c.afisare();
+//    for(auto c: users)
+//        c.afisare();
 
 
 

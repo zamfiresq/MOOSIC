@@ -9,9 +9,7 @@ playlistFavorite::playlistFavorite() {}
 
 //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
 
-playlistFavorite::playlistFavorite(const std::string &title, std::vector<Song>&songs, const int &nrSongs, std::vector<Album>&albums,
-                                   const int &nrAlbums, const int &duration, const int &nrArtists) : Playlist(title, songs, nrSongs, albums,
-                                                                                       nrAlbums, duration), nrArtists(nrArtists) {}
+playlistFavorite::playlistFavorite(const std::string &title, std::vector<Song>&songs, const int &nrSongs, const int &duration, const int &nrArtists) : Playlist(title, songs, nrSongs, duration), nrArtists(nrArtists) {}
 
 playlistFavorite::playlistFavorite(const playlistFavorite &other) : Playlist(other), nrArtists(other.nrArtists) {}
 
@@ -23,7 +21,7 @@ std::ostream &operator<<(std::ostream &os, const playlistFavorite &other){
 }
 
 void playlistFavorite::afisare() const {
-    std::cout<<"Playlist-ul "<<this->getTitle()<<" contine "<<this->getNrSongs()<<" melodii si "<<this->getNrAlbums()<<" albume."<<std::endl;
+    std::cout<<"Playlist-ul "<<this->getTitle()<<" contine "<<this->getNrSongs()<<" melodii."<<std::endl;
 }
 
 void playlistFavorite::favoriteArtist() {

@@ -15,15 +15,13 @@ class Playlist {
     std::string title; //titlul playlist-ului
     std::vector<Song> songs; //vectorul de melodii
     int nrSongs; //numarul de melodii
-    std::vector<Album> albums; //vectorul de albume
-    int nrAlbums; //numarul de albume
     int duration;  //durata playlist-ului
 
 public:
     //constructor fara parametri
     Playlist();
     //constructor cu parametri
-    Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
+    Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration);
     //copy constructor
     Playlist(const Playlist &other);
     //destructor
@@ -38,8 +36,6 @@ public:
         this -> title = other.title;
         this -> songs = other.songs;
         this -> nrSongs = other.nrSongs;
-        this -> albums = other.albums;
-        this -> nrAlbums = other.nrAlbums;
         this -> duration = other.duration;
         return *this;
     }
@@ -67,21 +63,16 @@ public:
     std::string getTitle() const;
     std::vector<Song> getSongs() const;
     int getNrSongs() const;
-    std::vector<Album> getAlbums() const;
-    int getNrAlbums() const;
     int getDuration() const;
 
     //functii pentru adaugarea unei melodii in playlist
     void addSong(const std::vector<Song>& song);
 
     //functii pentru adaugarea unui album in playlist
-    void addAlbum(const std::vector<Album> &album);
+    void addAlbum(const std::vector<Album> &albume);
 
     //functii pentru stergerea unei melodii din playlist
     void removeSong(std::vector<Song> &song);
-
-    //functii pentru stergerea unui album din playlist
-    void removeAlbum(std::vector<Album> &album);
 
     //functii pentru modificarea numelui playlist-ului
     void changeTitle(const std::string& title);
