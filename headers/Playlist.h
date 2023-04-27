@@ -78,7 +78,11 @@ public:
     void changeTitle(const std::string& title);
 
     //functii pentru sortare
-    void sort();
+    void sortAfterSongTitle();
+
+    //
+    void sortAfterArtistName();
+
 
     //functii pentru cautare
     void search( const std::string& title);

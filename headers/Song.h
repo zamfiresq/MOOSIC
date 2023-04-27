@@ -10,6 +10,7 @@
 
 class Song {
     int year;  //anul lansarii melodiei
+    std::string artistName;
     std::string name; //titlul melodiei
     std::string language;  //limba melodiei
     unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
@@ -17,7 +18,7 @@ class Song {
 
 public:
     Song(); //constructor fara parametri
-    Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat); //constructor cu parametri
+    Song(const int& year,  const std::string& artistName, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat); //constructor cu parametri
     Song(const Song &obiect); //copy constructor
 
     ~Song(); //destructor
@@ -28,6 +29,7 @@ public:
 
     Song& operator = (const Song &other) {  //copiem valorile dintr-un obiect din clasa Song intr-un alt obiect din Song
         this -> year = other.year;
+        this -> artistName = other.artistName;
         this -> name = other.name;
         this -> language = other.language;
         this -> nrFeats = other.nrFeats;
@@ -37,16 +39,17 @@ public:
 
 //supraincarcarea operatorului ==
     bool operator == (const Song &other) {
-        return (this -> year == other.year && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat);
+        return (this -> year == other.year && this -> artistName == other.artistName && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat);
     }
 
 //supraincarcarea operatorului !=
     bool operator != (const Song &other) {
-        return (this -> year != other.year || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat);
+        return (this -> year != other.year || this -> artistName != other.artistName || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat);
     }
 
     //getters
     std::string getTitle() const;
+    std::string getArtistName() const;
     int getYear() const;
     std::string getLanguage() const;
     unsigned int getNrFeats() const;

@@ -7,45 +7,31 @@
 
 Song::Song() {
     this -> year = 2023;
+    this -> artistName = "numeArtist";
     this -> name = "unNume";
     this -> language = "English";
     this -> nrFeats = 0;
     this -> feat = {};
 }
 
-Song::Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat) {
+Song::Song(const int& year, const std::string& artistName, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat) {
     this -> year = year;
+    this -> artistName = artistName;
     this -> name = name;
     this -> language = language;
     this -> nrFeats = nrFeats;
     this -> feat = feat;
 
-//    if (nrFeats > 0) {
-//        this->feat = new std::string[nrFeats];
-//
-//        for (int i = 0; i < nrFeats; i++)
-//            (this->feat)[i] = feat[i];
-//    } else {
-//        this -> nrFeats = 0;
-//        this -> feat = nullptr;
-//    }
+
 }
 Song::Song(const Song &obiect) {
     this -> year = obiect.year;
+    this -> artistName = obiect.artistName;
     this -> name = obiect.name;
     this -> language = obiect.language;
     this -> nrFeats = obiect.nrFeats;
     this -> feat = obiect.feat;
 
-//    if (obiect.nrFeats > 0) {
-//        this -> feat = new std::string[obiect.nrFeats];
-//
-//        for (int i = 0; i < obiect.nrFeats; i++)
-//            (this -> feat)[i] =(obiect.feat)[i];
-//    } else {
-//        this -> nrFeats = 0;
-//        this -> feat = nullptr;
-//    }
 
 }
 
@@ -54,6 +40,7 @@ Song::~Song() {}
 //functia de afisare
 void Song::afis() {
     std::cout<<"Name: " << name <<"\n";
+    std::cout<<"Artist name: "<< artistName << "\n";
     std::cout<<"Year: "<< year << "\n";
     std::cout<<"Languages: "<< language << " \n";
     std::cout<<"Feats: "<< nrFeats << "\n";
@@ -66,7 +53,7 @@ void Song::afis() {
 
 //supraincarcarea operatorului <<
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
-    os << melodie.name << " " << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
+    os << melodie.name << " " <<melodie.artistName<< " " << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
     for(int i = 0; i < melodie.nrFeats; i++){
             os << melodie.feat[i] <<"\n"; //afisare feat
@@ -92,6 +79,10 @@ unsigned int Song::getNrFeats() const {
 }
 int Song::getYear() const {
     return year;
+}
+
+std::string Song::getArtistName() const{
+    return artistName;
 }
 
 

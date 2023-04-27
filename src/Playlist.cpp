@@ -176,7 +176,7 @@ void Playlist::addAlbum(const std::vector<Album>&albume) {
         }
 
 //returnam functia pentru sortare
-        void Playlist::sort() {
+        void Playlist::sortAfterSongTitle() {
             int i, j;
             Song aux; //aux reprezinta o melodie auxiliara
             for (i = 0; i < nrSongs; i++)
@@ -190,6 +190,21 @@ void Playlist::addAlbum(const std::vector<Album>&albume) {
                     }
                 }
         }
+
+void Playlist::sortAfterArtistName() {
+    int i, j;
+    Song aux; //aux reprezinta o melodie auxiliara
+    for (i = 0; i < nrSongs; i++)
+        for (j = i + 1; j < nrSongs; j++) {
+            std::string titluI = songs[i].getArtistName();
+            std::string titluJ = songs[j].getArtistName();
+            if (titluI > titluJ) {
+                aux = songs[i];
+                songs[i] = songs[j];
+                songs[j] = aux;
+            }
+        }
+}
 
 //functia pentru cautare
         void Playlist::search(const std::string &title) {
