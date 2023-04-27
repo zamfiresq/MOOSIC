@@ -5,25 +5,24 @@
 #ifndef OOP_PROJECT_SONG_H
 #define OOP_PROJECT_SONG_H
 #include <iostream>
-#include "myString.h"
-
+#include <string>
+#include<vector>
 
 class Song {
     int year;  //anul lansarii melodiei
-    myString name; //titlul melodiei
-    myString language;  //limba melodiei
+    std::string name; //titlul melodiei
+    std::string language;  //limba melodiei
     unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
-    myString *feat; //vector de string-uri cu numele colaboratorilor
+    std::vector<std::string> feat; //vector de string-uri cu numele colaboratorilor
 
 public:
     Song(); //constructor fara parametri
-    Song(const int& year, const myString& name, const myString& language, const unsigned int& nrFeats, myString *feat); //constructor cu parametri
+    Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat); //constructor cu parametri
     Song(const Song &obiect); //copy constructor
 
     ~Song(); //destructor
 
     void afis(); //functie de afisare
-
 
     friend std::ostream &operator<<(std::ostream &os, const Song &song); //supraincarcarea operatorului <<
 
@@ -38,34 +37,27 @@ public:
 
 //supraincarcarea operatorului ==
     bool operator == (const Song &other) {
-        if (this -> year == other.year && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat) {
-            return true;
-        }
-        return false;
+        return (this -> year == other.year && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat);
     }
 
 //supraincarcarea operatorului !=
     bool operator != (const Song &other) {
-        if (this -> year != other.year || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat) {
-            return true;
-        }
-        return false;
+        return (this -> year != other.year || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat);
     }
 
-
     //getters
-    myString getTitle() const;
+    std::string getTitle() const;
     int getYear() const;
-    myString getLanguage() const;
+    std::string getLanguage() const;
     unsigned int getNrFeats() const;
-    myString* getFeat() const;
+    std::vector<std::string> getFeat() const;
 
     //setters
-    void setTitle(myString& name);
+    void setTitle(std::string& name);
     void setYear(int& year);
-    void setLanguage(myString& language);
+    void setLanguage(std::string& language);
     void setNrFeats(unsigned int& nrFeats);
-    void setFeat(myString *feat);
+    void setFeat(std::vector<std::string>&feat);
 
 };
 

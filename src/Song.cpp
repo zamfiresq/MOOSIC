@@ -7,57 +7,60 @@
 
 Song::Song() {
     this -> year = 2023;
-    this -> name = "unNume"; // incerc sa initializez un myString cu un string
+    this -> name = "unNume";
     this -> language = "English";
     this -> nrFeats = 0;
-    this -> feat = nullptr;
+    this -> feat = {};
 }
 
-Song::Song(const int& year, const myString& name, const myString& language, const unsigned int& nrFeats, myString *feat) {
+Song::Song(const int& year, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat) {
     this -> year = year;
     this -> name = name;
     this -> language = language;
     this -> nrFeats = nrFeats;
+    this -> feat = feat;
 
-    if (nrFeats > 0) {
-        this->feat = new myString[nrFeats];
-
-        for (int i = 0; i < nrFeats; i++)
-            (this->feat)[i] = feat[i];
-    } else {
-        this -> nrFeats = 0;
-        this -> feat = nullptr;
-    }
+//    if (nrFeats > 0) {
+//        this->feat = new std::string[nrFeats];
+//
+//        for (int i = 0; i < nrFeats; i++)
+//            (this->feat)[i] = feat[i];
+//    } else {
+//        this -> nrFeats = 0;
+//        this -> feat = nullptr;
+//    }
 }
 Song::Song(const Song &obiect) {
     this -> year = obiect.year;
     this -> name = obiect.name;
     this -> language = obiect.language;
     this -> nrFeats = obiect.nrFeats;
+    this -> feat = obiect.feat;
 
-    if (obiect.nrFeats > 0) {
-        this -> feat = new myString[obiect.nrFeats];
-
-        for (int i = 0; i < obiect.nrFeats; i++)
-            (this -> feat)[i] =(obiect.feat)[i];
-    } else {
-        this -> nrFeats = 0;
-        this -> feat = nullptr;
-    }
+//    if (obiect.nrFeats > 0) {
+//        this -> feat = new std::string[obiect.nrFeats];
+//
+//        for (int i = 0; i < obiect.nrFeats; i++)
+//            (this -> feat)[i] =(obiect.feat)[i];
+//    } else {
+//        this -> nrFeats = 0;
+//        this -> feat = nullptr;
+//    }
 
 }
 
-Song::~Song() {
-//    if (feat != nullptr)
-//        delete []feat;
-}
+Song::~Song() {}
 
 //functia de afisare
 void Song::afis() {
-    std::cout << name << " "<< year << " " << language << " " << nrFeats << "\n";
+    std::cout<<"Name: " << name <<"\n";
+    std::cout<<"Year: "<< year << "\n";
+    std::cout<<"Languages: "<< language << " \n";
+    std::cout<<"Feats: "<< nrFeats << "\n";
 
     for(int i = 0; i < nrFeats; i++)
         std::cout << feat[i] << " ";
+        std::cout<<"dadaadada";
     std::cout << "\n";
 }
 
@@ -66,11 +69,8 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     os << melodie.name << " " << melodie.year << " " << melodie.language << " " << melodie.nrFeats << "\n";
 
     for(int i = 0; i < melodie.nrFeats; i++){
-            os << melodie.feat[i] <<"\n";
-//            os <<"\n";
+            os << melodie.feat[i] <<"\n"; //afisare feat
         }
-
-
 
 
     return os;
@@ -78,14 +78,14 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
 
 
 //getters
-myString Song::getTitle()const{
+std::string Song::getTitle()const{
     return name;
 }
-myString Song::getLanguage() const {
+std::string Song::getLanguage() const {
     return language;
 }
-myString* Song::getFeat() const {
-    return feat;
+std::vector<std::string> Song::getFeat() const {  // std::string getFeat() const;
+    return feat;  //am modificat aici
 }
 unsigned int Song::getNrFeats() const {
     return nrFeats;
@@ -96,13 +96,13 @@ int Song::getYear() const {
 
 
 //setters
-void Song::setTitle(myString& name) {
+void Song::setTitle(std::string& name) {
     this -> name = name;
 }
-void Song::setLanguage(myString& language) {
+void Song::setLanguage(std::string& language) {
     this -> language = language;
 }
-void Song::setFeat(myString* feat) {
+void Song::setFeat(std::vector<std::string>&feat) {
     this -> feat = feat;
 }
 void Song::setNrFeats(unsigned int& nrFeats) {
@@ -113,14 +113,16 @@ void Song::setYear(int& year) {
 }
 
 
-//bool Song::operator==(const Song &rhs) const {
-//    return year == rhs.year &&
-//           name == rhs.name &&
-//           language == rhs.language &&
-//           nrFeats == rhs.nrFeats &&
-//           feat == rhs.feat;
+//bool operator == (const Song &other) {
+//cepulamea
+//bool Song::operator==(const Song &other) {
+//    return year == other.year &&
+//           name == other.name &&
+//           language == other.language &&
+//           nrFeats == other.nrFeats &&
+//           feat == other.feat;
 //}
 //
-//bool Song::operator!=(const Song &rhs) const {
+//bool Song::operator!=(const Song &rhs) {
 //    return !(rhs == *this);
 //}

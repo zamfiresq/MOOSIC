@@ -6,22 +6,22 @@
 #define OOP_PROJECT_USER_H
 #include <iostream>
 #include "Playlist.h"
-#include "myString.h"
+#include <string>
 #include <vector>
 
 class User {
-    myString username;
-    myString password;
-    myString email;
-    myString country;
-    myString birthDate;
+    std::string username;
+    std::string password;
+    std::string email;
+    std::string country;
+    std::string birthDate;
 
     bool subscription = false; //
-    std::vector<Playlist> playlists; //alocare dinamica stl
+    std::vector<Playlist> playlists;
 
 public:
     User(); //constructor fara parametri
-    User(myString username, myString password, myString email, myString country, myString birthDate, bool subscription, std::vector<Playlist>& playlists); //constructor cu parametri
+    User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists); //constructor cu parametri
     User(const User &obj); //copy constructor
 
     //destructor
@@ -43,8 +43,11 @@ public:
         return *this;
     }
 
+    void addPlaylist(const Playlist& playlist) {
+        playlists.push_back(playlist);
+    }
 
-    //supraincarcarea operatorului << // de modificat si aici;
+    //supraincarcarea operatorului <<
     friend std::ostream& operator << (std::ostream &os, const User &obj) {
         os <<"Username: " <<obj.username << "\n ";
         os <<"Password: " <<obj.password <<"\n ";
@@ -68,14 +71,46 @@ public:
         return os;
     }
 
+    //supraincarcarea operatorului >>
+    friend std::istream& operator >> (std::istream &is, User &obj) {
+        std::cout << "Username: ";
+        is >> obj.username;
+        std::cout << "Password: ";
+        is >> obj.password;
+        std::cout << "E-mail: ";
+        is >> obj.email;
+        std::cout << "Country: ";
+        is >> obj.country;
+        std::cout << "Birth date: ";
+        is >> obj.birthDate;
+        std::cout << "Subscription: ";
+        is >> obj.subscription;
+//        std::cout << "Playlists: ";
+//        is >> obj.playlists;
+//
+//        int nrPlaylists;
+//        is >> nrPlaylists;
+//        is.ignore(); // ignore the newline character
+//
+//        // Read each playlist
+//        for (int i = 0; i < nrPlaylists; ++i) {
+//            Playlist playlist;
+//            is >> playlist;
+//            playlists.push_back(playlist);
+//        }
+
+        return is;
+    }
+
+
     //functionalitati
 
     void addFavorite(const std::vector<Playlist> &playlist);
     void removeFavorite(const std::vector<Playlist> &playlist);
     void showFavorites() const;
-    void setUserName(const myString &newUsername);
-    void setPassword(const myString &newPassword);
-    void setEmail(const myString &newEmail);
+    void setUserName(const std::string &newUsername);
+    void setPassword(const std::string &newPassword);
+    void setEmail(const std::string &newEmail);
 
     void setSubscription(const bool& status); //
 

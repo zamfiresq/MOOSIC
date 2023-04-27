@@ -4,9 +4,10 @@
 #include "headers/Artist.h"
 #include "headers/Album.h"
 #include "headers/Song.h"
-#include "headers/myString.h"
 #include "headers/Playlist.h"
 #include "headers/User.h"
+#include "headers/playlistFavorite.h"
+
 
 int main(){
 
@@ -274,35 +275,108 @@ int main(){
 //std::cout<<p1;
 
 //
-//    myString obiect = "Cea mai frumi melodie";
-//    myString obiect1 = "A doua cea mai frumi melodie";
+    std::string obiect = "Cea mai frumi melodie";
+//    std::string obiect1 = "A doua cea mai frumi melodie";
 //  std::cout << (obiect > obiect1);
-//
-//
-//    int valoare = 4;
+
+    int valoare = 4;
 //    std::cout << obiect;
-//    obiect.afis();
-//
-//    Song cantec;
-//    std::cout << cantec;
-//
-//    myString obiect4 = "feat1";
-//    myString obiect5 = "feat2";
-//    myString obiect6 = "feat3";
+    std::string obiect4 = "feat1";
+    std::string obiect5 = "feat2";
+    std::string obiect6 = "feat3";
 //
 //
-//    myString* da;
-//    da = new myString[3];
+
+    Song cantec;
+//    cantec.afis();
+
+    std::vector<std::string> da;
 //
-//    for(int i = 0; i < 3; i++)
-//        da[i] = obiect4;
+    for(int i = 0; i < 3; i++)
+        da.push_back(obiect4);
+
+//
+
+    Song cantec1(2023, obiect, obiect, valoare, da);
+//    cantec1.afis();
+
+//    std::vector<std::shared_ptr<Song>> cantece;
+//    cantece.push_back(std::make_shared<Song>(cantec1));
+//    cantece.push_back(std::make_shared<Song>(cantec1));
+//    cantece.push_back(std::make_shared<Song>(cantec1));
+
+    std::vector<Song> cantece;
+    cantece.push_back(cantec1);
+    cantece.push_back(cantec1);
+    cantece.push_back(cantec1);
+
+
+//    for(auto c: cantece)
+//        c.afis();
+
+    int an = 2022;
+
+    std::vector<Album> albume;
+
+    Album album1(an, "da", 3, cantece); //Nume album - A doua cea mai frumi melodie
+//    std::cout << album1 << "\n\n\n\n\n";
+    albume.push_back(album1);
+    albume.push_back(album1);
+    albume.push_back(album1);
+
+//    for(auto c: albume)
+//        c.afis();
+
+    Artist plm("Pula", "Mea", "De hartie", "Croatia", da, 3, albume, 3, cantece, 3);
+
+//    plm.afis();
+
+    //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
+    Playlist pl("Titlu pl", cantece, 3, albume, 3, 150);
+//    pl.afisare();
+
+    std::vector<Playlist> playlists;
+    playlists.push_back(pl);
+    playlists.push_back(pl);
+    playlists.push_back(pl);
+
+//    for(auto c: playlists)
+//        c.afisare();
+
+//std::string username;
+//    std::string password;
+//    std::string email;
+//    std::string country;
+//    std::string birthDate;
+//
+//    bool subscription = false; //
+//    std::vector<Playlist> playlists;
+
+    std::string username = "zamfiresq";
+    std::string password = "parolaplm";
+    std::string email = "zamfiresq@gmail.com";
+    std::string country = "Romania";
+    std::string birthDate = "06/04/2002";
+
+
+//User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists);
+    User user(username,password, email, country, birthDate, false, playlists);
+//    user.afisare();
+
+    std::vector<User> users;
+    users.push_back(user);
+    users.push_back(user);
+    users.push_back(user);
+
+    for(auto c: users)
+        c.afisare();
+
+
+
+//    for(int i = 0; i < albume.size(); i++)
+//        std::cout << albume[i] << "\n";
 //
 //
-//    Song cantec1(2023, obiect, obiect, valoare, da);
-//    std::cout << cantec1;
-//
-//
-//    int an = 2022;
 //    Song* v;
 //    v = new Song[valoare];
 //
@@ -325,7 +399,7 @@ int main(){
 //    myString nickname = "nickname";
 //    myString nationality = "nationality";
 //    int nr = 4; //nr ptr vector l
-//    int nr1 = 5; // nr ptr vectir albume
+//    int nr1 = 5; // nr ptr vector albume
 //    int nr2 = 3; //nr ptr vector de melodii/ singles
 //
 //    myString* l;
@@ -368,17 +442,7 @@ int main(){
 //plm.shuffle();
 
 
-myString username = "alexutza2002";
-myString password = "123456";
-myString email = "alexabela09@yahoo.com";
-myString country = "Romania";
-myString birthDate = "2002-09-09";
-bool subscription = false;
-std::vector<Playlist> playlists;
 
-
-
-User utilizator(username, password, email, country, birthDate, subscription, playlists);
-std::cout<<utilizator;
+return 0;
 
 }

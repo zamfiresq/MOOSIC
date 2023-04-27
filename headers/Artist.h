@@ -6,32 +6,32 @@
 #define OOP_PROJECT_ARTIST_H
 
 #include <iostream>
-#include "myString.h"
+#include <string>
+#include <vector>
 #include "Album.h"
 #include "Song.h"
 
 
 class Artist {
-    myString firstName;
-    myString lastName;
-    myString nickname;
-    myString nationality;
-    myString *languages;
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string nationality;
+    std::vector<std::string>languages;
     int nrLanguages;
-    Album *albums;
+    std::vector<Album>albums;
     int nrAlbums;
-    Song *solo;
+    std::vector<Song>solo;
     int nrSongs;
 
 public:
     Artist(); //constructor fara parametri
     //constructor cu parametri
-    Artist(const myString &firstName, const myString &lastName, const myString &nickname, const myString &nationality, const myString *languages, const int &nrLanguages, Album *albums, const int &nrAlbums, Song *solo, const int &nrSongs);
+    Artist(const std::string &firstName, const std::string &lastName, const std::string &nickname, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
     Artist(const Artist &obiect); //copy constructor
 
     //operatori
     friend std::ostream &operator<<(std::ostream &os, const Artist &artst); //supraincarcarea operatorului <<
-
 
     ~Artist(); //destructor
 
@@ -39,32 +39,32 @@ public:
     void afis() const; //functie de afisare
 
     //getters si setters
-    myString getFirstName() const;
-    void setFirstName(const myString& firstName);
+    std::string getFirstName() const;
+    void setFirstName(const std::string& firstName);
 
-    myString getLastName() const;
-    void setLastName(const myString& lastName);
+    std::string getLastName() const;
+    void setLastName(const std::string& lastName);
 
-    myString getNickname() const;
-    void setNickname(const myString& nickname);
+    std::string getNickname() const;
+    void setNickname(const std::string& nickname);
 
-    myString getNationality() const;
-    void setNationality(const myString& nationality);
+    std::string getNationality() const;
+    void setNationality(const std::string& nationality);
 
-    myString* getLanguages() const;
-    void setLanguages(const myString* languages, const int& nrLanguages);
+    std::string* getLanguages() const;
+    void setLanguages(const std::vector<std::string>&languages, const int& nrLanguages); //am pus ampersand
 
     int getNrLanguages() const;
     void setNrLanguages(const int& nrLanguages);
 
     Album* getAlbums() const;
-    void setAlbums(Album *albums, const int& nrAlbums);
+    void setAlbums(std::vector<Album>&albums, const int& nrAlbums); //am pus ampersand
 
     int getNrAlbums() const;
     void setNrAlbums(const int& nrAlbums);
 
     Song* getSolo() const;
-    void setSolo(Song *solo, const int& nrSongs);
+    void setSolo(std::vector<Song>&solo, const int& nrSongs); //am pus ampersand
 
     int getNrSongs() const;
     void setNrSongs(const int& nrSongs);

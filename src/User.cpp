@@ -4,14 +4,14 @@
 
 #include "../headers/User.h"
 #include "../headers/Playlist.h"
-#include <vector>
+
 
 
 //constructor fara parametri
 User::User() = default;
 
 //constructor cu parametri
-User::User(myString username, myString password, myString email, myString country, myString birthDate, bool subscription, std::vector<Playlist>& playlists) {
+User::User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists) {
     this->username = username;
     this->password = password;
     this->email = email;
@@ -36,18 +36,13 @@ User::User(myString username, myString password, myString email, myString countr
 
 
 //destructor
-    User::~User()
-    {
-//    if (this -> playlists != nullptr) {
-//        delete[] this -> playlists;
-//    }
-    }
+    User::~User() {}
 
 //functie de afisare
     void User::afisare() const {
         std::cout << username << " " << password << " " << email << " " << country << " " << birthDate << "\n";
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < playlists.size(); i++)
             std::cout << playlists[i] << " ";
     }
 
@@ -93,13 +88,13 @@ User::User(myString username, myString password, myString email, myString countr
 
 
 //functie care seteaza o noua parola
-    void User::setPassword(const myString &newPassword) {
+    void User::setPassword(const std::string &newPassword) {
         this->password = newPassword;
         std::cout << "Parola a fost actualizată cu succes!" << "\n";
     }
 
 //functie care seteaza un nou email
-    void User::setEmail(const myString &newEmail) {
+    void User::setEmail(const std::string &newEmail) {
         this->email = newEmail;
         std::cout << "Email-ul a fost actualizat cu succes!" << "\n";
     }

@@ -2,19 +2,20 @@
 // Created by Alexandra Zamfirescu on 23.03.2023.
 //
 
+
 #ifndef OOP_PROJECT_PLAYLIST_H
 #define OOP_PROJECT_PLAYLIST_H
 #include <iostream>
-#include "myString.h"
+#include <string>
+#include<vector>
 #include "Song.h"
 #include "Album.h"
 
-
 class Playlist {
-    myString title; //titlul playlist-ului
-    Song *songs; //vectorul de melodii
+    std::string title; //titlul playlist-ului
+    std::vector<Song> songs; //vectorul de melodii
     int nrSongs; //numarul de melodii
-    Album *albums; //vectorul de albume
+    std::vector<Album> albums; //vectorul de albume
     int nrAlbums; //numarul de albume
     int duration;  //durata playlist-ului
 
@@ -22,14 +23,15 @@ public:
     //constructor fara parametri
     Playlist();
     //constructor cu parametri
-    Playlist(const myString& title, Song *songs, const int& nrSongs, Album *albums, const int& nrAlbums, const int& duration);
+    Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
     //copy constructor
     Playlist(const Playlist &other);
     //destructor
     ~Playlist();
 
+
     //functie de afisare
-    void afisare() const;
+    virtual void afisare() const;
 
     //supraincarcarea operatorului =
     Playlist& operator = (const Playlist &other) {
@@ -42,54 +44,53 @@ public:
         return *this;
     }
 
-
-    //supraincarcarea operatorului ==
-    bool operator == (const Playlist &other) {
-        if(this -> title == other.title && this -> nrSongs == other.nrSongs && this -> nrAlbums == other.nrAlbums && this -> duration == other.duration)
-            return true;
-        else
-            return false;
-    }
-
-    //supraincarcarea operatorului !=
-    bool operator != (const Playlist &other) {
-        if(this -> title != other.title || this -> nrSongs != other.nrSongs || this -> nrAlbums != other.nrAlbums || this -> duration != other.duration)
-            return true;
-        else
-            return false;
-    }
+//    //supraincarcarea operatorului ==
+//    bool operator == (const Playlist &other) {
+//        if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> nrAlbums == other.nrAlbums && this -> duration == other.duration && this -> albums == other.albums)
+//            return true;
+//        else
+//            return false;
+//    }
+//
+//    //supraincarcarea operatorului !=
+//    bool operator != (const Playlist &other) {
+//        if(this -> title != other.title || this -> nrSongs != other.nrSongs || this -> nrAlbums != other.nrAlbums || this -> duration != other.duration)
+//            return true;
+//        else
+//            return false;
+//    }
 
 //supraincarcarea operatorului <<
     friend std::ostream& operator << (std::ostream& out, const Playlist& playlist);
 
     //getters
-    myString getTitle() const;
-    Song* getSongs() const;
+    std::string getTitle() const;
+    std::vector<Song> getSongs() const;
     int getNrSongs() const;
-    Album* getAlbums() const;
+    std::vector<Album> getAlbums() const;
     int getNrAlbums() const;
     int getDuration() const;
 
     //functii pentru adaugarea unei melodii in playlist
-    void addSong(const Song& song);
+    void addSong(const std::vector<Song>& song);
 
     //functii pentru adaugarea unui album in playlist
-    void addAlbum(const Album &album);
+    void addAlbum(const std::vector<Album> &album);
 
     //functii pentru stergerea unei melodii din playlist
-    void removeSong(Song &song);
+    void removeSong(std::vector<Song> &song);
 
     //functii pentru stergerea unui album din playlist
-    void removeAlbum(Album &album);
+    void removeAlbum(std::vector<Album> &album);
 
     //functii pentru modificarea numelui playlist-ului
-    void changeTitle(const myString& title);
+    void changeTitle(const std::string& title);
 
     //functii pentru sortare
     void sort();
 
     //functii pentru cautare
-    void search( const myString& title);
+    void search( const std::string& title);
 
     //alte functii utile pentru playlist
     void play(int i) const; //reda playlist-ul
@@ -100,6 +101,14 @@ public:
     int repeatOne(int i) const; //repeta melodia curenta
     void shuffle(); //reda melodii aleator
     void shuffleSongs();
+
+    std::vector<Song>::iterator begin();
+    std::vector<Song>::iterator end();
+
 };
+
+
+
+//mosteniri - le fac in fisiere separate pe calea "Playlist.h"
 
 #endif //OOP_PROJECT_PLAYLIST_H
