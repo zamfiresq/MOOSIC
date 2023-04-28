@@ -295,10 +295,23 @@ int main(){
     for(int i = 0; i < 3; i++)
         da.push_back(obiect4);
 
-//
+//int year;  //anul lansarii melodiei
+//    std::string artistName; //numele artistului
+//    std::string name; //titlul melodiei
+//    std::string language;  //limba melodiei
+//    unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
+//    std::vector<std::string> feat; //vector de string-uri cu numele colaboratorilor
 
-    Song cantec1(2023, obiect, obiect, valoare, da);
-//    cantec1.afis();
+int year = 2023;
+std::string artistname = "Nume Artist";
+std::string numeMelodie = "Numele melodiei";
+std::string limba = "Engleza";
+
+
+
+
+Song cantec1(year, artistname, numeMelodie, limba,  3, da);
+    //cantec1.afis();
 
 //    std::vector<std::shared_ptr<Song>> cantece;
 //    cantece.push_back(std::make_shared<Song>(cantec1));
@@ -310,9 +323,6 @@ int main(){
     cantece.push_back(cantec1);
     cantece.push_back(cantec1);
 
-
-//    for(auto c: cantece)
-//        c.afis();
 
     int an = 2022;
 
@@ -332,8 +342,8 @@ int main(){
 //    plm.afis();
 
     //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
-    Playlist pl("Titlu pl", cantece, 3, 150);
-    pl.afisare();
+//    Playlist pl("Titlu pl", cantece, 3, 150);
+    //pl.afisare();
 
     Album album2(an, "NU", 3, cantece); //Nume album - A doua cea mai frumi melodie
 //    std::cout << album1 << "\n\n\n\n\n";
@@ -341,14 +351,18 @@ int main(){
     albumele.push_back(album2);
     albumele.push_back(album2);
     albumele.push_back(album2);
-    pl.addAlbum(albumele);
-    std::cout << "------------------------------DUPA------------------------------";
-    pl.afisare();
+//    pl.addAlbum(albumele);
 
-    std::vector<Playlist> playlists;
-    playlists.push_back(pl);
-    playlists.push_back(pl);
-    playlists.push_back(pl);
+    std::cout << "------------------------------DUPA------------------------------";
+    std::cout<<"\n";
+
+
+    //pl.afisare();
+
+//    std::vector<Playlist> playlists;
+//    playlists.push_back(pl);
+//    playlists.push_back(pl);
+//    playlists.push_back(pl);
 
 //    for(auto c: playlists)
 //        c.afisare();
@@ -370,18 +384,34 @@ int main(){
 
 
 //User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists);
-    User user(username,password, email, country, birthDate, false, playlists);
-//    user.afisare();
+//    User user(username,password, email, country, birthDate, false, playlists);
+////    user.afisare();
+//
+//    std::vector<User> users;
+//    users.push_back(user);
+//    users.push_back(user);
+//    users.push_back(user);
+//
 
-    std::vector<User> users;
-    users.push_back(user);
-    users.push_back(user);
-    users.push_back(user);
+
+
+
+
+    //playlistFavorite(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration, const int& nrArtists);
+//    playlistFavorite plf;
+//    plf = playlistFavorite ("Playlist favorit", cantece, 3, 120, 4);
+//    //plf.afisare();
+//    std::cout<<"\n";
+//    //std::cout<<plf;
+//
+//    plf.favoriteArtist();
+//    std::cout<<plf;
+
+
+
 
 //    for(auto c: users)
 //        c.afisare();
-
-
 
 //    for(int i = 0; i < albume.size(); i++)
 //        std::cout << albume[i] << "\n";

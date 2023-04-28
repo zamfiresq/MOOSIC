@@ -216,9 +216,9 @@ void Playlist::sortAfterArtistName() {
 
 
 //functii pentru play, pause, next, previous, repeat, repeat one, shuffle
-        void Playlist::play(int i) const {
-            std::cout << "Playing " << songs[i].getTitle() << "\n";
-        }
+//        void Playlist::play(int i) const {
+//            std::cout << "Playing " << songs[i].getTitle() << "\n";
+//        }
 
         void Playlist::pause(int i) const {
             std::cout << "Paused " << songs[i].getTitle() << "\n";
@@ -268,12 +268,3 @@ void Playlist::sortAfterArtistName() {
             shuffleSongs();
         }
 
-
-
-        std::vector<Song>::iterator Playlist::begin() { //iteratorul pentru vectorul de melodii
-            return songs.begin();
-        }
-
-        std::vector<Song>::iterator Playlist::end() { //iteratorul pentru vectorul de melodii
-            return songs.end();
-        }

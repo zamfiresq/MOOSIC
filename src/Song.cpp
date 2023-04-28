@@ -47,7 +47,6 @@ void Song::afis() {
 
     for(int i = 0; i < nrFeats; i++)
         std::cout << feat[i] << " ";
-        std::cout<<"dadaadada";
     std::cout << "\n";
 }
 
@@ -58,7 +57,6 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     for(int i = 0; i < melodie.nrFeats; i++){
             os << melodie.feat[i] <<"\n"; //afisare feat
         }
-
 
     return os;
 }
@@ -102,18 +100,3 @@ void Song::setNrFeats(unsigned int& nrFeats) {
 void Song::setYear(int& year) {
     this -> year = year;
 }
-
-
-//bool operator == (const Song &other) {
-//cepulamea
-//bool Song::operator==(const Song &other) {
-//    return year == other.year &&
-//           name == other.name &&
-//           language == other.language &&
-//           nrFeats == other.nrFeats &&
-//           feat == other.feat;
-//}
-//
-//bool Song::operator!=(const Song &rhs) {
-//    return !(rhs == *this);
-//}

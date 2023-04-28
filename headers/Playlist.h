@@ -11,6 +11,7 @@
 #include "Song.h"
 #include "Album.h"
 
+
 class Playlist {
     std::string title; //titlul playlist-ului
     std::vector<Song> songs; //vectorul de melodii
@@ -27,7 +28,6 @@ public:
     //destructor
     ~Playlist();
 
-
     //functie de afisare
     virtual void afisare() const;
 
@@ -40,21 +40,23 @@ public:
         return *this;
     }
 
-//    //supraincarcarea operatorului ==
-//    bool operator == (const Playlist &other) {
-//        if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> nrAlbums == other.nrAlbums && this -> duration == other.duration && this -> albums == other.albums)
-//            return true;
-//        else
-//            return false;
-//    }
-//
-//    //supraincarcarea operatorului !=
-//    bool operator != (const Playlist &other) {
-//        if(this -> title != other.title || this -> nrSongs != other.nrSongs || this -> nrAlbums != other.nrAlbums || this -> duration != other.duration)
-//            return true;
-//        else
-//            return false;
-//    }
+    //supraincarcarea operatorului ==
+    bool operator == (const Playlist &other) const {
+        if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> duration == other.duration )
+            return true;
+        else
+            return false;
+    }
+
+
+    //supraincarcarea operatorului !=
+    bool operator != (const Playlist &other) const {
+        if(this -> title != other.title || this -> songs == other.songs || this -> nrSongs != other.nrSongs ||  this -> duration != other.duration)
+            return true;
+        else
+            return false;
+    }
+
 
 //supraincarcarea operatorului <<
     friend std::ostream& operator << (std::ostream& out, const Playlist& playlist);
@@ -64,6 +66,7 @@ public:
     std::vector<Song> getSongs() const;
     int getNrSongs() const;
     int getDuration() const;
+
 
     //functii pentru adaugarea unei melodii in playlist
     void addSong(const std::vector<Song>& song);
@@ -83,12 +86,11 @@ public:
     //
     void sortAfterArtistName();
 
-
     //functii pentru cautare
     void search( const std::string& title);
 
     //alte functii utile pentru playlist
-    void play(int i) const; //reda playlist-ul
+//    void play(int i) const; //reda playlist-ului
     void pause(int i) const; //pune pauza
     int next(int i) const; //trec la urmatoarea melodie
     int previous(int i) const; //trec la melodia anterioara
@@ -97,8 +99,6 @@ public:
     void shuffle(); //reda melodii aleator
     void shuffleSongs();
 
-    std::vector<Song>::iterator begin();
-    std::vector<Song>::iterator end();
 
 };
 

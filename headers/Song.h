@@ -8,9 +8,10 @@
 #include <string>
 #include<vector>
 
+
 class Song {
     int year;  //anul lansarii melodiei
-    std::string artistName;
+    std::string artistName; //numele artistului
     std::string name; //titlul melodiei
     std::string language;  //limba melodiei
     unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
@@ -38,12 +39,12 @@ public:
     }
 
 //supraincarcarea operatorului ==
-    bool operator == (const Song &other) {
+    bool operator == (const Song &other) const {
         return (this -> year == other.year && this -> artistName == other.artistName && this -> name == other.name && this -> language == other.language && this -> nrFeats == other.nrFeats && this -> feat == other.feat);
     }
 
 //supraincarcarea operatorului !=
-    bool operator != (const Song &other) {
+    bool operator != (const Song &other) const {
         return (this -> year != other.year || this -> artistName != other.artistName || this -> name != other.name || this -> language != other.language || this -> nrFeats != other.nrFeats || this -> feat != other.feat);
     }
 

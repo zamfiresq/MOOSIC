@@ -95,13 +95,14 @@ void Album::setSongs(std::vector<Song>&songs) {
     Album::songs = songs;
 }
 
+
 bool Album::operator==(const Album &rhs) const {
-//    if( year == rhs.year && name == rhs.name && nrSongs == rhs.nrSongs) {
-//        for(int i = 0; i < nrSongs; i++)
-//            if(songs[i] != (rhs.songs)[i])
-//                return false;
-//    }
-//    return true;
+    if( year == rhs.year && name == rhs.name && nrSongs == rhs.nrSongs) {
+        for(int i = 0; i < nrSongs; i++)
+            if(songs[i] != (rhs.songs)[i])
+                return false;
+    }
+    return true;
     return (rhs == *this); // nu cred ca e ok
 }
 

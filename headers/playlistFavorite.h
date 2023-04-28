@@ -8,6 +8,7 @@
 #include "../headers/Artist.h"
 #include<string>
 
+
 //mostenire
 class playlistFavorite : public Playlist{
 private:
@@ -24,21 +25,16 @@ public:
     //copy constructor
     playlistFavorite(const playlistFavorite &other);
 
-    //destructor
-    ~playlistFavorite();
 
     //functionalitati
     void favoriteArtist(); //pe baza numarului de aparitii ale artistului, voi afisa artistul "preferat"
 
     friend std::ostream &operator<<(std::ostream &os, const playlistFavorite &other); //supraincarcarea operatorului <<
+
+    //abstractizare
+
+
 };
-
-
-
-
-
-
-
 
 
 #endif //OOP_PROJECT_PLAYLISTFAVORITE_H

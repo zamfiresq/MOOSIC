@@ -9,6 +9,7 @@
 #include <string>
 #include "Song.h"
 
+
 class Album {
     unsigned int year; //anul lansarii albumului
     std::string name; //numele albumului
@@ -23,7 +24,6 @@ public:
     ~Album(); //destructor
 
     void afis(); //functie de afisare
-
 
 
     //getters si setters pentru campurile clasei Album
@@ -59,6 +59,7 @@ public:
 
 
 };
+
 
 
 //    Album alb;

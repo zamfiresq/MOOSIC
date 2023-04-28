@@ -2,18 +2,18 @@
 // Created by Alexandra Zamfirescu on 26.04.2023.
 //
 
+
 #include "../headers/playlistFavorite.h"
-#include<map>
+
 
 playlistFavorite::playlistFavorite() {}
-
-//Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
 
 playlistFavorite::playlistFavorite(const std::string &title, std::vector<Song>&songs, const int &nrSongs, const int &duration, const int &nrArtists) : Playlist(title, songs, nrSongs, duration), nrArtists(nrArtists) {}
 
 playlistFavorite::playlistFavorite(const playlistFavorite &other) : Playlist(other), nrArtists(other.nrArtists) {}
 
-std::ostream &operator<<(std::ostream &os, const playlistFavorite &other){
+
+std::ostream &operator<<(std::ostream &os, const playlistFavorite &other){  //dynamic_cast
     os<< dynamic_cast<const Playlist&>(other); //conversie din playlistFavorite in Playlist
     other.afisare();
 
@@ -22,6 +22,10 @@ std::ostream &operator<<(std::ostream &os, const playlistFavorite &other){
 
 void playlistFavorite::afisare() const {
     std::cout<<"Playlist-ul "<<this->getTitle()<<" contine "<<this->getNrSongs()<<" melodii."<<std::endl;
+    std::cout<<"\n";
+
+    for(int i = 0; i < getNrSongs(); i++)
+        std::cout<< (this -> getSongs())[i]<<"\n";
 }
 
 void playlistFavorite::favoriteArtist() {
@@ -42,9 +46,10 @@ void playlistFavorite::favoriteArtist() {
         }
 
     }
-    std::cout<<"Artistul preferat este: "<<artist<<"\n";
 
-} //pe baza numarului de aparitii ale artistului, voi afisa artistul "preferat" - de modificat
+    std::cout<<"Artistul preferat este: "<< artist <<"\n";
+
+} //pe baza numarului de aparitii ale artistului, voi afisa artistul "preferat."
 
 
 
