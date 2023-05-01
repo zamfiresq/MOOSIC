@@ -7,6 +7,11 @@
 #include "headers/Playlist.h"
 #include "headers/User.h"
 #include "headers/playlistFavorite.h"
+#include "headers/Interfata.h"
+#include "headers/premiumUser.h"
+#include "headers/Premium.h"
+
+
 
 
 int main(){
@@ -309,7 +314,6 @@ std::string limba = "Engleza";
 
 
 
-
 Song cantec1(year, artistname, numeMelodie, limba,  3, da);
     //cantec1.afis();
 
@@ -322,7 +326,6 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
     cantece.push_back(cantec1);
     cantece.push_back(cantec1);
     cantece.push_back(cantec1);
-
 
     int an = 2022;
 
@@ -342,7 +345,7 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 //    plm.afis();
 
     //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
-//    Playlist pl("Titlu pl", cantece, 3, 150);
+    Playlist pl("Titlu pl", cantece, 3, 150);
     //pl.afisare();
 
     Album album2(an, "NU", 3, cantece); //Nume album - A doua cea mai frumi melodie
@@ -359,22 +362,13 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 
     //pl.afisare();
 
-//    std::vector<Playlist> playlists;
-//    playlists.push_back(pl);
-//    playlists.push_back(pl);
-//    playlists.push_back(pl);
+    std::vector<Playlist> playlists;
+    playlists.push_back(pl);
+    playlists.push_back(pl);
+    playlists.push_back(pl);
 
 //    for(auto c: playlists)
 //        c.afisare();
-
-//std::string username;
-//    std::string password;
-//    std::string email;
-//    std::string country;
-//    std::string birthDate;
-//
-//    bool subscription = false; //
-//    std::vector<Playlist> playlists;
 
     std::string username = "zamfiresq";
     std::string password = "parolaplm";
@@ -382,105 +376,25 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
     std::string country = "Romania";
     std::string birthDate = "06/04/2002";
 
+//
+//IPlaylist ip;
+//ip.play();
 
-//User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists);
-//    User user(username,password, email, country, birthDate, false, playlists);
-////    user.afisare();
-//
-//    std::vector<User> users;
-//    users.push_back(user);
-//    users.push_back(user);
-//    users.push_back(user);
-//
+std::cout<<"\n";
+
+//premiumUser(const std::string& username, const std::string& password, const std::string& email,
+//                const std::string& birthDate, const std::string& country, const std::vector<Playlist>&playlists, bool& premiumSubscription);
 
 
 
+Premium pr;
+std::cout<<pr;
 
+premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
+std::cout<<userPremium;
+std::cout<<"\n";
 
-    //playlistFavorite(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration, const int& nrArtists);
-//    playlistFavorite plf;
-//    plf = playlistFavorite ("Playlist favorit", cantece, 3, 120, 4);
-//    //plf.afisare();
-//    std::cout<<"\n";
-//    //std::cout<<plf;
-//
-//    plf.favoriteArtist();
-//    std::cout<<plf;
-
-
-
-
-//    for(auto c: users)
-//        c.afisare();
-
-//    for(int i = 0; i < albume.size(); i++)
-//        std::cout << albume[i] << "\n";
-//
-//
-//    Song* v;
-//    v = new Song[valoare];
-//
-//    myString obiect2 = "O melodie frumoasa"; //numele melodiei 2
-//    myString obiect3 = "Romana"; //limba
-//
-//    Song cantec2(2023, obiect2, obiect3, valoare, da); //O melodie frumoasa
-////    *v = cantec2;
-//    for(int i = 0; i < valoare; i++)
-//        v[i] = cantec2;
-//
-//
-//    Album album1(an, obiect1, valoare, v); //Nume album - A doua cea mai frumi melodie
-//
-//    Album album2(2025, obiect2, valoare, v); //Nume album - O melodie frumoasa
-//    std::cout<< album1;
-//
-//    myString firstName = "first name";
-//    myString lastName = "last name";
-//    myString nickname = "nickname";
-//    myString nationality = "nationality";
-//    int nr = 4; //nr ptr vector l
-//    int nr1 = 5; // nr ptr vector albume
-//    int nr2 = 3; //nr ptr vector de melodii/ singles
-//
-//    myString* l;
-//    l = new myString[nr];
-//
-//    for(int i = 0; i < nr; i++)
-//        l[i] = "lang";
-//
-//    Album* al;
-//    al = new Album[nr1];
-//
-//    for(int i = 0; i < nr1; i++)
-//        al[i] = album1;
-//    al[1] = album2;
-//
-//    Song* s;
-//    s = new Song[nr2];
-//
-//    for(int i = 0; i < nr2; i++)
-//        s[i] = cantec2;
-//
-//    s[2] = cantec1;
-//
-//
-//    Artist donToliver(firstName, lastName, nickname, nationality, l, nr, al, nr1, s, nr2 );
-//     std::cout<<donToliver;
-//
-//    myString titlup = "Titlul playlist-ului meu";
-//    int d = 150;
-//
-//    Album a;
-//    //plm( playlist-ul meu ;) )
-//    Playlist plm(titlup, s, nr2, al, nr1, d);
-//    plm.repeatOne(2);
-//
-////    std::cout << plm;
-////    plm.removeSong(cantec1); //
-////    plm.removeAlbum(album1); //
-////    std::cout << plm;
-//plm.shuffle();
-
+userPremium.removeAd();
 
 
 return 0;

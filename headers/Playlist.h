@@ -39,7 +39,6 @@ public:
         this -> duration = other.duration;
         return *this;
     }
-
     //supraincarcarea operatorului ==
     bool operator == (const Playlist &other) const {
         if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> duration == other.duration )
@@ -86,14 +85,15 @@ public:
     //
     void sortAfterArtistName();
 
+
     //functii pentru cautare
     void search( const std::string& title);
 
+
     //alte functii utile pentru playlist
-//    void play(int i) const; //reda playlist-ului
-    void pause(int i) const; //pune pauza
-    int next(int i) const; //trec la urmatoarea melodie
-    int previous(int i) const; //trec la melodia anterioara
+//    void pause(int i) const; //pune pauza
+//    int next(int i) const; //trec la urmatoarea melodie
+//    int previous(int i) const; //trec la melodia anterioara
     void repeat() const; //repeta playlist-ul
     int repeatOne(int i) const; //repeta melodia curenta
     void shuffle(); //reda melodii aleator
@@ -102,8 +102,9 @@ public:
 
 };
 
+//ABSTRACTIZARE - clasa de baza Playlist
 
 
-//mosteniri - le fac in fisiere separate pe calea "Playlist.h"
+
 
 #endif //OOP_PROJECT_PLAYLIST_H

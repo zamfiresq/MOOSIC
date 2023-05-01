@@ -100,6 +100,24 @@ build CMakeFiles/oop_project.dir/src/playlistFavorite.cpp.o: CXX_COMPILER__oop_p
   OBJECT_DIR = CMakeFiles/oop_project.dir
   OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
 
+build CMakeFiles/oop_project.dir/src/Interfata.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Interfata.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/Interfata.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/oop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
+
+build CMakeFiles/oop_project.dir/src/Premium.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/Premium.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/Premium.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/oop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
+
+build CMakeFiles/oop_project.dir/src/premiumUser.cpp.o: CXX_COMPILER__oop_project_Debug /Users/alexandrazamfirescu/CLionProjects/oop-project/src/premiumUser.cpp || cmake_object_order_depends_target_oop_project
+  DEP_FILE = CMakeFiles/oop_project.dir/src/premiumUser.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/oop_project.dir
+  OBJECT_FILE_DIR = CMakeFiles/oop_project.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target oop_project
@@ -108,7 +126,7 @@ build CMakeFiles/oop_project.dir/src/playlistFavorite.cpp.o: CXX_COMPILER__oop_p
 #############################################
 # Link the executable oop_project
 
-build oop_project: CXX_EXECUTABLE_LINKER__oop_project_Debug CMakeFiles/oop_project.dir/main.cpp.o CMakeFiles/oop_project.dir/src/Artist.cpp.o CMakeFiles/oop_project.dir/src/Album.cpp.o CMakeFiles/oop_project.dir/src/Song.cpp.o CMakeFiles/oop_project.dir/src/User.cpp.o CMakeFiles/oop_project.dir/src/Playlist.cpp.o CMakeFiles/oop_project.dir/src/myString.cpp.o CMakeFiles/oop_project.dir/src/prompt.cpp.o CMakeFiles/oop_project.dir/src/playlistFavorite.cpp.o
+build oop_project: CXX_EXECUTABLE_LINKER__oop_project_Debug CMakeFiles/oop_project.dir/main.cpp.o CMakeFiles/oop_project.dir/src/Artist.cpp.o CMakeFiles/oop_project.dir/src/Album.cpp.o CMakeFiles/oop_project.dir/src/Song.cpp.o CMakeFiles/oop_project.dir/src/User.cpp.o CMakeFiles/oop_project.dir/src/Playlist.cpp.o CMakeFiles/oop_project.dir/src/myString.cpp.o CMakeFiles/oop_project.dir/src/prompt.cpp.o CMakeFiles/oop_project.dir/src/playlistFavorite.cpp.o CMakeFiles/oop_project.dir/src/Interfata.cpp.o CMakeFiles/oop_project.dir/src/Premium.cpp.o CMakeFiles/oop_project.dir/src/premiumUser.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   OBJECT_DIR = CMakeFiles/oop_project.dir
   POST_BUILD = :

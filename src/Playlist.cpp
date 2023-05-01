@@ -27,36 +27,9 @@ Playlist::Playlist(const Playlist &object){
         this->songs = object.songs;
     }
 
-//    if (object.nrSongs > 0) {
-//        this -> songs = new Song[object.nrSongs];
-//
-//        for (int i = 0; i < object.nrSongs; i++)
-//            this -> songs[i] = object.songs[i];
-//    } else {
-//        this -> nrSongs = 0;
-//        this -> songs = nullptr;
-//    }
-//
-//    if (object.nrAlbums > 0) {
-//        this -> albums = new Album[object.nrAlbums];
-//
-//        for (int i = 0; i < object.nrAlbums; i++)
-//            this -> albums[i] = object.albums[i];
-//    } else {
-//        this -> nrAlbums = 0;
-//        this -> albums = nullptr;
-//    }
-//} //am comentat secventele de cod unde am alocat dinamic manual
-
 
 //apelam destructorul pentru a nu avea probleme cu alocarea memoriei
         Playlist::~Playlist() {}
-            //comentez alocarile dinamice facute manual
-//    if (songs != nullptr)
-//        delete []songs;
-//    if (albums != nullptr)
-//        delete []albums;
-
 
 //afisam playlist-ul
         void Playlist::afisare() const {
@@ -219,24 +192,24 @@ void Playlist::sortAfterArtistName() {
 //        void Playlist::play(int i) const {
 //            std::cout << "Playing " << songs[i].getTitle() << "\n";
 //        }
-
-        void Playlist::pause(int i) const {
-            std::cout << "Paused " << songs[i].getTitle() << "\n";
-        }
-
-        int Playlist::next(int i) const {
-            if (i + 1 > nrSongs)
-                i = -1;
-            std::cout << "Playing next " << songs[++i].getTitle() << "\n";
-            return i;
-        }
-
-        int Playlist::previous(int i) const {
-            if (i - 1 < 0)
-                i = nrSongs;
-            std::cout << "Playing previous " << songs[--i] << "\n";
-            return i;
-        }
+//
+//        void Playlist::pause(int i) const {
+//            std::cout << "Paused " << songs[i].getTitle() << "\n";
+//        }
+//
+//        int Playlist::next(int i) const {
+//            if (i + 1 > nrSongs)
+//                i = -1;
+//            std::cout << "Playing next " << songs[++i].getTitle() << "\n";
+//            return i;
+//        }
+//
+//        int Playlist::previous(int i) const {
+//            if (i - 1 < 0)
+//                i = nrSongs;
+//            std::cout << "Playing previous " << songs[--i] << "\n";
+//            return i;
+//        }
 
 
         int Playlist::repeatOne(int i) const {

@@ -2,12 +2,14 @@
 // Created by Alexandra Zamfirescu on 23.03.2023.
 //
 
+
 #ifndef OOP_PROJECT_USER_H
 #define OOP_PROJECT_USER_H
 #include <iostream>
 #include "Playlist.h"
 #include <string>
 #include <vector>
+
 
 class User {
     std::string username;
@@ -16,12 +18,13 @@ class User {
     std::string country;
     std::string birthDate;
 
-    bool subscription = false; //
+    //bool subscription = false; //unnecessary
     std::vector<Playlist> playlists;
+
 
 public:
     User(); //constructor fara parametri
-    User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists); //constructor cu parametri
+    User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists); //constructor cu parametri
     User(const User &obj); //copy constructor
 
     //destructor
@@ -37,7 +40,7 @@ public:
         this -> email = other.email;
         this -> country = other.country;
         this -> birthDate = other.birthDate;
-        this -> subscription = other.subscription; //
+        //this -> subscription = other.subscription; //
         this -> playlists = other.playlists; //
 
         return *this;
@@ -49,25 +52,27 @@ public:
 
     //supraincarcarea operatorului <<
     friend std::ostream& operator << (std::ostream &os, const User &obj) {
-        os <<"Username: " <<obj.username << "\n ";
-        os <<"Password: " <<obj.password <<"\n ";
-        os<<"E-mail: "  << obj.email <<"\n ";
-        os<<"Country: " <<obj.country << "\n ";
-        os<<"Birth date: " << obj.birthDate << "\n";
+        os << " Username: " << obj.username << "\n ";
+        os << "Password: " << obj.password << "\n ";
+        os << "E-mail: " << obj.email << "\n ";
+        os << "Country: " << obj.country << "\n ";
+        os << "Birth date: " << obj.birthDate << "\n";
 
 
-        if(obj.subscription == true) {
-            os << "Subscription: " << "Valid" << "\n";
-            os << "Playlists: " << "\n";
-            for (int i = 0; i < obj.playlists.size(); i++)
-                os << obj.playlists[i] << " ";
-
-        }else{
-            os << "Subscription: " << "Not valid" << "\n";
-            os<<"Playlists: " << "No playlists" << "\n";
-
-
-        }
+//        if(obj.subscription == true) {
+//
+//            os << " Subscription: " << "Valid" << "\n";
+//            os << " Playlists: \n " << "\n";
+//            for (int i = 0; i < obj.playlists.size(); i++)
+//                os << obj.playlists[i] << " ";
+//
+//        }else{
+//
+//            os << "Subscription: " << "Not valid" << "\n";
+//            os<<"Playlists: " << "No playlists" << "\n";
+//
+//
+//        }
         return os;
     }
 
@@ -83,8 +88,8 @@ public:
         is >> obj.country;
         std::cout << "Birth date: ";
         is >> obj.birthDate;
-        std::cout << "Subscription: ";
-        is >> obj.subscription;
+//        std::cout << "Subscription: ";
+//        is >> obj.subscription;
 //        std::cout << "Playlists: ";
 //        is >> obj.playlists;
 //
@@ -102,7 +107,6 @@ public:
         return is;
     }
 
-
     //functionalitati
 
     void addFavorite(const std::vector<Playlist> &playlist);
@@ -112,7 +116,15 @@ public:
     void setPassword(const std::string &newPassword);
     void setEmail(const std::string &newEmail);
 
-    void setSubscription(const bool& status); //
+    //void setSubscription(const bool& status); //
+
+    //getters
+std::string getUsername() const;
+std::string getPassword() const;
+std::string getEmail() const;
+std::string getCountry() const;
+std::string getBirthDate() const;
+std::vector<Playlist> getPlaylists() const;
 
 
 };

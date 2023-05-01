@@ -5,32 +5,24 @@
 #include "../headers/User.h"
 #include "../headers/Playlist.h"
 
-
-
 //constructor fara parametri
 User::User() = default;
 
 //constructor cu parametri
-User::User(std::string& username, std::string& password, std::string& email, std::string& country, std::string& birthDate, bool subscription, std::vector<Playlist>& playlists) {
+User::User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists) {
     this->username = username;
     this->password = password;
     this->email = email;
     this->country = country;
     this->birthDate = birthDate;
-    this->subscription = subscription;
+    //this->subscription = subscription;
     this->playlists = playlists;
 
-//    if (playlists != nullptr) {
-//        this -> playlists = new Playlist[1];
-//        this -> playlists[0] = playlists[0];
-//    } else {
-//        this -> playlists = nullptr;
-//    }
 }
 
 //copy constructor - lista de initializare
     User::User(const User &obj) : username{obj.username}, password{obj.password}, email{obj.email},
-                                  country{obj.country}, birthDate{obj.birthDate}, subscription{obj.subscription},
+                                  country{obj.country}, birthDate{obj.birthDate},
                                   playlists{obj.playlists} {
     }
 
@@ -98,5 +90,32 @@ User::User(std::string& username, std::string& password, std::string& email, std
         this->email = newEmail;
         std::cout << "Email-ul a fost actualizat cu succes!" << "\n";
     }
+
+    //getters
+    std::string User::getUsername() const {
+        return this->username;
+    }
+
+    std::string User::getPassword() const {
+        return this->password;
+    }
+
+    std::string User::getEmail() const {
+        return this->email;
+    }
+
+    std::string User::getCountry() const {
+        return this->country;
+    }
+
+    std::string User::getBirthDate() const {
+        return this->birthDate;
+    }
+
+    std::vector<Playlist> User::getPlaylists() const {
+        return this->playlists;
+    }
+
+
 
 
