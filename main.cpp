@@ -356,6 +356,7 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
     albumele.push_back(album2);
 //    pl.addAlbum(albumele);
 
+
     std::cout << "------------------------------DUPA------------------------------";
     std::cout<<"\n";
 
@@ -381,20 +382,46 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 //ip.play();
 
 std::cout<<"\n";
+//
+//
+//Premium pr;
+//std::cout<<pr;
+//
+//premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
+//std::cout<<userPremium;
+//std::cout<<"\n";
+//
+//userPremium.removeAd();
 
-//premiumUser(const std::string& username, const std::string& password, const std::string& email,
-//                const std::string& birthDate, const std::string& country, const std::vector<Playlist>&playlists, bool& premiumSubscription);
+IPlaylist ip;
 
+ip.play();
+ip.pause();
 
-
-Premium pr;
-std::cout<<pr;
-
-premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
-std::cout<<userPremium;
 std::cout<<"\n";
 
-userPremium.removeAd();
+ISong is;
+
+is.play();
+is.pause();
+is.afisare(); std::cout<<cantec1;
+
+std::cout<<"\n";
+
+
+    AbsPlaylist playlist;
+
+// adaugăm melodii la playlist
+    playlist.addSong(cantec1);
+    playlist.addSong(cantec1);
+    playlist.addSong(cantec1);
+
+
+    // pornim redarea de la prima melodie
+    playlist.nextSong(3);
+
+
+
 
 
 return 0;

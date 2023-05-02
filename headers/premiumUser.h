@@ -20,7 +20,6 @@ public:
 
     premiumUser(const premiumUser &obj); // copy constructor
 
-
     //operatorul <<
     friend std::ostream& operator << (std::ostream &os, const premiumUser &obj);
 
