@@ -143,6 +143,7 @@ void Artist::afis() const {
     std::cout << "\n";
 }
 
+
 //operator <<
 std::ostream &operator<<(std::ostream &os, const Artist &artist) {
     os <<artist.firstName<<" "<< artist.lastName << " " << artist.nickname << " " << artist.nationality<< " "<< artist.nrLanguages << " " << artist.nrSongs<<" "<< artist.nrAlbums <<"\n";

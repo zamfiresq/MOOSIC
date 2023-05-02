@@ -10,8 +10,7 @@
 #include "headers/Interfata.h"
 #include "headers/premiumUser.h"
 #include "headers/Premium.h"
-
-
+#include "headers/Exceptions.h"
 
 
 int main(){
@@ -346,7 +345,8 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 
     //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
     Playlist pl("Titlu pl", cantece, 3, 150);
-    //pl.afisare();
+    pl.afisare();
+    std::cout<<"\n";
 
     Album album2(an, "NU", 3, cantece); //Nume album - A doua cea mai frumi melodie
 //    std::cout << album1 << "\n\n\n\n\n";
@@ -387,11 +387,11 @@ std::cout<<"\n";
 //Premium pr;
 //std::cout<<pr;
 //
-//premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
-//std::cout<<userPremium;
-//std::cout<<"\n";
-//
-//userPremium.removeAd();
+premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
+std::cout<<userPremium;
+std::cout<<"\n";
+
+userPremium.removeAd();
 
 IPlaylist ip;
 
@@ -419,10 +419,73 @@ std::cout<<"\n";
 
     // pornim redarea de la prima melodie
     playlist.nextSong(3);
+    std::cout<<"\n\n";
+
+//exceptie 1
+//pentru efectuare plata abonament
+    std::string numar_card_valid = "1234567895346678";
+    std::string numar_card_invalid = "1234";
+
+//    try {
+//        efectuare_plata(numar_card_valid);
+//        std::cout << "Plata cu cardul valid a fost efectuată cu succes!\n\n";
+//    } catch (const std::exception& e) {
+//        std::cerr << "Eroare la efectuarea plății cu cardul valid: " << e.what() << '\n\n';
+//    }
+//
+//    try {
+//        efectuare_plata(numar_card_invalid);
+//        std::cout << "Plata cu cardul invalid a fost efectuată cu succes!\n\n";
+//    } catch (const std::exception& e) {
+//        std::cerr << "Eroare la efectuarea plății: " << e.what() << "\n\n";
+//    }
+
+    std::cout<<"\n\n";
+//exceptie 2
+//pentru adaugarea unei melodii cu acelasi nume in Playlist
+
+    Playlist playlist1;
+    Song cantec3;
+    //Song(const int& year,  const std::string& artistName, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat);
+    cantec3 = Song(1975, "Queen", "Bohemian Rhapsody", "English", 1, da);
+
+    Song cantec4;
+    cantec4 = Song(1971, "Led Zeppelin", "Stairway to Heaven", "English", 1, da);
+
+    //
+    Song cantec5;
+    cantec5 = Song(1982, "Michael Jackson", "Thriller", "English", 1, da);
+
+    Song cantec6;
+    cantec6 = Song(1991, "Nirvana", "Smells Like Teen Spirit", "English", 1, da);
+
+    Song cantec7;
+    cantec7 = Song(1968, "The Beatles", "Hey Jude", "English", 1, da);
+
+    Song cantec8;
+    cantec8 = Song(1977, "Pink Floyd", "Comfortably Numb", "English", 1, da);
 
 
+//    try {
+//        playlist1.addSong(cantec3);
+//        playlist1.addSong(cantec4);
+//        playlist1.addSong(cantec3); // dam throw la exceptie
+//    } catch (std::exception& e) {
+//        std::cerr << "Exception caught: " << e.what() <<"\n";
+//    }
 
+try{
+    playlist1.addSong(cantec5);
+    playlist1.addSong(cantec6);
+    playlist1.addSong(cantec7);
+    playlist1.addSong(cantec8);
+}catch (const ArtistNotFound& e){
+    std::cerr<< "Artist not found: " << e.getArtistName() << "\n";
+}
 
+//proba static
+int numSongs = Song::getNrFeats();
+Song::welcomeMessage();
 
 return 0;
 

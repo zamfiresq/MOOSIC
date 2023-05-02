@@ -68,6 +68,9 @@ public:
 
     int getNrSongs() const;
     void setNrSongs(const int& nrSongs);
+
 };
+
+
 
 #endif //OOP_PROJECT_ARTIST_H

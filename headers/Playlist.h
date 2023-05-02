@@ -10,6 +10,7 @@
 #include<vector>
 #include "Song.h"
 #include "Album.h"
+#include "Artist.h"
 
 
 class Playlist {
@@ -41,7 +42,7 @@ public:
     }
     //supraincarcarea operatorului ==
     bool operator == (const Playlist &other) const {
-        if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> duration == other.duration )
+        if(this -> title == other.title && this -> songs == other.songs && this -> nrSongs == other.nrSongs  && this -> duration == other.duration)
             return true;
         else
             return false;
@@ -65,10 +66,11 @@ public:
     std::vector<Song> getSongs() const;
     int getNrSongs() const;
     int getDuration() const;
+    Artist getArtist() const;
 
 
     //functii pentru adaugarea unei melodii in playlist
-    void addSong(const std::vector<Song>& song);
+    void addSong(const Song& song);
 
     //functii pentru adaugarea unui album in playlist
     void addAlbum(const std::vector<Album> &albume);
@@ -91,6 +93,7 @@ public:
 
 
     //alte functii utile pentru playlist
+    //void play() const; //reda playlist-ul
 //    void pause(int i) const; //pune pauza
 //    int next(int i) const; //trec la urmatoarea melodie
 //    int previous(int i) const; //trec la melodia anterioara
@@ -101,9 +104,6 @@ public:
 
 
 };
-
-//ABSTRACTIZARE - clasa de baza Playlist
-
 
 
 

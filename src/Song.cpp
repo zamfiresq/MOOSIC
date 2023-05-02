@@ -4,13 +4,13 @@
 
 #include "../headers/Song.h"
 
+unsigned int Song::nrFeats = 0;
 
 Song::Song() {
     this -> year = 2023;
     this -> artistName = "numeArtist";
     this -> name = "unNume";
     this -> language = "English";
-    this -> nrFeats = 0;
     this -> feat = {};
 }
 
@@ -72,9 +72,10 @@ std::string Song::getLanguage() const {
 std::vector<std::string> Song::getFeat() const {  // std::string getFeat() const;
     return feat;  //am modificat aici
 }
-unsigned int Song::getNrFeats() const {
+unsigned int Song::getNrFeats(){
     return nrFeats;
 }
+
 int Song::getYear() const {
     return year;
 }
@@ -99,4 +100,8 @@ void Song::setNrFeats(unsigned int& nrFeats) {
 }
 void Song::setYear(int& year) {
     this -> year = year;
+}
+
+void Song::welcomeMessage() {
+    std::cout << "Welcome to the song class!\n";
 }

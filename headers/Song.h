@@ -14,7 +14,7 @@ class Song {
     std::string artistName; //numele artistului
     std::string name; //titlul melodiei
     std::string language;  //limba melodiei
-    unsigned int nrFeats; //numarul de colaboratori dintr-o melodie
+    static unsigned int nrFeats; //numarul de colaboratori dintr-o melodie //STATIC
     std::vector<std::string> feat; //vector de string-uri cu numele colaboratorilor
 
 public:
@@ -53,8 +53,9 @@ public:
     std::string getArtistName() const;
     int getYear() const;
     std::string getLanguage() const;
-    unsigned int getNrFeats() const;
+    static unsigned int getNrFeats(); //STATIC
     std::vector<std::string> getFeat() const;
+
 
     //setters
     void setTitle(std::string& name);
@@ -62,6 +63,8 @@ public:
     void setLanguage(std::string& language);
     void setNrFeats(unsigned int& nrFeats);
     void setFeat(std::vector<std::string>&feat);
+
+    static void welcomeMessage(); //STATIC
 
 };
 

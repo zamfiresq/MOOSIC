@@ -62,21 +62,21 @@ Playlist::Playlist(const Playlist &object){
 
 //
 ////adaugam o melodie in playlist
-//        void Playlist::addSong(const std::vector<Song> &song) {
-//            Song *mel = new Song[nrSongs + 1]; //mel reprezinta un vector de melodii cu nrSongs +1 melodii
-//            for (int i = 0; i < nrSongs; i++)
-//                mel[i] = songs[i]; //copiem toate melodiile din vectorul songs in mel
-//
-//            mel[nrSongs] = song; //adaugam melodia noua in vectorul mel
-//            nrSongs++;
-//
+void Playlist::addSong(const Song& song) {
+    for (const auto& s : songs) {
+        if (s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
+            throw std::invalid_argument("Song already exists in playlist.");
+        }
+    }
+    songs.push_back(song);
+}
+
 ////            if (songs != nullptr) //daca vectorul songs nu este gol, il vom sterge
 ////                delete[]songs;
 ////            songs = new Song[nrSongs];
 //
 //            for (int i = 0; i < nrSongs; i++)
 //                songs[i] = mel[i];
-//        }
 //
 //adaugam un album in playlist
 void Playlist::addAlbum(const std::vector<Album>&albume) {
