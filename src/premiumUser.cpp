@@ -14,9 +14,11 @@ premiumUser::premiumUser(const std::string& username, const std::string& passwor
 
 premiumUser::premiumUser(const premiumUser &obj) : User(obj), Premium(obj) {}
 
+
 //operatorul <<
 std::ostream& operator << (std::ostream &os, const premiumUser &obj) {
     os << dynamic_cast<const User&>(obj);
+
 
         if(obj.hasPremiumSubscription()==false){
             os<<" Premium subscription:(0) "<<"N AVEM ASA CEVA CA ESTI SARAC LIPIT\n";

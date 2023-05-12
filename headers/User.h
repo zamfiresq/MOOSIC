@@ -17,6 +17,8 @@ class User {
     std::string email;
     std::string country;
     std::string birthDate;
+    static unsigned int idMax;
+    unsigned int id;
 
     //bool subscription = false; //unnecessary
     std::vector<Playlist> playlists;
@@ -42,7 +44,7 @@ public:
         this -> birthDate = other.birthDate;
         //this -> subscription = other.subscription; //
         this -> playlists = other.playlists; //
-
+        this -> id = other.id;
         return *this;
     }
 
@@ -58,21 +60,6 @@ public:
         os << "Country: " << obj.country << "\n ";
         os << "Birth date: " << obj.birthDate << "\n";
 
-
-//        if(obj.subscription == true) {
-//
-//            os << " Subscription: " << "Valid" << "\n";
-//            os << " Playlists: \n " << "\n";
-//            for (int i = 0; i < obj.playlists.size(); i++)
-//                os << obj.playlists[i] << " ";
-//
-//        }else{
-//
-//            os << "Subscription: " << "Not valid" << "\n";
-//            os<<"Playlists: " << "No playlists" << "\n";
-//
-//
-//        }
         return os;
     }
 
@@ -88,21 +75,6 @@ public:
         is >> obj.country;
         std::cout << "Birth date: ";
         is >> obj.birthDate;
-//        std::cout << "Subscription: ";
-//        is >> obj.subscription;
-//        std::cout << "Playlists: ";
-//        is >> obj.playlists;
-//
-//        int nrPlaylists;
-//        is >> nrPlaylists;
-//        is.ignore(); // ignore the newline character
-//
-//        // Read each playlist
-//        for (int i = 0; i < nrPlaylists; ++i) {
-//            Playlist playlist;
-//            is >> playlist;
-//            playlists.push_back(playlist);
-//        }
 
         return is;
     }
@@ -116,7 +88,6 @@ public:
     void setPassword(const std::string &newPassword);
     void setEmail(const std::string &newEmail);
 
-    //void setSubscription(const bool& status); //
 
     //getters
 std::string getUsername() const;
@@ -125,6 +96,10 @@ std::string getEmail() const;
 std::string getCountry() const;
 std::string getBirthDate() const;
 std::vector<Playlist> getPlaylists() const;
+
+//pentru static
+static unsigned int getIdMax();
+void setId(unsigned int &newId);
 
 
 };

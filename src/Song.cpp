@@ -3,8 +3,8 @@
 //
 
 #include "../headers/Song.h"
+#include "../headers/Exceptions.h"
 
-unsigned int Song::nrFeats = 0;
 
 Song::Song() {
     this -> year = 2023;
@@ -21,7 +21,6 @@ Song::Song(const int& year, const std::string& artistName, const std::string& na
     this -> language = language;
     this -> nrFeats = nrFeats;
     this -> feat = feat;
-
 
 }
 Song::Song(const Song &obiect) {
@@ -72,9 +71,6 @@ std::string Song::getLanguage() const {
 std::vector<std::string> Song::getFeat() const {  // std::string getFeat() const;
     return feat;  //am modificat aici
 }
-unsigned int Song::getNrFeats(){
-    return nrFeats;
-}
 
 int Song::getYear() const {
     return year;
@@ -102,6 +98,12 @@ void Song::setYear(int& year) {
     this -> year = year;
 }
 
+void Song::setArtistName(std::string& artistName) {
+    this -> artistName = artistName;
+}
+
 void Song::welcomeMessage() {
     std::cout << "Welcome to the song class!\n";
 }
+
+

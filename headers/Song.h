@@ -8,13 +8,12 @@
 #include <string>
 #include<vector>
 
-
 class Song {
     int year;  //anul lansarii melodiei
     std::string artistName; //numele artistului
     std::string name; //titlul melodiei
     std::string language;  //limba melodiei
-    static unsigned int nrFeats; //numarul de colaboratori dintr-o melodie //STATIC
+    unsigned int nrFeats; //numarul de colaboratori dintr-o melodie //STATIC
     std::vector<std::string> feat; //vector de string-uri cu numele colaboratorilor
 
 public:
@@ -63,10 +62,12 @@ public:
     void setLanguage(std::string& language);
     void setNrFeats(unsigned int& nrFeats);
     void setFeat(std::vector<std::string>&feat);
+    void setArtistName(std::string& artistName);
 
     static void welcomeMessage(); //STATIC
 
 };
+
 
 
 #endif //OOP_PROJECT_SONG_H

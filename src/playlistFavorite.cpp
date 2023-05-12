@@ -51,3 +51,7 @@ void playlistFavorite::favoriteArtist() {
 
 } //pe baza numarului de aparitii ale artistului, voi afisa artistul "preferat."
 
+//getter
+int playlistFavorite::getNrArtists() const {
+    return nrArtists;
+}

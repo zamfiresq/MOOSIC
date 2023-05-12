@@ -13,9 +13,7 @@
 
 
 class Artist {
-    std::string firstName;
-    std::string lastName;
-    std::string nickname;
+    std::string fullName;
     std::string nationality;
     std::vector<std::string>languages;
     int nrLanguages;
@@ -27,7 +25,7 @@ class Artist {
 public:
     Artist(); //constructor fara parametri
     //constructor cu parametri
-    Artist(const std::string &firstName, const std::string &lastName, const std::string &nickname, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
+    Artist(const std::string &fullName, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
     Artist(const Artist &obiect); //copy constructor
 
     //operatori
@@ -39,11 +37,8 @@ public:
     void afis() const; //functie de afisare
 
     //getters si setters
-    std::string getFirstName() const;
-    void setFirstName(const std::string& firstName);
-
-    std::string getLastName() const;
-    void setLastName(const std::string& lastName);
+    std::string getFullName() const;
+    void setFullName(const std::string& fullName);
 
     std::string getNickname() const;
     void setNickname(const std::string& nickname);

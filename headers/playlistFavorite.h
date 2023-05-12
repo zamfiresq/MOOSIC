@@ -31,6 +31,8 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const playlistFavorite &other); //supraincarcarea operatorului <<
 
+    //getter
+    int getNrArtists() const;
 };
 
 

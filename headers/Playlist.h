@@ -76,7 +76,7 @@ public:
     void addAlbum(const std::vector<Album> &albume);
 
     //functii pentru stergerea unei melodii din playlist
-    void removeSong(std::vector<Song> &song);
+    void removeSong(Song& song);
 
     //functii pentru modificarea numelui playlist-ului
     void changeTitle(const std::string& title);

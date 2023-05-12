@@ -9,6 +9,8 @@ invalid_credit_card::invalid_credit_card(const std::string& message)
         : errorInput(message) {}
 
 
+
+
 // verificam daca un numar de card este valid
 bool validare_card(const std::string& numar_card) {
     // Verificăm dacă numărul cardului are 16 caractere
@@ -42,21 +44,33 @@ bool validare_card(const std::string& numar_card) {
     return (sum % 10 == 0);
 }
 
+
+
+
 // efectuam plata
 void efectuare_plata(const std::string& numar_card) {
     if (!validare_card(numar_card)) {
         throw invalid_credit_card("Cardul de credit nu este valid sau a expirat.");
     }
 
-    std::cout << "Plata a fost efectuata cu succes pentru numarul de card " << numar_card << "\n";
+    std::cout << "Aprobat." << "\n";
 }
 
-//exceptie pentru adaugare playlist cu acelasi nume
-PlaylistWithSameName::PlaylistWithSameName(const std::string& message)
-        : errorInput(message) {}
 
-//exceptie pentru artist not found
-ArtistNotFound::ArtistNotFound(const std::string& artistName)
-        : errorInput("Artistul " + artistName + " nu a fost gasit."), artistName(artistName) {
 
+//exceptie pentru melodie deja existenta in playlist
+SongAlreadyExists::SongAlreadyExists(const Song* song)
+        : errorInput("\n\n""Melodia " + song->getTitle()  +" exista deja in playlist.") {
 }
+
+
+
+////exceptie pentru artist not found
+//ArtistNotFound::ArtistNotFound(const std::string& artistName)
+//        : errorInput("Artistul " + artistName + " nu a fost gasit."), artistName(artistName) {
+//}
+//
+//void searchArtist(const std::string& artistName){
+//    if(artistName.empty())
+//        throw ArtistNotFound("Artistul " + artistName + " nu a fost gasit.");
+//}

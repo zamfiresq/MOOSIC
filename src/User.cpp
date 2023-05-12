@@ -5,8 +5,13 @@
 #include "../headers/User.h"
 #include "../headers/Playlist.h"
 
+//variabila statica
+unsigned int User::idMax = 0;
+
+
 //constructor fara parametri
 User::User() = default;
+
 
 //constructor cu parametri
 User::User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists) {
@@ -15,8 +20,8 @@ User::User(const std::string& username, const std::string& password, const std::
     this->email = email;
     this->country = country;
     this->birthDate = birthDate;
-    //this->subscription = subscription;
     this->playlists = playlists;
+    this->id = ++idMax;
 
 }
 
@@ -116,6 +121,17 @@ User::User(const std::string& username, const std::string& password, const std::
         return this->playlists;
     }
 
+//pentru static
+    unsigned int User::getIdMax() {
+        return idMax;
+    }
 
 
+void User::setId( unsigned int &newId) {
+    this->id = newId;
+    if(newId > idMax)
+        idMax = ++newId;
+    std::cout<<id<<"\n";
+    std::cout<<idMax<<"\n";
+}
 

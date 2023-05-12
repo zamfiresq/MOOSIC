@@ -15,15 +15,6 @@
 
 int main(){
 
-////datele pentru clasa User
-////myString username = "zamfiresq";
-////myString password = "password";
-////myString email = "zamfiresq@moomusic.com";
-////myString country = "Romania";
-////myString birthDate = "06.04.2002";
-//
-//
-//
 ////datele pentru clasa Song
 //
 ////melodii pentru album 1
@@ -339,14 +330,14 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 //    for(auto c: albume)
 //        c.afis();
 
-    Artist plm("Pula", "Mea", "De hartie", "Croatia", da, 3, albume, 3, cantece, 3);
-
+    Artist plm("Pula Mea de Hartie", "Croatia", da, 3, albume, 3, cantece, 3);
+    std::cout<<plm;
 //    plm.afis();
 
     //Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, std::vector<Album>&albums, const int& nrAlbums, const int& duration);
     Playlist pl("Titlu pl", cantece, 3, 150);
-    pl.afisare();
-    std::cout<<"\n";
+//    pl.afisare();
+//    std::cout<<"\n";
 
     Album album2(an, "NU", 3, cantece); //Nume album - A doua cea mai frumi melodie
 //    std::cout << album1 << "\n\n\n\n\n";
@@ -371,28 +362,55 @@ Song cantec1(year, artistname, numeMelodie, limba,  3, da);
 //    for(auto c: playlists)
 //        c.afisare();
 
-    std::string username = "zamfiresq";
-    std::string password = "parolaplm";
-    std::string email = "zamfiresq@gmail.com";
-    std::string country = "Romania";
-    std::string birthDate = "06/04/2002";
-
-//
-//IPlaylist ip;
-//ip.play();
+std::cout<<"\n";
+std::cout<<"----------MOSTENIRE----------"<<"\n";
+//    playlistFavorite plf("Titlu pl", cantece, 3, 150, 2);
+//    plf.afisare();
 
 std::cout<<"\n";
+
+//premiumUser pru("username", "password", "email", "country", "birthDate", playlists, true);
+//std::cout<<pru;
+
+
+std::cout<<"\n";
+std::cout<<"----------LISTA INITIALIZARE----------"<<"\n";
+
+playlistFavorite playlistF("Melodii favorite", cantece, 3, 150, 2);
+std::cout<<"TITLE: "<<playlistF.getTitle()<<"\n";
+std::cout<<"SONGS NR: "<<playlistF.getNrSongs()<<"\n";
+std::cout<<"DURATION: "<<playlistF.getDuration()<<"\n";
+std::cout<<"ARTIST NR: "<<playlistF.getNrArtists()<<"\n\n";
+
+
+std::cout<<"\n";
+
+
+std::cout<<"----------DESTRUCTOR VIRTUAL----------\n";
+
+//    // testare destructor virtual
+//    absPlaylist* playlist = new AbsPlaylist();
+//
+//    // utilizarea playlist-ului, adaugam melodii
+//    playlist->addSong(cantec);
+//    playlist->addSong(cantec1);
+//    playlist->addSong(cantec);
+//    playlist->nextSong(0);
+//
+//    //stergerea obiectului prin intermediul pointer-ului la clasa de baza
+//    delete playlist;
+
 //
 //
 //Premium pr;
 //std::cout<<pr;
 //
-premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
-std::cout<<userPremium;
-std::cout<<"\n";
-
-userPremium.removeAd();
-
+//premiumUser userPremium(username, password, email, birthDate, country, playlists, true);
+//std::cout<<userPremium;
+//std::cout<<"\n";
+//
+//userPremium.removeAd();
+//
 IPlaylist ip;
 
 ip.play();
@@ -400,47 +418,56 @@ ip.pause();
 
 std::cout<<"\n";
 
-ISong is;
+//ISong is;
+//
+//is.play();
+//is.pause();
+//is.afisare(); std::cout<<cantec1;
+//
+//std::cout<<"\n";
+//
+//
+//    AbsPlaylist playlist;
+//
+//// adaugăm melodii la playlist
+//    playlist.addSong(cantec1);
+//    playlist.addSong(cantec1);
+//    playlist.addSong(cantec1);
+//
+//
+//    // pornim redarea de la prima melodie
+//    playlist.nextSong(3);
+//    std::cout<<"\n\n";
 
-is.play();
-is.pause();
-is.afisare(); std::cout<<cantec1;
 
 std::cout<<"\n";
+std::cout<<"----------EXCEPTII----------\n";
 
 
-    AbsPlaylist playlist;
 
-// adaugăm melodii la playlist
-    playlist.addSong(cantec1);
-    playlist.addSong(cantec1);
-    playlist.addSong(cantec1);
-
-
-    // pornim redarea de la prima melodie
-    playlist.nextSong(3);
-    std::cout<<"\n\n";
-
-//exceptie 1
-//pentru efectuare plata abonament
-    std::string numar_card_valid = "1234567895346678";
-    std::string numar_card_invalid = "1234";
-
+////exceptie 1
+////pentru efectuare plata abonament
+//    std::string numar_card_valid = "1234567895346678";
+//    std::string numar_card_invalid = "1234";
+//
 //    try {
 //        efectuare_plata(numar_card_valid);
-//        std::cout << "Plata cu cardul valid a fost efectuată cu succes!\n\n";
+//        std::cout << "Plata a fost efectuata cu succes pentru numarul de card " << numar_card_valid << ".\n";
 //    } catch (const std::exception& e) {
-//        std::cerr << "Eroare la efectuarea plății cu cardul valid: " << e.what() << '\n\n';
+//        std::cerr << "Eroare la efectuarea platii cu cardul valid: " << e.what() << '\n\n';
 //    }
+
 //
 //    try {
 //        efectuare_plata(numar_card_invalid);
-//        std::cout << "Plata cu cardul invalid a fost efectuată cu succes!\n\n";
+//        std::cout << "Plata cu cardul invalid a fost efectuata cu succes!\n\n";
 //    } catch (const std::exception& e) {
-//        std::cerr << "Eroare la efectuarea plății: " << e.what() << "\n\n";
+//        std::cerr << "Eroare la efectuarea platii: " << e.what() << "\n\n";
 //    }
 
     std::cout<<"\n\n";
+
+
 //exceptie 2
 //pentru adaugarea unei melodii cu acelasi nume in Playlist
 
@@ -452,40 +479,33 @@ std::cout<<"\n";
     Song cantec4;
     cantec4 = Song(1971, "Led Zeppelin", "Stairway to Heaven", "English", 1, da);
 
-    //
     Song cantec5;
-    cantec5 = Song(1982, "Michael Jackson", "Thriller", "English", 1, da);
-
-    Song cantec6;
-    cantec6 = Song(1991, "Nirvana", "Smells Like Teen Spirit", "English", 1, da);
-
-    Song cantec7;
-    cantec7 = Song(1968, "The Beatles", "Hey Jude", "English", 1, da);
-
-    Song cantec8;
-    cantec8 = Song(1977, "Pink Floyd", "Comfortably Numb", "English", 1, da);
+    cantec5 = Song(1989, "Queen", "The Show Must Go On", "English", 1, da);
 
 
-//    try {
-//        playlist1.addSong(cantec3);
-//        playlist1.addSong(cantec4);
-//        playlist1.addSong(cantec3); // dam throw la exceptie
-//    } catch (std::exception& e) {
-//        std::cerr << "Exception caught: " << e.what() <<"\n";
-//    }
+////testare exceptie 2 - eroare la adaugarea melodiei cu acelasi nume
+//try{
+//    playlist1.addSong(cantec3);
+//    playlist1.addSong(cantec4);
+//    playlist1.addSong(cantec5);
+//    playlist1.addSong(cantec5);
+//
+//} catch (const SongAlreadyExists& e) {
+//    std::cerr << e.what() << "\n";
+//}
 
-try{
-    playlist1.addSong(cantec5);
-    playlist1.addSong(cantec6);
-    playlist1.addSong(cantec7);
-    playlist1.addSong(cantec8);
-}catch (const ArtistNotFound& e){
-    std::cerr<< "Artist not found: " << e.getArtistName() << "\n";
-}
 
-//proba static
-int numSongs = Song::getNrFeats();
+
+
+
+////proba static
+std::cout<<"\n";
+std::cout<<"----------PROBA STATIC----------\n";
 Song::welcomeMessage();
+
+User user ("username", "password", "email", "country", "birthDate", playlists);
+unsigned int val = 4;
+user.setId(val);
 
 return 0;
 

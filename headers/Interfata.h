@@ -48,16 +48,22 @@ public:
 };
 
 
+
+
+
 //CLASA ABSTRACTA
 class absPlaylist{
 protected:
     std::vector<Song> songs;
     int i;
     int nrSongs;
-    virtual int nextSong(int i) = 0;
 
 public:
     virtual ~absPlaylist();
+
+    virtual int nextSong(int i) = 0;
+
+    void addSong(const Song& song);
 };
 
 class AbsPlaylist : public absPlaylist{

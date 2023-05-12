@@ -32,6 +32,10 @@ void ISong::afisare() {
     std::cout << "Afisare: \n\n";
 }
 
+
+
+
+
 //CLASA ABSTRACTA
 
 absPlaylist::~absPlaylist()=default;
@@ -50,4 +54,10 @@ int AbsPlaylist::nextSong(int currentSongIndex) {
 void AbsPlaylist::addSong(const Song& song) {
     songs.push_back(song);
     nrSongs = songs.size();
+}
+
+void absPlaylist::addSong(const Song& song) {
+    songs.push_back(song);
+    nrSongs = songs.size();
+
 }

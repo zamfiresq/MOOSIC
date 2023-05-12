@@ -12,9 +12,15 @@
 #include "Song.h"
 
 
+
+
 class errorInput : public std::runtime_error {
     using std::runtime_error::runtime_error;
 };
+
+
+
+
 
 //clasa pentru card invalid
 class invalid_credit_card : public errorInput {
@@ -26,26 +32,32 @@ void efectuare_plata(const std::string& numar_card);
 
 
 
-//clasa pentru adaugarea unei melodii deja existente in playlist
-class PlaylistWithSameName : public errorInput {
+
+
+
+
+//exceptie pentru melodie deja existenta in playlist
+class SongAlreadyExists : public errorInput {
 public:
-    explicit PlaylistWithSameName(const std::string& message);
-private:
-    std::string message;
+    explicit SongAlreadyExists(const Song* song);
+
+    std::string songName;
 };
 
-//nu s a gasit artistul
-class ArtistNotFound : public errorInput {
-public:
-    explicit ArtistNotFound(const std::string& artistName);
 
-    const std::string& getArtistName() const{
-        return artistName;
-    }
-
-private:
-    std::string artistName;
-};
-
+////nu s a gasit artistul
+//class ArtistNotFound : public errorInput {
+//public:
+//    explicit ArtistNotFound(const std::string& artistName);
+//
+//    const std::string& getArtistName() const{
+//        return artistName;
+//    }
+//
+//private:
+//    std::string artistName;
+//};
+//
+//void searchArtist(const std::string& artistName);
 
 #endif //OOP_PROJECT_EXCEPTIONS_H

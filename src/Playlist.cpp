@@ -3,6 +3,7 @@
 //
 
 #include "../headers/Playlist.h"
+#include "../headers/Exceptions.h"
 
 
 Playlist::Playlist() {
@@ -61,67 +62,46 @@ Playlist::Playlist(const Playlist &object){
         }
 
 //
-////adaugam o melodie in playlist
 void Playlist::addSong(const Song& song) {
-    for (const auto& s : songs) {
-        if (s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
-            throw std::invalid_argument("Song already exists in playlist.");
+        for (const auto &s: songs) {
+            if (s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
+                throw SongAlreadyExists(&song);
+            }
         }
-    }
-    songs.push_back(song);
+        songs.push_back(song);
+        std::cout << "'" << song.getTitle() << "'" << " was successfully added to your playlist.\n";
 }
 
-////            if (songs != nullptr) //daca vectorul songs nu este gol, il vom sterge
-////                delete[]songs;
-////            songs = new Song[nrSongs];
-//
-//            for (int i = 0; i < nrSongs; i++)
-//                songs[i] = mel[i];
-//
+
+
 //adaugam un album in playlist
-void Playlist::addAlbum(const std::vector<Album>&albume) {
-    for(auto album : albume) {
-        std::vector<Song> melodii = album.getSongs();
-        songs.insert(songs.end(), melodii.begin(), melodii.end());
-        nrSongs = songs.size();
-//        songs.insert(songs.end(), (album.getSongs()).begin(), (album.getSongs()).end());
-    }
-}
+//void Playlist::addAlbum(const std::vector<Album>&albume) {
+//    for(auto album : albume) {
+//        std::vector<Song> melodii = album.getSongs();
+//        songs.insert(songs.end(), melodii.begin(), melodii.end());
+//        nrSongs = songs.size();
+////        songs.insert(songs.end(), (album.getSongs()).begin(), (album.getSongs()).end());
+//    }
+//}
 //
 //
-////stergem o melodie din playlist
-//        void Playlist::removeSong(std::vector<Song> &song) {
-//            std::vector<Song>mel = {nrSongs - 1}; //mel reprezinta un vector de melodii cu nrSongs -1 melodii
-//            int j = 0;
-//            for (int i = 0; i <nrSongs; i++) //daca melodia din vectorul songs nu este egala cu melodia pe care vrem sa o stergem, o copiem in mel
-//                if (songs[i] != song)
-//                    mel[j++] = songs[i];
-//            nrSongs--;
-//
-////            if (songs != nullptr) //daca vectorul songs nu este gol, il vom sterge
-////                delete[]songs;
-////            songs = new Song[nrSongs];
-//
-//            for (int i = 0; i < nrSongs; i++)
-//                songs[i] = mel[i];
-//        }
+//stergem o melodie din playlist
+        void Playlist::removeSong(Song& song) {
+           for(auto s : songs) {
+               if(s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
+                   songs.erase(songs.begin());
+                   nrSongs--;
+                   std::cout << "'" << song.getTitle() << "'" << " was successfully removed from your playlist.\n";
+               }
+           }
+        }
+
 //
 ////stergem un album din playlist
 //        void Playlist::removeAlbum(std::vector<Album> &album) {
-//            std::vector<Album> *album1 = {nrAlbums - 1}; //album1 reprezinta un vector de albume cu nrAlbums -1 albume
-//            int j = 0;
-//            for (int i = 0; i <nrAlbums; i++) //daca albumul din vectorul albums nu este egal cu albumul pe care vrem sa il stergem, il copiem in album1
-//                if (albums[i] != album)
-//                    album1[j++] = albums[i];
-//            nrAlbums--;
-//
-////            if (albums != nullptr) //daca vectorul albums nu este gol, il vom sterge
-////                delete[]albums;
-////            albums = new Album[nrAlbums];
-//
-//            for (int i = 0; i < nrAlbums; i++)
-//                albums[i] = album1[i];
-//        }
+//            for(auto a : album) {
+
+
 
 //returnam numele playlist-ului
         std::string Playlist::getTitle() const {
