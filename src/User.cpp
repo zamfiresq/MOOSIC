@@ -135,3 +135,11 @@ void User::setId( unsigned int &newId) {
     std::cout<<idMax<<"\n";
 }
 
+// 06/04/2002
+int User::getYear() const{
+    std::string an;
+    for(int i = 6; i <= 9; i++)
+        an.push_back(birthDate[i]);
+
+    return std::stoi(an);
+}

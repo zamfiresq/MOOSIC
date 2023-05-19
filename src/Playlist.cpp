@@ -4,6 +4,10 @@
 
 #include "../headers/Playlist.h"
 #include "../headers/Exceptions.h"
+//#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <memory>
 
 
 Playlist::Playlist() {
@@ -69,6 +73,7 @@ void Playlist::addSong(const Song& song) {
             }
         }
         songs.push_back(song);
+        nrSongs++;
         std::cout << "'" << song.getTitle() << "'" << " was successfully added to your playlist.\n";
 }
 
@@ -86,15 +91,20 @@ void Playlist::addSong(const Song& song) {
 //
 //
 //stergem o melodie din playlist
-        void Playlist::removeSong(Song& song) {
-           for(auto s : songs) {
-               if(s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
-                   songs.erase(songs.begin());
-                   nrSongs--;
-                   std::cout << "'" << song.getTitle() << "'" << " was successfully removed from your playlist.\n";
-               }
-           }
+void Playlist::removeSong(Song& song) {
+    std::__wrap_iter<Song *> iterator = find((this->songs).begin(), (this->songs).end(), song);
+    if (iterator == (this->songs).end()) {
+        if (song.getTitle() != (this->songs)[(this->songs).size()].getTitle() &&
+            song.getArtistName() != (this->songs)[(this->songs).size()].getArtistName()) {
+            //exceptie melodia nu a fost gasita
+            std::cout << "Melodia nu a fost gasita\n";
+            return;
         }
+    }
+    songs.erase(iterator);
+    nrSongs--;
+    std::cout << "'" << song.getTitle() << "'" << " was successfully removed from your playlist.\n";
+}
 
 //
 ////stergem un album din playlist
@@ -130,40 +140,23 @@ void Playlist::addSong(const Song& song) {
 
 //returnam functia pentru sortare
         void Playlist::sortAfterSongTitle() {
-            int i, j;
-            Song aux; //aux reprezinta o melodie auxiliara
-            for (i = 0; i < nrSongs; i++)
-                for (j = i + 1; j < nrSongs; j++) {
-                    std::string titluI = songs[i].getTitle();
-                    std::string titluJ = songs[j].getTitle();
-                    if (titluI > titluJ) {
-                        aux = songs[i];
-                        songs[i] = songs[j];
-                        songs[j] = aux;
-                    }
-                }
+            sort((this->songs).begin(),(this->songs).end(),[](const Song &s1, const Song &s2){
+                return s1.getTitle() < s2.getTitle();
+            });
         }
 
+
+
 void Playlist::sortAfterArtistName() {
-    int i, j;
-    Song aux; //aux reprezinta o melodie auxiliara
-    for (i = 0; i < nrSongs; i++)
-        for (j = i + 1; j < nrSongs; j++) {
-            std::string titluI = songs[i].getArtistName();
-            std::string titluJ = songs[j].getArtistName();
-            if (titluI > titluJ) {
-                aux = songs[i];
-                songs[i] = songs[j];
-                songs[j] = aux;
-            }
-        }
+    sort((this->songs).begin(),(this->songs).end(),[](const Song &a1, const Song &a2){
+        return a1.getArtistName() < a2.getArtistName();
+    });
 }
 
 //functia pentru cautare
         void Playlist::search(const std::string &title) {
             for (int i = 0; i < nrSongs; i++)
-                if (songs[i].getTitle() ==
-                    title) //daca melodia cautata este egala cu melodia din vectorul songs, o afisam
+                if (songs[i].getTitle() == title) //daca melodia cautata este egala cu melodia din vectorul songs, o afisam
                     std::cout << songs[i] << "\n";
         }
 

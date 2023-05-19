@@ -369,8 +369,8 @@ std::cout<<"----------MOSTENIRE----------"<<"\n";
 
 std::cout<<"\n";
 
-//premiumUser pru("username", "password", "email", "country", "birthDate", playlists, true);
-//std::cout<<pru;
+premiumUser pru("username", "password", "email", "country", "birthDate", playlists, true);
+std::cout<<pru;
 
 
 std::cout<<"\n";
@@ -482,13 +482,22 @@ std::cout<<"----------EXCEPTII----------\n";
     Song cantec5;
     cantec5 = Song(1989, "Queen", "The Show Must Go On", "English", 1, da);
 
+    Song cantec6;
+    cantec6 = Song(1989, "Queen", "The Show Must Go On", "English", 1, da);
+
 
 ////testare exceptie 2 - eroare la adaugarea melodiei cu acelasi nume
 //try{
-//    playlist1.addSong(cantec3);
-//    playlist1.addSong(cantec4);
+    playlist1.addSong(cantec3);
+    playlist1.addSong(cantec5);
+    playlist1.addSong(cantec4);
 //    playlist1.addSong(cantec5);
-//    playlist1.addSong(cantec5);
+    std::cout<<playlist1;
+    playlist1.sortAfterSongTitle();
+    playlist1.sortAfterArtistName();
+    std::cout<<playlist1;
+    playlist1.removeSong(cantec6);
+    std::cout<<playlist1;
 //
 //} catch (const SongAlreadyExists& e) {
 //    std::cerr << e.what() << "\n";
@@ -501,12 +510,18 @@ std::cout<<"----------EXCEPTII----------\n";
 ////proba static
 std::cout<<"\n";
 std::cout<<"----------PROBA STATIC----------\n";
-Song::welcomeMessage();
+//Song::welcomeMessage();
 
-User user ("username", "password", "email", "country", "birthDate", playlists);
-unsigned int val = 4;
-user.setId(val);
+    std::string data = "06/04/2002";
 
-return 0;
+    User user ("username", "password", "email", "country", data, playlists);
+    int val = user.getYear();
+    std::cout<<val;
+
+
+
+
+
+    return 0;
 
 }

@@ -96,6 +96,10 @@ std::string getEmail() const;
 std::string getCountry() const;
 std::string getBirthDate() const;
 std::vector<Playlist> getPlaylists() const;
+int getYear() const;
+
+
+
 
 //pentru static
 static unsigned int getIdMax();
