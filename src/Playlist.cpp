@@ -4,6 +4,7 @@
 
 #include "../headers/Playlist.h"
 #include "../headers/Exceptions.h"
+#include "../headers/Interfata.h"
 //#include <iostream>
 #include <algorithm>
 #include <vector>

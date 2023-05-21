@@ -11,7 +11,7 @@
 #include "Song.h"
 #include "Album.h"
 #include "Artist.h"
-
+#include "Interfata.h"
 
 class Playlist {
     std::string title; //titlul playlist-ului
@@ -27,7 +27,7 @@ public:
     //copy constructor
     Playlist(const Playlist &other);
     //destructor
-    ~Playlist();
+   virtual ~Playlist();
 
     //functie de afisare
     virtual void afisare() const;
@@ -105,6 +105,5 @@ public:
 
 };
 
-
-
 #endif //OOP_PROJECT_PLAYLIST_H
+

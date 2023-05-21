@@ -135,7 +135,7 @@ void User::setId( unsigned int &newId) {
     std::cout<<idMax<<"\n";
 }
 
-// 06/04/2002
+// 06/04/2002 exemplu
 int User::getYear() const{
     std::string an;
     for(int i = 6; i <= 9; i++)

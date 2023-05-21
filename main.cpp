@@ -11,6 +11,7 @@
 #include "headers/premiumUser.h"
 #include "headers/Premium.h"
 #include "headers/Exceptions.h"
+#include "headers/AgeGroup.h"
 
 
 int main(){
@@ -505,8 +506,6 @@ std::cout<<"----------EXCEPTII----------\n";
 
 
 
-
-
 ////proba static
 std::cout<<"\n";
 std::cout<<"----------PROBA STATIC----------\n";
@@ -518,8 +517,9 @@ std::cout<<"----------PROBA STATIC----------\n";
     int val = user.getYear();
     std::cout<<val;
 
+    std::cout<<"\n";
 
-
+    std::cout<<"----------PROBA DP----------\n";
 
 
     return 0;
