@@ -73,26 +73,4 @@ public:
 };
 
 
-
-//ITERATOR
-//class Iterator {
-//public:
-//    virtual bool hasNext() const = 0;
-//    virtual const Song& next() = 0;
-//};
-//
-//
-//class PlaylistIterator : public Iterator {
-//private:
-//    const std::vector<Song>& songs;
-//    int i;
-//
-//public:
-//    PlaylistIterator(const std::vector<Song>& songs);
-//
-//    bool hasNext() const override;
-//    const Song& next() override;
-//};
-
-
 #endif //OOP_PROJECT_INTERFATA_H

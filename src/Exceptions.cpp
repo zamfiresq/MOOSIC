@@ -59,8 +59,8 @@ void efectuare_plata(const std::string& numar_card) {
 
 
 //exceptie pentru melodie deja existenta in playlist
-SongAlreadyExists::SongAlreadyExists(const Song* song)
-        : errorInput("\n\n""Melodia " + song->getTitle()  +" exista deja in playlist.") {
+SongAlreadyExists::SongAlreadyExists(const Song& song)
+        : errorInput("\n\n""Melodia " + song.getTitle()  +" exista deja in playlist.") {
 }
 
 

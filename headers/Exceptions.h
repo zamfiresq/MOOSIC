@@ -39,7 +39,7 @@ void efectuare_plata(const std::string& numar_card);
 //exceptie pentru melodie deja existenta in playlist
 class SongAlreadyExists : public errorInput {
 public:
-    explicit SongAlreadyExists(const Song* song);
+    explicit SongAlreadyExists(const Song& song);
 
     std::string songName;
 };

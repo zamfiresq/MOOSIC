@@ -70,7 +70,10 @@ Playlist::Playlist(const Playlist &object){
 void Playlist::addSong(const Song& song) {
         for (const auto &s: songs) {
             if (s.getTitle() == song.getTitle() && s.getArtistName() == song.getArtistName()) {
-                throw SongAlreadyExists(&song);
+                //exceptie melodia exista deja
+//                throw SongAlreadyExists(song);
+                std::cout << "Melodia exista deja\n";
+                return;
             }
         }
         songs.push_back(song);
@@ -195,23 +198,23 @@ void Playlist::sortAfterArtistName() {
 //    std::cout << "Repeat " << title << "\n";
 //}
 
-        void Playlist::shuffleSongs() {
-//urmeaza un randomizer pentru a shuffle-ui melodiile din playlist
-            int i, j;
-            Song aux; //aux reprezinta o melodie auxiliara
-            for (i = 0; i < nrSongs; i++)
-                for (j = i + 1; j < nrSongs; j++) {
-                    int random = rand() % 2; //random va lua valori de la 0 la 1
-                    if (random == 1) {
-                        aux = songs[i];
-                        songs[i] = songs[j];
-                        songs[j] = aux;
-                    }
-                }
-        }
-
-        void Playlist::shuffle() {
-            std::cout << "Shuffling " << title << "\n";
-            shuffleSongs();
-        }
+//        void Playlist::shuffleSongs() {
+////urmeaza un randomizer pentru a shuffle-ui melodiile din playlist
+//            int i, j;
+//            Song aux; //aux reprezinta o melodie auxiliara
+//            for (i = 0; i < nrSongs; i++)
+//                for (j = i + 1; j < nrSongs; j++) {
+//                    int random = rand() % 2; //random va lua valori de la 0 la 1
+//                    if (random == 1) {
+//                        aux = songs[i];
+//                        songs[i] = songs[j];
+//                        songs[j] = aux;
+//                    }
+//                }
+//        }
+//
+//        void Playlist::shuffle() {
+//            std::cout << "Shuffling " << title << "\n";
+//            shuffleSongs();
+//        }
 

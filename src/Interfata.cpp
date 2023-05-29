@@ -61,16 +61,3 @@ void absPlaylist::addSong(const Song& song) {
     nrSongs = songs.size();
 
 }
-
-
-//ITERATOR
-
-//PlaylistIterator::PlaylistIterator(const std::vector<Song>& songs) : songs(songs), i(0) {}
-//
-//bool PlaylistIterator::hasNext() const {
-//    return i < songs.size();
-//}
-//
-//const Song& PlaylistIterator::next() {
-//    return songs[i++];
-//}
