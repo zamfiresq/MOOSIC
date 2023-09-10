@@ -23,7 +23,7 @@ public:
 
     ~Album(); //destructor
 
-    void afis(); //functie de afisare
+//    void afis(); //functie de afisare
 
 
     //getters si setters pentru campurile clasei Album
@@ -52,6 +52,9 @@ public:
 
 //supraincarcarea operatorului <<
     friend std::ostream &operator<<(std::ostream &os, const Album &album);
+
+//supraincarcarea operatorului >>
+    friend std::istream &operator>>(std::istream &is, Album &album);
 
     bool operator==(const Album &rhs) const;
 

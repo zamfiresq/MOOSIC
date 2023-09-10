@@ -96,7 +96,7 @@ void Playlist::addSong(const Song& song) {
 //
 //stergem o melodie din playlist
 void Playlist::removeSong(Song& song) {
-    std::__wrap_iter<Song *> iterator = find((this->songs).begin(), (this->songs).end(), song);
+   auto iterator = find((this->songs).begin(), (this->songs).end(), song);
     if (iterator == (this->songs).end()) {
         if (song.getTitle() != (this->songs)[(this->songs).size()].getTitle() &&
             song.getArtistName() != (this->songs)[(this->songs).size()].getArtistName()) {

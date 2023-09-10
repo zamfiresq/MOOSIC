@@ -18,9 +18,9 @@ private:
     MusicPlayerManager& operator=(const MusicPlayerManager& other) = delete; //operator =
 
 public:
-    static MusicPlayerManager* getInstance(){
-        if (instance == nullptr){
-            instance = new MusicPlayerManager();
+    static MusicPlayerManager* getInstance(){ //singleton; am declarat un pointer static catre instanta clasei
+        if (instance == nullptr){ //daca instanta nu exista, o creez
+            instance = new MusicPlayerManager(); //creez instanta
         }
         return instance;
     }

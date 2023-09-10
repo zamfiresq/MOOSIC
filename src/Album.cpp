@@ -7,7 +7,7 @@
 
 Album::Album() {
     this -> year = 2023;
-    this -> name = " numeObisnuit";
+    this -> name = "Nume de album";
     this -> nrSongs = 0;
     this -> songs = {};
 }
@@ -50,16 +50,17 @@ Album::Album(const Album &object){
 
 Album::~Album() {}
 
-void Album::afis() {
-    std::cout<< name << " " << year << " " << nrSongs << "\n";
+//void Album::afis() {
+//    std::cout<< name << " " << year << " " << nrSongs << "\n";
+//
+//    for(int i = 0; i < nrSongs; i++)
+//        std::cout << songs[i] << " ";
+//    std::cout << "\n";
+//}
 
-    for(int i = 0; i < nrSongs; i++)
-        std::cout << songs[i] << " ";
-    std::cout << "\n";
-}
-
+//operator <<
 std::ostream &operator<<(std::ostream &os, const Album &album) {
-    os <<album.name<<", "<< album.year << ", " << album.nrSongs<<" songs" << "\n";
+    os <<album.name<<", "<< album.year << ", " << album.nrSongs<<" Songs: " << "\n";
 
     for(int i = 0; i < album.nrSongs; i++) {
         os << i + 1 << ". " << album.songs[i];
@@ -68,6 +69,14 @@ std::ostream &operator<<(std::ostream &os, const Album &album) {
     return os;
 }
 
+//operator >>
+std::istream &operator>>(std::istream &is, Album &album){
+    std::cout<<"Name of the album: ";
+    std::getline(is, album.name);
+    std::cout<<"Type the year of the album: ";
+    is >> album.year;
+
+}
 
 //getters and setters
 unsigned int Album::getYear() const {

@@ -10,7 +10,6 @@
 #include <string>
 #include <vector>
 
-
 class User {
     std::string username;
     std::string password;
