@@ -68,7 +68,6 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
     if(melodie.nrFeats > 0)
         os<< "feat. ";
 
-
     for(int i = 0; i < melodie.nrFeats; i++){
             os << melodie.feat[i];
             if(i != melodie.nrFeats - 1) //daca nu e ultimul feat, pune virgula
