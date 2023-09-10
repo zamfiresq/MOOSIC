@@ -1,0 +1,23 @@
+# ninja log v5
+5389	10966	1694369660181653638	CMakeFiles/oop_project.dir/src/Playlist.cpp.o	32b24bc2d0577b5a
+5	2593	1694370658375992571	CMakeFiles/oop_project.dir/src/Song.cpp.o	655c072db7591faa
+4237	4314	1682547878655269694	CMakeFiles/oop_project.dir/src/prompt.cpp.o	f29b34604ae37b55
+6826	8658	1694357099379620537	CMakeFiles/oop_project.dir/src/myString.cpp.o	a1d4b8ee4d8daf56
+10967	16210	1694369665411202754	CMakeFiles/oop_project.dir/src/premiumUser.cpp.o	f5583c2d5ee23925
+5382	10692	1694369659910077128	CMakeFiles/oop_project.dir/src/User.cpp.o	7e7487ae80ba63ab
+15266	21268	1694369670459820335	CMakeFiles/oop_project.dir/src/Exceptions.cpp.o	c51ff993ae8f14e4
+2594	2752	1694370658538911596	oop_project	f955ce4681f68e8a
+4	2031	1694369785815009590	CMakeFiles/oop_project.dir/src/Album.cpp.o	4c40c803f0ee217a
+0	262	1694375069795748244	build.ninja	54a4ce8159b1eeb
+5782	10407	1694369659625381964	CMakeFiles/oop_project.dir/src/playlistFavorite.cpp.o	4654ffa99eedbc6f
+10408	15456	1694369664670254135	CMakeFiles/oop_project.dir/src/Interfata.cpp.o	1359d0b890263779
+15456	21095	1694369670293657352	CMakeFiles/oop_project.dir/src/AgeGroup.cpp.o	91c83056176d8bb8
+11	505	1683120049792232124	CMakeFiles/oop_project.dir/src/Meniu.cpp.o	f7893925d6401d2a
+4	2045	1694369785832748040	CMakeFiles/oop_project.dir/main.cpp.o	ceba43e04cdcde3
+2	2898	1678458365266602317	CMakeFiles/oop_project.dir/src/Zamfireasca.cpp.o	5e166e3e66fd608a
+16211	22470	1694369671688805793	CMakeFiles/oop_project.dir/src/MusicPlayerManager.cpp.o	8000b484ae6d1c9e
+8	5782	1694369655000095635	CMakeFiles/oop_project.dir/src/Artist.cpp.o	3793544e2507734f
+10692	15266	1694369664489571484	CMakeFiles/oop_project.dir/src/Premium.cpp.o	ccb9304d25e3c9ae
+0	273	1694375069795748244	build.ninja	54a4ce8159b1eeb
+6	5593	1694375193064506859	CMakeFiles/oop_project.dir/src/Song.cpp.o	655c072db7591faa
+5593	6246	1694375193724916613	oop_project	f955ce4681f68e8a
