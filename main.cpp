@@ -19,10 +19,26 @@ int main() {
 
     //testare song
     Song cantec1;
-    std::cin>>cantec1;
-    std::cout<<cantec1;
+    int an = 2019;
+    double durata = 3.31;
+    int nrFeats = 1;
+    std::vector<std::string> feat = {"Juice WRLD"};
+    std::string name2 = "Godzilla";
+    std::string artist2 = "Eminem";
+    std::string language = "English";
 
-//    std::cout<<cantec1;
+    Song cantec2(an, artist2, name2, language, nrFeats, feat, durata);
+//    std::cout<<cantec1<<std::endl<<cantec2<<std::endl;
+
+//  testare album
+    Album album1;
+//    std::cin>>album1;
+//    std::cout<<album1;
+
+//   testare artist
+    Artist artist1;
+    std::cout<<artist1;
+
 
 //    std::cout << "----------PROBA SINGLETON----------\n";
 //    int option;

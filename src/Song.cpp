@@ -9,12 +9,13 @@
 
 
 Song::Song() {
-    this -> year = 2023;
-    this -> artistName = "Nume Artist";
-    this -> name = "Un Nume";
+    this -> year = 2013;
+    this -> artistName = "Travis Scott";
+    this -> name = "Vulnerable";
     this -> language = "English";
-    this -> duration = 2.35;
-    this -> feat = {};
+    this -> duration = 3.28;
+    this -> nrFeats = 1;
+    this -> feat = {"Tinashe"};
 }
 
 
@@ -64,7 +65,7 @@ void Song::afis() {
 
 //supraincarcarea operatorului <<
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
-    os<<"\n\n"<<melodie.name << " - "<< melodie.artistName<< " ("<< melodie.year << ", "<< melodie.language << ")"<<" ";
+    os << melodie.name << " - "<< melodie.artistName<< " ("<< melodie.year << ", "<< melodie.language << ")"<<" ";
     if(melodie.nrFeats > 0)
         os<< "feat. ";
 
@@ -86,9 +87,8 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
         }
     }
 
-
-    os <<"                                  "<<durataStr;
-    os << "\n";
+// adaug spatii pentru afisarea duratei
+    os << std::setw(15) << durataStr << "\n";
 
 
     return os;
@@ -109,6 +109,7 @@ std::istream &operator>>(std::istream &is, Song &song){
     is >> song.duration;
     std::cout<<"Type the number of feats: ";
     is >> song.nrFeats;
+
 
 
     // citirea numelui de feats, daca exista
@@ -145,6 +146,11 @@ int Song::getYear() const {
 std::string Song::getArtistName() const{
     return artistName;
 }
+
+double Song::getDuration() const {
+    return duration;
+}
+
 
 
 //setters

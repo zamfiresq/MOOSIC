@@ -9,25 +9,19 @@
 
 //constructor fara parametri
 Artist::Artist() {
-    this -> fullName = "fullName";
-    this -> nationality = "nationality";
-    this -> nrLanguages = 0;
-    this -> nrAlbums = 0;
-    this -> nrSongs = 0;
-    this -> languages = {};
-    this -> albums = {};
-    this -> solo = {};
+    this -> fullName = "Travis Scott";
+    this -> nrAlbums = 2;
+    this -> nrSongs = 5;
+    this -> albums = {Album(), Album()};
+    this -> solo = {Song(), Song(), Song(), Song(), Song()};
 }
 
 //constructor cu parametri
 //Artist(const std::string &fullName, const std::string &nickname, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
-Artist::Artist(const std::string &fullName, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs) {
+Artist::Artist(const std::string &fullName, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs) {
     this->fullName = fullName;
-    this->nationality = nationality;
     this->nrSongs = nrSongs;
-    this->nrLanguages = nrLanguages;
     this->nrAlbums = nrAlbums;
-    this->languages = languages;
     this->albums = albums;
     this->solo = solo;
 }
@@ -35,11 +29,8 @@ Artist::Artist(const std::string &fullName, const std::string &nationality, cons
 //copy constructor
     Artist::Artist(const Artist &obiect){
         this->fullName = obiect.fullName;
-        this->nationality = obiect.nationality;
-        this->nrLanguages = obiect.nrLanguages;
         this->nrAlbums = obiect.nrAlbums;
         this->nrSongs = obiect.nrSongs;
-        this->languages = obiect.languages;
         this->albums = obiect.albums;
         this->solo = obiect.solo;
 
@@ -49,53 +40,51 @@ Artist::Artist(const std::string &fullName, const std::string &nationality, cons
     Artist::~Artist() {}
 
 //afisare
-    void Artist::afis() const {
-        std::cout << fullName << " " << nationality << " " << nrLanguages
-                  << " " << nrAlbums << " " << nrSongs << "\n";
-
-        for (int i = 0; i < nrLanguages; i++)
-            std::cout << languages[i] << " ";
-        std::cout << "\n";
-
-        for (int i = 0; i < nrAlbums; i++)
-            std::cout << albums[i];
-        std::cout << "\n";
-
-        for (int i = 0; i < nrSongs; i++)
-            std::cout << solo[i] << " ";
-        std::cout << "\n";
-    }
+//    void Artist::afis() const {
+//        std::cout << fullName<< " " << nrLanguages
+//                  << " " << nrAlbums << " " << nrSongs << "\n";
+//
+//        for (int i = 0; i < nrLanguages; i++)
+//            std::cout << languages[i] << " ";
+//        std::cout << "\n";
+//
+//        for (int i = 0; i < nrAlbums; i++)
+//            std::cout << albums[i];
+//        std::cout << "\n";
+//
+//        for (int i = 0; i < nrSongs; i++)
+//            std::cout << solo[i] << " ";
+//        std::cout << "\n";
+//    }
 
 
 //operator <<
     std::ostream &operator<<(std::ostream &os, const Artist &artist) {
-        os << artist.fullName << " " << artist.nationality << " "
-           << artist.nrLanguages << " " << artist.nrSongs << " " << artist.nrAlbums << "\n";
+        os << artist.fullName << "\n";
+        os << artist.nrAlbums << " album(s), "<< artist.nrSongs << " single(s)\n\n";
 
-        if (artist.nrLanguages) {
-            os << "Limbi vorbite:\n";
-            for (int i = 0; i < artist.nrLanguages; i++)
-                os << i + 1 << ". " << artist.languages[i] << "\n";
+
+        if (artist.nrAlbums) {
+            os << "Albums:\n";
+            for (int i = 0; i < artist.nrAlbums; i++)
+                if(i < 9)
+                    os << " " << i + 1 << ". " << artist.albums[i];
+                else
+                    os << i + 1 << ". " << artist.albums[i];
             os << "\n";
         }
 
         if (artist.nrSongs) {
-            os << "Solo-uri:\n";
+            os <<"Singles:\n";
             for (int i = 0; i < artist.nrSongs; i++)
-                os << i + 1 << ". " << artist.solo[i] << "\n";
+                if(i < 9)
+                    os << " " << i + 1 << ". " << artist.solo[i];
+                else
+                    os << i + 1 << ". " << artist.solo[i];
             os << "\n";
         }
-
-        if (artist.nrAlbums) {
-            os << "Albume:\n";
-            for (int i = 0; i < artist.nrAlbums; i++)
-                os << i + 1 << ". " << artist.albums[i];
-            os << "\n";
+            return os;
         }
-
-        return os;
-    }
-
 
 
 //getters si setters
@@ -108,21 +97,6 @@ Artist::Artist(const std::string &fullName, const std::string &nationality, cons
     void Artist::setFullName(const std::string &fullName) {
         Artist::fullName = fullName;
     }
-
-//getter pentru nationality
-    std::string Artist::getNationality() const {
-        return nationality;
-    }
-//setter pentru nationality
-    void Artist::setNationality(const std::string &nationality) {
-        Artist::nationality = nationality;
-    }
-
-//getter pentru nrLanguages
-    int Artist::getNrLanguages() const {
-        return nrLanguages;
-    }
-//setter pentru nrLanguages
 
 //getter pentru nrSongs
     int Artist::getNrSongs() const {

@@ -14,9 +14,6 @@
 
 class Artist {
     std::string fullName;
-    std::string nationality;
-    std::vector<std::string>languages;
-    int nrLanguages;
     std::vector<Album>albums;
     int nrAlbums;
     std::vector<Song>solo;
@@ -25,16 +22,16 @@ class Artist {
 public:
     Artist(); //constructor fara parametri
     //constructor cu parametri
-    Artist(const std::string &fullName, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
+    Artist(const std::string &fullName, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
     Artist(const Artist &obiect); //copy constructor
 
     //operatori
-    friend std::ostream &operator<<(std::ostream &os, const Artist &artst); //supraincarcarea operatorului <<
+    friend std::ostream &operator<<(std::ostream &os, const Artist &artist); //supraincarcarea operatorului <<
 
     ~Artist(); //destructor
 
 
-    void afis() const; //functie de afisare
+//    void afis() const; //functie de afisare
 
     //getters si setters
     std::string getFullName() const;
@@ -42,15 +39,6 @@ public:
 
     std::string getNickname() const;
     void setNickname(const std::string& nickname);
-
-    std::string getNationality() const;
-    void setNationality(const std::string& nationality);
-
-    std::string* getLanguages() const;
-    void setLanguages(const std::vector<std::string>&languages, const int& nrLanguages); //am pus ampersand
-
-    int getNrLanguages() const;
-    void setNrLanguages(const int& nrLanguages);
 
     Album* getAlbums() const;
     void setAlbums(std::vector<Album>&albums, const int& nrAlbums); //am pus ampersand
