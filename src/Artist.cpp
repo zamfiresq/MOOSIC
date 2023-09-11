@@ -17,7 +17,6 @@ Artist::Artist() {
 }
 
 //constructor cu parametri
-//Artist(const std::string &fullName, const std::string &nickname, const std::string &nationality, const std::vector<std::string>&languages, const int &nrLanguages, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs);
 Artist::Artist(const std::string &fullName, std::vector<Album>&albums, const int &nrAlbums, std::vector<Song>&solo, const int &nrSongs) {
     this->fullName = fullName;
     this->nrSongs = nrSongs;
@@ -38,24 +37,6 @@ Artist::Artist(const std::string &fullName, std::vector<Album>&albums, const int
 
 //destructor
     Artist::~Artist() {}
-
-//afisare
-//    void Artist::afis() const {
-//        std::cout << fullName<< " " << nrLanguages
-//                  << " " << nrAlbums << " " << nrSongs << "\n";
-//
-//        for (int i = 0; i < nrLanguages; i++)
-//            std::cout << languages[i] << " ";
-//        std::cout << "\n";
-//
-//        for (int i = 0; i < nrAlbums; i++)
-//            std::cout << albums[i];
-//        std::cout << "\n";
-//
-//        for (int i = 0; i < nrSongs; i++)
-//            std::cout << solo[i] << " ";
-//        std::cout << "\n";
-//    }
 
 
 //operator <<
@@ -85,6 +66,41 @@ Artist::Artist(const std::string &fullName, std::vector<Album>&albums, const int
         }
             return os;
         }
+
+//operator >>
+std::istream &operator>>(std::istream &is, Artist &artist) {
+    std::cout << "Enter the name of the artist: ";
+    std::getline(is, artist.fullName);
+    std::cout << "Type the number of albums: ";
+    is >> artist.nrAlbums;
+    std::cout << "Type the number of singles: ";
+    is >> artist.nrSongs;
+
+    artist.albums.clear();
+    artist.albums.resize(artist.nrAlbums);
+
+    artist.solo.clear();
+    artist.solo.resize(artist.nrSongs);
+
+    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    // citirea albumelor
+    for (int i = 0; i < artist.nrAlbums; i++){
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignorare newline din buffer
+        is >> artist.albums[i];
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    // citirea melodiilor
+    for (int i = 0; i < artist.nrSongs; i++){
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignorare newline din buffer
+        is >> artist.solo[i];
+        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
+
+    return is;
+
+}
 
 
 //getters si setters

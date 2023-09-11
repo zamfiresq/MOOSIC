@@ -27,6 +27,17 @@ public:
 
     //operatori
     friend std::ostream &operator<<(std::ostream &os, const Artist &artist); //supraincarcarea operatorului <<
+    friend std::istream &operator>>(std::istream &is, Artist &artist); //supraincarcarea operatorului >>
+
+    Artist& operator = (const Artist &other){ //supraincarcarea operatorului =
+        this->fullName = other.fullName;
+        this->nrAlbums = other.nrAlbums;
+        this->nrSongs = other.nrSongs;
+        this->albums = other.albums;
+        this->solo = other.solo;
+
+        return *this;
+    }
 
     ~Artist(); //destructor
 

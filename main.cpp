@@ -37,7 +37,12 @@ int main() {
 
 //   testare artist
     Artist artist1;
+    std::cin>>artist1;
     std::cout<<artist1;
+
+// testare playlist
+    Playlist playlist1;
+
 
 
 //    std::cout << "----------PROBA SINGLETON----------\n";

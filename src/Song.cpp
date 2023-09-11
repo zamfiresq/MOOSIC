@@ -14,8 +14,8 @@ Song::Song() {
     this -> name = "Vulnerable";
     this -> language = "English";
     this -> duration = 3.28;
-    this -> nrFeats = 1;
-    this -> feat = {"Tinashe"};
+    this -> nrFeats = 0;
+    this -> feat = {};
 }
 
 
@@ -104,7 +104,8 @@ std::istream &operator>>(std::istream &is, Song &song){
     std::cout<<"Type the year of the song: ";
     is >> song.year;
     std::cout<<"Type the language of the song: ";
-    is >> song.language;
+    std::cin.ignore();
+    getline(is, song.language);
     std::cout<<"Type the duration of the song: ";
     is >> song.duration;
     std::cout<<"Type the number of feats: ";
