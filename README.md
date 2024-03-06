@@ -1,4 +1,4 @@
-# MOOMUSIC - Music Player
+# MOOSIC - Music Player
 
 This project was written for the OOP course at the Faculty of Mathematics and Computer Science, University of Bucharest. 
 
