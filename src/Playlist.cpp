@@ -33,6 +33,15 @@ Playlist::Playlist(const Playlist &object){
         this->songs = object.songs;
     }
 
+// constructor cu id si titlu
+Playlist::Playlist(int id, const std::string& title) {
+    this->id = id;
+    this->title = title;
+    this->nrSongs = 0;
+    this->duration = 0;
+    this->songs = {};
+}
+
 
 //apelam destructorul pentru a nu avea probleme cu alocarea memoriei
         Playlist::~Playlist() {}
@@ -44,7 +53,7 @@ Playlist::Playlist(const Playlist &object){
             if (nrSongs) {
                 std::cout << "Melodii:\n";
                 for (int i = 0; i < nrSongs; i++)
-                    std::cout << i + 1 << ". " << songs[i];
+                    std::cout << i + 1 << ". " << songs[i] << "\n";
                 std::cout << "\n";
             }
             std::cout << "\n";
@@ -59,7 +68,7 @@ Playlist::Playlist(const Playlist &object){
             if (playlist.nrSongs) {
                 out << "Melodii:\n";
                 for (int i = 0; i < playlist.nrSongs; i++)
-                    out << i + 1 << ". " << playlist.songs[i];
+                    out << i + 1 << ". " << playlist.songs[i] << "\n";
                 out << "\n";
             }
             out << "\n";
@@ -78,6 +87,7 @@ void Playlist::addSong(const Song& song) {
         }
         songs.push_back(song);
         nrSongs++;
+        duration += song.getDuration();
         std::cout << "'" << song.getTitle() << "'" << " was successfully added to your playlist.\n";
 }
 
@@ -96,14 +106,10 @@ void Playlist::addSong(const Song& song) {
 //
 //stergem o melodie din playlist
 void Playlist::removeSong(Song& song) {
-   auto iterator = find((this->songs).begin(), (this->songs).end(), song);
-    if (iterator == (this->songs).end()) {
-        if (song.getTitle() != (this->songs)[(this->songs).size()].getTitle() &&
-            song.getArtistName() != (this->songs)[(this->songs).size()].getArtistName()) {
-            //exceptie melodia nu a fost gasita
-            std::cout << "Melodia nu a fost gasita\n";
-            return;
-        }
+    auto iterator = find((this->songs).begin(), (this->songs).end(), song);
+    if (songs.empty() || iterator == songs.end()) {
+        std::cout << "Melodia nu a fost gasita\n";
+        return;
     }
     songs.erase(iterator);
     nrSongs--;
@@ -190,8 +196,12 @@ void Playlist::sortAfterArtistName() {
 
 
         int Playlist::repeatOne(int i) const {
-            std::cout << "Repeating " << songs[--i].getTitle() << "\n";
-            return i;
+            if (i <= 0 || i > songs.size()) {
+                std::cout << "Invalid index.\n";
+                return -1;
+            }
+            std::cout << "Repeating " << songs[i - 1].getTitle() << "\n";
+            return i - 1;
         }
 
 //void Playlist::repeat()const {
@@ -218,3 +228,11 @@ void Playlist::sortAfterArtistName() {
 //            shuffleSongs();
 //        }
 
+
+// Constructor that initializes only the title
+Playlist::Playlist(const std::string& title) {
+    this->title = title;
+    this->nrSongs = 0;
+    this->duration = 0;
+    this->songs = {};
+}

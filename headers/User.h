@@ -96,6 +96,7 @@ public:
     std::string getUsername() const;
     std::string getPassword() const;
     std::string getEmail() const;
+    unsigned int getId() const { return id; }
     std::string getCountry() const;
     std::string getBirthDate() const;
     std::vector<Playlist> getPlaylists() const;

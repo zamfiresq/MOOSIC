@@ -18,12 +18,16 @@ class Playlist {
     std::vector<Song> songs; //vectorul de melodii
     int nrSongs; //numarul de melodii
     int duration;  //durata playlist-ului
-
+    int id; //id-ul playlist-ului
 public:
     //constructor fara parametri
     Playlist();
     //constructor cu parametri
     Playlist(const std::string& title, std::vector<Song>&songs, const int& nrSongs, const int& duration);
+    // constructor doar cu titlu (playlist gol)
+    Playlist(const std::string& title);
+    // constructor cu id si titlu
+    Playlist(int id, const std::string& title);
     //copy constructor
     Playlist(const Playlist &other);
     //destructor
@@ -38,6 +42,7 @@ public:
         this -> songs = other.songs;
         this -> nrSongs = other.nrSongs;
         this -> duration = other.duration;
+        this->id = other.id;
         return *this;
     }
     //supraincarcarea operatorului ==
@@ -67,6 +72,7 @@ public:
     int getNrSongs() const;
     int getDuration() const;
     Artist getArtist() const;
+    int getId() const { return id; } //returneaza id-ul playlist-ului
 
 
     //functii pentru adaugarea unei melodii in playlist
