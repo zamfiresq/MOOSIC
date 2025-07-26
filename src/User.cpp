@@ -14,15 +14,24 @@ User::User() = default;
 
 
 //constructor cu parametri
-User::User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists) {
+User::User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists, bool isPremium) {
     this->username = username;
     this->password = password;
     this->email = email;
     this->country = country;
     this->birthDate = birthDate;
     this->playlists = playlists;
+    this->isPremium = isPremium;
     this->id = ++idMax;
+}
 
+// constructor simplificat cu id, username, email, isPremium
+User::User(unsigned int id, const std::string& username, const std::string& email, bool isPremium) {
+    this->id = id;
+    this->username = username;
+    this->email = email;
+    this->isPremium = isPremium;
+    if (id > idMax) idMax = id;
 }
 
 //copy constructor - lista de initializare
@@ -30,7 +39,6 @@ User::User(const std::string& username, const std::string& password, const std::
                                   country{obj.country}, birthDate{obj.birthDate},
                                   playlists{obj.playlists} {
     }
-
 
 //destructor
     User::~User() {}
@@ -42,46 +50,6 @@ User::User(const std::string& username, const std::string& password, const std::
         for (int i = 0; i < playlists.size(); i++)
             std::cout << playlists[i] << " ";
     }
-
-
-////functionalitati
-////functie care adauga un playlist in lista de favorite
-//void User::addFavorite(const std::vector<Playlist>& playlist) {
-//    if (this->playlists == nullptr) {
-//        this->playlists = new std::vector<Playlist>{playlist};
-//    }
-//    else {
-//        this->playlists->push_back(playlist);
-//    }
-//}
-
-
-
-////functie care sterge un playlist din lista de favorite
-//    void User::removeFavorite(const std::vector<Playlist> &playlist) {
-//        if (this->playlists != nullptr) {
-//            Playlist *aux = new Playlist[this->playlists->getNrSongs() - 1];
-//
-//            int j = 0;
-//            for (int i = 0; i < this->playlists->getNrSongs(); i++) {
-//                if (this->playlists[i] != playlist) {
-//                    aux[j] = this->playlists[i];
-//                    j++;
-//                }
-//            }
-//
-//            delete[] this->playlists;
-//            this->playlists = aux;
-//        }
-//    }
-//
-////functie care afiseaza lista de favorite
-//    void User::showplaylists() const {
-//        if (this->playlists != nullptr) {
-//            for (int i = 0; i < this->playlists->getNrSongs(); i++)
-//                std::cout << (this->playlists)[i] << " ";
-//        }
-//    }
 
 
 //functie care seteaza o noua parola
@@ -135,11 +103,18 @@ void User::setId( unsigned int &newId) {
     std::cout<<idMax<<"\n";
 }
 
-// 06/04/2002 exemplu
 int User::getYear() const{
     std::string an;
     for(int i = 6; i <= 9; i++)
         an.push_back(birthDate[i]);
 
     return std::stoi(an);
+}
+
+bool User::getIsPremium() const {
+    return this->isPremium;
+}
+
+void User::setIsPremium(bool premiumStatus) {
+    this->isPremium = premiumStatus;
 }

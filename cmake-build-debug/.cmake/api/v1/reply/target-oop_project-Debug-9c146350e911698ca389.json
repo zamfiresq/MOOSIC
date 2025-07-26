@@ -11,6 +11,7 @@
 		"commands" : 
 		[
 			"add_executable",
+			"target_link_libraries",
 			"target_include_directories"
 		],
 		"files" : 
@@ -25,13 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 25,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 28,
+				"line" : 33,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 29,
 				"parent" : 0
 			}
 		]
@@ -48,8 +55,13 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 2,
+					"backtrace" : 3,
 					"path" : "/Users/alexandrazamfirescu/CLionProjects/oop-project/headers"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/opt/homebrew/include"
 				}
 			],
 			"language" : "CXX",
@@ -75,8 +87,8 @@
 				9,
 				10,
 				11,
-				12,
-				13
+				13,
+				14
 			]
 		}
 	],
@@ -92,6 +104,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libssl.dylib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "/opt/homebrew/lib/libcrypto.dylib",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
@@ -121,8 +143,15 @@
 				9,
 				10,
 				11,
-				12,
-				13
+				13,
+				14
+			]
+		},
+		{
+			"name" : "Header Files",
+			"sourceIndexes" : 
+			[
+				12
 			]
 		}
 	],
@@ -167,12 +196,6 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/myString.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
 			"path" : "src/playlistFavorite.cpp",
 			"sourceGroupIndex" : 0
 		},
@@ -208,8 +231,19 @@
 		},
 		{
 			"backtrace" : 1,
+			"path" : "headers/App.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/MusicPlayerManager.cpp",
+			"path" : "src/App.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/AuthManager.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

@@ -11,14 +11,15 @@ set(SOURCES
         src/Song.cpp
         src/User.cpp
         src/Playlist.cpp
-        src/myString.cpp
         src/playlistFavorite.cpp
         src/Interfata.cpp
         src/Premium.cpp
         src/premiumUser.cpp
         src/Exceptions.cpp
         src/AgeGroup.cpp
-        src/MusicPlayerManager.cpp
+        headers/App.h
+        src/App.cpp
+        src/AuthManager.cpp
 )
 
 # executabil
@@ -26,3 +27,7 @@ add_executable(oop_project ${SOURCES})
 
 # directorul cu headerele
 target_include_directories(oop_project PRIVATE headers)
+
+# linkare librarii
+find_package(OpenSSL REQUIRED)
+target_link_libraries(oop_project OpenSSL::SSL OpenSSL::Crypto)

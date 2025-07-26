@@ -7,6 +7,7 @@
 #define OOP_PROJECT_USER_H
 #include <iostream>
 #include "Playlist.h"
+#include "AuthManager.h"
 #include <string>
 #include <vector>
 
@@ -19,14 +20,17 @@ class User {
     static unsigned int idMax;
     unsigned int id;
 
-    //bool subscription = false; //unnecessary
+    // daca userul are cont premium sau nu
+    bool isPremium = false;
     std::vector<Playlist> playlists;
-
 
 public:
     User(); //constructor fara parametri
-    User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists); //constructor cu parametri
+
+    User(const std::string& username, const std::string& password, const std::string& email, const std::string& country, const std::string& birthDate, const std::vector<Playlist>& playlists, bool isPremium = false);
     User(const User &obj); //copy constructor
+
+    User(unsigned int id, const std::string& username, const std::string& email, bool isPremium = false);
 
     //destructor
     ~User();
@@ -89,13 +93,17 @@ public:
 
 
     //getters
-std::string getUsername() const;
-std::string getPassword() const;
-std::string getEmail() const;
-std::string getCountry() const;
-std::string getBirthDate() const;
-std::vector<Playlist> getPlaylists() const;
-int getYear() const;
+    std::string getUsername() const;
+    std::string getPassword() const;
+    std::string getEmail() const;
+    std::string getCountry() const;
+    std::string getBirthDate() const;
+    std::vector<Playlist> getPlaylists() const;
+    int getYear() const;
+
+    bool getIsPremium() const;
+
+    void setIsPremium(bool premiumStatus);
 
 
 
@@ -103,7 +111,6 @@ int getYear() const;
 //pentru static
 static unsigned int getIdMax();
 void setId(unsigned int &newId);
-
 
 };
 
