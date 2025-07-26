@@ -10,7 +10,8 @@
 	{
 		"commands" : 
 		[
-			"add_executable"
+			"add_executable",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -24,7 +25,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 6,
+				"line" : 25,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 28,
 				"parent" : 0
 			}
 		]
@@ -35,7 +42,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -std=gnu++17 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics"
+					"fragment" : "-g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk -mmacosx-version-min=14.0 -fcolor-diagnostics"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/Users/alexandrazamfirescu/CLionProjects/oop-project/headers"
 				}
 			],
 			"language" : "CXX",
@@ -51,18 +65,18 @@
 			[
 				0,
 				1,
+				2,
 				3,
+				4,
 				5,
+				6,
 				7,
+				8,
 				9,
+				10,
 				11,
-				14,
-				16,
-				17,
-				19,
-				21,
-				23,
-				25
+				12,
+				13
 			]
 		}
 	],
@@ -97,37 +111,18 @@
 			[
 				0,
 				1,
-				3,
-				5,
-				7,
-				9,
-				11,
-				14,
-				16,
-				17,
-				19,
-				21,
-				23,
-				25
-			]
-		},
-		{
-			"name" : "Header Files",
-			"sourceIndexes" : 
-			[
 				2,
+				3,
 				4,
+				5,
 				6,
+				7,
 				8,
+				9,
 				10,
+				11,
 				12,
-				13,
-				15,
-				18,
-				20,
-				22,
-				24,
-				26
+				13
 			]
 		}
 	],
@@ -147,19 +142,9 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Artist.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/Album.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/Album.h",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -169,19 +154,9 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Song.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/User.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/User.h",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -191,35 +166,15 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Playlist.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/myString.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/myString.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/playlistFavorite.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/playlistFavorite.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/Interfata.h",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -235,19 +190,9 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Premium.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/premiumUser.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/premiumUser.h",
-			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
@@ -257,30 +202,15 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/Exceptions.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/AgeGroup.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
-			"path" : "headers/AgeGroup.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
 			"compileGroupIndex" : 0,
 			"path" : "src/MusicPlayerManager.cpp",
 			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"path" : "headers/MusicPlayerManager.h",
-			"sourceGroupIndex" : 1
 		}
 	],
 	"type" : "EXECUTABLE"

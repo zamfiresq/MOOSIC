@@ -8,8 +8,8 @@
 
 
 Album::Album() {
-    this->numeArtist = "Alexandra Zamfirescu";
-    this -> year = 2023;
+    this->numeArtist = "Album Test";
+    this -> year = 2024;
     this -> name = "Nume de album";
     this -> nrSongs = 15;
 //    this -> duration = 10.24 ;
@@ -64,43 +64,40 @@ Album::~Album() {}
 
 
 //calculez durata totala a albumului
-std::string Album::getTotalDurationConverted()const {
-    int nrSongs = songs.size(); // nr de melodii din album
-    double totalDuration = 0.0;
+std::string Album::getTotalDurationConverted() const {
+    int totalSeconds = 0;
 
+    // Sum up the duration of all songs in seconds
     for (const Song& song : songs) {
-        totalDuration += song.getDuration();
+        totalSeconds += static_cast<int>(song.getDuration() * 60); // durata in minute
     }
 
-    int hours = static_cast<int>(totalDuration) / 60; //ora
-    int minutes = static_cast<int>(totalDuration) % 60; //minute
+    int minutes = totalSeconds / 60;
+//    int seconds = totalSeconds % 60;
 
-    std::ostringstream ss; // std::ostringstream pentru a converti double-ul in string
-    if (hours > 0) { //daca durata e mai mare de o ora, afisez si ora
-        ss << hours << " h ";
-    }
+    // formatare string
+    std::ostringstream ss;
     ss << minutes << " min";
-    std::string totalDurationConverted = ss.str();
+//    if (seconds > 0) { // include seconds if non-zero
+//        ss << " " << seconds << " sec";
+//    }
 
-    return totalDurationConverted;
-
+    return ss.str();
 }
+
 
 
 //operator <<
 std::ostream &operator<<(std::ostream &os, const Album &album) {
+    os << album.name << " - " << album.numeArtist << ", " << album.year << ", " << album.nrSongs << " songs\n\n";
 
-    os <<album.name<<" - "<<album.numeArtist<<", "<< album.year << ", " << album.nrSongs<< " songs " << "\n";
-    os << "\n";
 
-    for(int i = 0; i < album.nrSongs; i++) {
-        if (i < 9)
-            os << " " << i + 1 << ". " << album.songs[i];
-        else
-            os << i + 1 << ". " << album.songs[i];
+    for (int i = 0; i < album.nrSongs; i++) {
+        os << (i + 1) << ". " << album.songs[i];
     }
-    os << "\n";
-    os << album.getTotalDurationConverted() << "\n\n";
+
+    // durata totala a albumului
+    os <<  album.getTotalDurationConverted() << "\n\n";
     return os;
 }
 
@@ -119,18 +116,17 @@ std::istream &operator>>(std::istream &is, Album &album) {
     album.songs.clear();
     album.songs.resize(album.nrSongs);
 
-    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Clear newline after nrSongs
 
-    // citirea melodiilor
-    for (int i = 0; i < album.nrSongs; i++){
-        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // ignorare newline din buffer
+    // citește fiecare melodie
+    for (int i = 0; i < album.nrSongs; i++) {
+        std::cout << "Song " << (i + 1) << " details:\n";
         is >> album.songs[i];
-        is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     return is;
-
 }
+
 
 //getters and setters
 unsigned int Album::getYear() const {

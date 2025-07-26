@@ -10,22 +10,23 @@
 				{
 					"includeDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include",
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include",
+						"/Library/Developer/CommandLineTools/usr/lib/clang/16/include",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
 						"/Library/Developer/CommandLineTools/usr/include"
 					],
 					"linkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift"
 					],
 					"linkFrameworkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
 					],
 					"linkLibraries" : []
 				},
 				"path" : "/Library/Developer/CommandLineTools/usr/bin/cc",
-				"version" : "13.1.6.13160021"
+				"version" : "16.0.0.16000026"
 			},
 			"language" : "C",
 			"sourceFileExtensions" : 
@@ -42,18 +43,19 @@
 				{
 					"includeDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1",
-						"/Library/Developer/CommandLineTools/usr/lib/clang/13.1.6/include",
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1",
+						"/Library/Developer/CommandLineTools/usr/lib/clang/16/include",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
 						"/Library/Developer/CommandLineTools/usr/include"
 					],
 					"linkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/lib"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib",
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib/swift"
 					],
 					"linkFrameworkDirectories" : 
 					[
-						"/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks"
+						"/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks"
 					],
 					"linkLibraries" : 
 					[
@@ -61,7 +63,7 @@
 					]
 				},
 				"path" : "/Library/Developer/CommandLineTools/usr/bin/c++",
-				"version" : "13.1.6.13160021"
+				"version" : "16.0.0.16000026"
 			},
 			"language" : "CXX",
 			"sourceFileExtensions" : 
@@ -76,7 +78,10 @@
 				"mpp",
 				"CPP",
 				"ixx",
-				"cppm"
+				"cppm",
+				"ccm",
+				"cxxm",
+				"c++m"
 			]
 		}
 	],

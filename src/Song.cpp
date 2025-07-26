@@ -9,21 +9,19 @@
 
 
 Song::Song() {
-    this -> year = 2013;
-    this -> artistName = "Travis Scott";
-    this -> name = "Vulnerable";
-    this -> language = "English";
-    this -> duration = 3.28;
+    this -> year = 0;
+    this -> artistName = "Artist Test";
+    this -> name = "Melodie Test";
+    this -> duration = 0.00;
     this -> nrFeats = 0;
-    this -> feat = {};
+    this -> feat = {"Colaborator 1, Colaborator 2"};
 }
 
 
-Song::Song(const int& year, const std::string& artistName, const std::string& name, const std::string& language, const unsigned int& nrFeats, std::vector<std::string>&feat, double& duration) {
+Song::Song(const int& year, const std::string& artistName, const std::string& name, const unsigned int& nrFeats, std::vector<std::string>&feat, double& duration) {
     this -> year = year;
     this -> artistName = artistName;
     this -> name = name;
-    this -> language = language;
     this -> nrFeats = nrFeats;
     this-> duration = duration;
     this -> feat = feat;
@@ -34,7 +32,6 @@ Song::Song(const Song &obiect) {
     this -> year = obiect.year;
     this -> artistName = obiect.artistName;
     this -> name = obiect.name;
-    this -> language = obiect.language;
     this -> nrFeats = obiect.nrFeats;
     this-> duration = obiect.duration;
     this -> feat = obiect.feat;
@@ -45,27 +42,25 @@ Song::~Song() {}
 
 //functia de afisare
 
-void Song::afis() {
+void Song::afis(int index) {
+    std::cout << index << ". \"" << name << "\" by " << artistName;
 
-    std::cout<<"\n\n"<< "The song is:\n";
-    std::cout<<"Name: " << name <<"\n";
-    std::cout<<"Artist name: "<< artistName << "\n";
-    std::cout<<"Year: "<< year << "\n";
-    std::cout<<"Languages: "<< language << " \n";
-    std::cout<<"Feats: "<< nrFeats << "\n";
+    if (nrFeats > 0) {
+        std::cout << " feat. ";
+        for (int i = 0; i < nrFeats; ++i) {
+            std::cout << feat[i];
+            if (i != nrFeats - 1)
+                std::cout << ", ";
+        }
+    }
 
-    for(int i = 0; i < nrFeats; i++)
-        std::cout << feat[i] << " ";
-
-    std::cout<<"Duration: "<< duration;
-    std::cout << "\n";
-
+    std::cout << " | " << year << " | " << std::fixed << std::setprecision(2) << duration << " min\n";
 }
 
 
 //supraincarcarea operatorului <<
 std::ostream &operator<<(std::ostream &os, const Song &melodie) {
-    os << melodie.name << " - "<< melodie.artistName<< " ("<< melodie.year << ", "<< melodie.language << ")"<<" ";
+    os << melodie.name << " - "<< melodie.artistName<< " ("<< melodie.year<< ")"<<" ";
     if(melodie.nrFeats > 0)
         os<< "feat. ";
 
@@ -96,46 +91,48 @@ std::ostream &operator<<(std::ostream &os, const Song &melodie) {
 
 
 //supraincarcarea >>
-std::istream &operator>>(std::istream &is, Song &song){
-    std::cout<<"Type the name of the song: ";
+std::istream &operator>>(std::istream &is, Song &song) {
+    std::cout << "Type the name of the song: ";
     std::getline(is, song.name);
-    std::cout<<"Type the name of the artist: ";
+
+    std::cout << "Type the name of the artist: ";
     std::getline(is, song.artistName);
-    std::cout<<"Type the year of the song: ";
+
+    std::cout << "Type the year of the song: ";
     is >> song.year;
-    std::cout<<"Type the language of the song: ";
-    std::cin.ignore();
-    getline(is, song.language);
-    std::cout<<"Type the duration of the song: ";
+    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Type the duration of the song: ";
     is >> song.duration;
-    std::cout<<"Type the number of feats: ";
+    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    std::cout << "Type the number of feats: ";
     is >> song.nrFeats;
+    is.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-
-
-    // citirea numelui de feats, daca exista
+    // stergerea vechilor feat-uri
+    song.feat.clear();
     if (song.nrFeats > 0) {
-        std::cin.ignore(); // ignora caracterul newline (\n) din bufferul de intrare
         for (int i = 0; i < song.nrFeats; i++) {
-            std::cout << "Type the feat #" << i + 1 << ": ";
+            std::cout << "Type the feat #" << (i + 1) << ": ";
             std::string feat;
-            std::getline(is, feat); //  std::getline pentru a citi numele complet, cu tot cu spatii
+            std::getline(is, feat);
             song.feat.push_back(feat);
         }
     }
 
-
     return is;
 }
+
 
 
 //getters
 std::string Song::getTitle()const{
     return name;
 }
-std::string Song::getLanguage() const {
-    return language;
-}
+//std::string Song::getLanguage() const {
+//    return language;
+//}
 std::vector<std::string> Song::getFeat() const {  // std::string getFeat() const;
     return feat;  //am modificat aici
 }
@@ -158,9 +155,9 @@ double Song::getDuration() const {
 void Song::setTitle(std::string& name) {
     this -> name = name;
 }
-void Song::setLanguage(std::string& language) {
-    this -> language = language;
-}
+//void Song::setLanguage(std::string& language) {
+//    this -> language = language;
+//}
 void Song::setFeat(std::vector<std::string>&feat) {
     this -> feat = feat;
 }
@@ -178,5 +175,54 @@ void Song::setArtistName(std::string& artistName) {
 void Song::welcomeMessage() {
     std::cout << "Welcome to the song class!\n";
 }
+
+
+
+
+
+
+// read from csv
+void Song::readFromCSV(const std::string &line) {
+    std::stringstream ss(line);
+    std::string token;
+
+    // song name
+    std::getline(ss, name, ',');
+
+    // artist name
+    std::getline(ss, artistName, ',');
+
+    // all feats in one string
+    std::string featsStr;
+    std::getline(ss, featsStr, ',');
+
+    // year
+    std::getline(ss, token, ',');
+    try {
+        year = std::stoi(token);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Invalid year: " << token << std::endl;
+        year = 0;
+    }
+
+    // duration
+    std::getline(ss, token, ',');
+    try {
+        duration = std::stod(token);
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "Invalid duration: " << token << std::endl;
+        duration = 0.0;
+    }
+
+    // nr feats
+    feat.clear();
+    std::stringstream featsStream(featsStr);
+    std::string featItem;
+    while (std::getline(featsStream, featItem, ';')) {
+        feat.push_back(featItem);
+    }
+    nrFeats = feat.size();
+}
+
 
 
